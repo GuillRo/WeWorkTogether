@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_11_161701) do
+ActiveRecord::Schema.define(version: 2019_03_11_153653) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,11 +40,13 @@ ActiveRecord::Schema.define(version: 2019_03_11_161701) do
     t.string "workspace_address"
     t.bigint "booking_id"
     t.string "payment_json"
-    t.integer "id_renter"
-    t.integer "id_workspace_owner"
+    t.bigint "renter_id"
+    t.bigint "owner_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["booking_id"], name: "index_payments_on_booking_id"
+    t.index ["owner_id"], name: "index_payments_on_owner_id"
+    t.index ["renter_id"], name: "index_payments_on_renter_id"
   end
 
   create_table "photos", force: :cascade do |t|
@@ -100,6 +102,9 @@ ActiveRecord::Schema.define(version: 2019_03_11_161701) do
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
+    t.string "first_name"
+    t.string "last_name"
+    t.string "address"
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -115,9 +120,7 @@ ActiveRecord::Schema.define(version: 2019_03_11_161701) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "booking_id"
-    t.bigint "workspace_id"
     t.index ["booking_id"], name: "index_workspace_reviews_on_booking_id"
-    t.index ["workspace_id"], name: "index_workspace_reviews_on_workspace_id"
   end
 
   create_table "workspaces", force: :cascade do |t|
@@ -144,6 +147,5 @@ ActiveRecord::Schema.define(version: 2019_03_11_161701) do
   add_foreign_key "service_lists", "services"
   add_foreign_key "service_lists", "workspaces"
   add_foreign_key "workspace_reviews", "bookings"
-  add_foreign_key "workspace_reviews", "workspaces"
   add_foreign_key "workspaces", "users"
 end
