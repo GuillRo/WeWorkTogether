@@ -5,7 +5,7 @@
   background-color: #113f67;
   opacity:1;
   transition: all 0.3s ease;
-  height: 70px;
+  height: 6em;
   padding: 0px 30px;
   display: flex;
   align-items: center;
@@ -16,13 +16,14 @@
 .navbar-wagon-scroll {
   background-color: #113f67;
   opacity:1;
-  height: 77px;
+  height: 6.39em;
   transition: all 0.3s ease;
 }
 
 /* Logo */
 .navbar-wagon-brand img {
   height: 50px;
+  margin-left: 3.333em;
 }
 
 /* User Avatar */
@@ -49,13 +50,23 @@
 
 /* Navbar link */
 .navbar-wagon-link {
-  color: white;
-  font-weight:bolder;
-  font-size: 14px;
+  color: #626161;
+  font-weight: bolder;
+  font-size: 1em;
 }
+
+.login-link {
+  background-color: #4E4C4C;
+  border-radius: 4px;
+  padding-top: 0.833em;
+  padding-bottom: 0.833em;
+  color: #FFFFFF;
+  margin-left: 1.234em;
+  margin-right: 3.333em;
+}
+
 .navbar-wagon-link:hover {
-  color: #65c6c4;
-  font-weight:bolder;
+  color: #C4C4C4;
   text-decoration: none;
 }
 

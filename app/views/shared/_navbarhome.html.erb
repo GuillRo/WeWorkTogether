@@ -5,9 +5,12 @@
   <% end %>
   <!-- Right Navigation -->
   <div class="navbar-wagon-home-right hidden-xs hidden-sm">
+
+    <%= link_to "About", root_path, class: "navbar-wagon-home-item navbar-wagon-home-link"%>
+    <%= link_to "Sign up", root_path, class: "navbar-wagon-home-item navbar-wagon-home-link"%>
     <% if user_signed_in? %>
       <!-- Links when logged in -->
-      <%= link_to "Add flat", new_flat_url, class: "navbar-wagon-home-item navbar-wagon-home-link"%>
+      <%#= link_to "Add flat", new_flat_url, class: "navbar-wagon-home-item navbar-wagon-home-link"%>
       <%#= link_to "Host", "#", class: "navbar-wagon-home-item navbar-wagon-home-link" %>
       <%#= link_to "Trips", "#", class: "navbar-wagon-home-item navbar-wagon-home-link" %>
       <%#= link_to "Messages", "#", class: "navbar-wagon-home-item navbar-wagon-home-link" %>
@@ -36,7 +39,7 @@
       </div>
     <% else %>
       <!-- Login link (when logged out) -->
-      <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-home-item navbar-wagon-home-link" %>
+      <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-home-item navbar-wagon-home-link login-link" %>
     <% end %>
   </div>
   <!-- Dropdown list appearing on mobile only -->

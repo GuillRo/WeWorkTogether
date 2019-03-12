@@ -19,6 +19,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: 1.777em;
 }
 
 .catch-phrase {
@@ -30,9 +31,9 @@ body {
 
 
 .title-main {
-  font-size: 50px;
+  font-size: 70px;
   display: flex;
-  font-family: 'Comfortaa', cursive;
+  font-family: Roboto, 'sans-serif';
 }
 
 // Search bar
@@ -43,14 +44,19 @@ body {
 }
 
 .ap-input {
-  border-radius: 60px;
-  width: 400px;
-  padding-left: 10px !important;
+  border: 1px solid #C4C4C4;
+  border-radius: 50px;
+  height: 60px;
+  width: 440px;
+  padding-left: 36px !important;
   position: relative;
   font-size: 18px;
+  color: #626161;
+  font-weight: normal;
 }
 
 .ap-input-icon {
+  display: none !important;
   position: absolute;
   right: 10px;
 }
@@ -62,4 +68,18 @@ body {
 
 .ap-suggestion {
   font-size: 16px;
+}
+
+.wwt-btn {
+  background-color: #4E4C4C;
+  border-radius: 4px;
+  padding-top: 18px;
+  padding-bottom: 18px;
+  color: #FFFFFF;
+  font-size: 18px;
+  margin-left: 70px;
+  width: 144px;
+  height: 60px;
+  margin-top: 20px;
+  font-weight: bold;
 }
