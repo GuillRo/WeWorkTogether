@@ -1,1 +1,65 @@
 // Specific CSS for your home-page
+
+body {
+  color: #626161 !important;
+}
+
+.wrapper {
+  background-color: white;
+}
+
+.home-container {
+  display:flex;
+  padding:0;
+  width:100%;
+  justify-content: center;
+}
+
+.homepage-banner-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.catch-phrase {
+  font-weight: lighter;
+  h3  {
+    font-size: 25px !important;
+  }
+}
+
+
+.title-main {
+  font-size: 50px;
+  display: flex;
+  font-family: 'Comfortaa', cursive;
+}
+
+// Search bar
+
+.algolia-places {
+  margin-top: 20px;
+  width: 400px;
+}
+
+.ap-input {
+  border-radius: 60px;
+  width: 400px;
+  padding-left: 10px !important;
+  position: relative;
+  font-size: 18px;
+}
+
+.ap-input-icon {
+  position: absolute;
+  right: 10px;
+}
+
+.ap-dropdown-menu {
+  width: 380px;
+  margin-left: 10px;
+}
+
+.ap-suggestion {
+  font-size: 16px;
+}
