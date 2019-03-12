@@ -1,0 +1,10 @@
+<div class="container">
+  <h1>Worspace <%= @workspace.id %></h1>
+  <% @workspace.workspace_reviews.each_with_index do |w_review, index|%>
+    <p>Review n°<%= index + 1 %>: <%= w_review.content%> </p>
+  <%end%>
+  <%#= link_to "Go to first workspace's reviews", workspace_workspace_reviews_path(@workspace),
+          class: "btn btn-info" %>
+
+  <%= link_to "Add review",new_workspace_workspace_review_path(@workspace), class: "btn btn-info"%>
+</div>
