@@ -11,6 +11,18 @@
     font-size: 40px !important;
   }
 
+  .navbar-wagon-brand img {
+    height: 50px;
+    margin-left: 0em !important;
+  }
+
+  .navbar-wagon {
+    /* box-shadow: 0 1px 5px 0 rgba(0,0,0,0.07), 0 1px 0 0 rgba(0,0,0,0.03); */
+    height: 4em !important;
+    top: 0;
+    border-width: 0 0 1px;
+  }
+
   .navbar-wagon-home-brand img {
     height: 50px;
     margin-left: 0em !important;
@@ -19,6 +31,8 @@
   .navbar-wagon-home {
     /* box-shadow: 0 1px 5px 0 rgba(0,0,0,0.07), 0 1px 0 0 rgba(0,0,0,0.03); */
     height: 4em !important;
+    top: 0;
+    border-width: 0 0 1px;
   }
 
   .ap-dropdown-menu {
@@ -29,6 +43,11 @@
 
   .wwt-btn {
   margin-top: 15px;
+  }
+
+  .wwt-btn-common {
+  margin-top: 15px;
+  display: none;
   }
 
   .homepage-banner-container {

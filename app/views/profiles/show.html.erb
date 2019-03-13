@@ -1,0 +1,37 @@
+<div class="container">
+  <h1>kikou</h1>
+  <h1>Reviews I posted</h1>
+  <% @workspace_reviews.each do |wp_review|%>
+  <p>-----------------------------</p>
+    <p>Workspace name: <%= wp_review.booking.find_workspace.title%></p>
+    <p><%= wp_review.content%></p>
+    <p>Score: <%= wp_review.score %></p>
+    <p>Date: </p>
+  <% end %>
+  <h1>The workspaces I own</h1>
+  <% @my_workspaces.each do |wp|%>
+    <p><%#= wp.score %></p>
+    <p><%= wp.title%></p>
+  <%end%>
+  <h1>My bookings</h1>
+  <%@bookings.each do |booking|%>
+    <p>-----------------------------------------</p>
+    <p><%= booking.find_workspace.title%></p>
+    <p>Beginning: <%= booking.beginning_date%></p>
+    <p>End: <%= booking.end_date%></p>
+    <%i = 0%>
+    <% booking.places.each do |place|%>
+      <% i += 1%>
+      <p>place <%= i%>: <%=place.price%> €</p>
+    <%end%>
+    <p>Total: <%= booking.price%></p>
+  <%end%>
+  <h1>What other users say about me</h1>
+  <%@bookings.each do |booking|%>
+    <p>
+      <%= booking.find_workspace.user.first_name%> says: 
+      <%= booking.user_review.content%> |
+      Score: <%= booking.user_review.score%>
+    </p>
+  <%end%>
+</div>

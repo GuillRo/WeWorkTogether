@@ -1,6 +1,8 @@
 
 /* Main input wrapper */
-.algolia-places {}
+.algolia-places {
+  margin-top: 0px !important;
+}
 
 /* The algolia-places input */
 .ap-input, .ap-hint {
