@@ -3,9 +3,13 @@ class ProfilesController < ApplicationController
 
   def show
     @bookings = Booking.where(user_id: current_user)
-    @workspace_reviews = @bookings.workspace_reviews
+    @workspace_reviews = []
+    @bookings.each do |booking|
+      @workspace_reviews.push(booking.workspace_review)
+    end
+    @my_workspaces = Workspace.where(user_id: current_user)
     # @user_reviews = @bookings.where()
-  
+    
     # @bookings = Booking.where(user_id: current_user)
     # @booked = Booking.where(user_id: current_user).where(status: "booked")
     # @past_bookings = Booking.where(user_id: current_user).where(status: "past")
@@ -39,6 +43,6 @@ class ProfilesController < ApplicationController
   end
 
   def set_profile
-    @profile = Profile.find(params[:id])
+    @profile = Profile.find params[:id]
   end
 end
