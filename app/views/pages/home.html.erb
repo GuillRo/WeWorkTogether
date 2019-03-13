@@ -2,21 +2,23 @@
   <div class="home-container">
     <div class="banner">
       <div class="banner-content homepage-banner-container">
-        <div class="title-main"><div id="title-main">Unique, creative workspaces</div></div>
+        <div class="title-main">
+          <div id="title-main">Unique, creative workspaces</div>
+        </div>
+
+        <!-- SEARCH-BAR (INPUT + BUTTON) - BEGIN -->
         <div>
           <script src="https://cdn.jsdelivr.net/npm/places.js@1.16.1"></script>
-          <!-- CHANGE ROOT_PATH INTO CWS_PATH -->
-          <%= form_tag root_path, method: :get do %>
 
+          <%= form_tag workspaces_path, id: 'algolia_form', method: :get do %>
             <div class="search-bar-container">
-
               <div class="search-bar">
-                <%= text_field_tag :query, params[:query], class: "form-control js-searchbar homepage-search", placeholder: "Where are you going next!", autocomplete:"off" %>
+              <%= text_field_tag :query, params[:query], class: "form-control js-searchbar homepage-search", placeholder: "Where are you going next!", autocomplete:"off" %>
               </div>
-              <div class="wwt-btn">Search</div>
-
+              <% end %>
+              <input type="submit" value="Search" form="algolia_form" class="wwt-btn">
             </div>
-          <% end %>
+
           <script>
             var placesAutocomplete = places({
               appId: 'plPXFELQHKO7',
@@ -26,6 +28,8 @@
             });
           </script>
         </div>
+        <!-- SEARCH-BAR (INPUT + BUTTON) - END -->
+
       </div>
     </div>
   </div>
@@ -34,9 +38,9 @@
     <p>Book one of these spots and find the extraordinary</p>
     <%#= render 'shared/carousel' %>
   </div>
-  
-  
+
+
     <%= link_to "Go to all workspaces", workspaces_path,
           class: "btn btn-info" %>
-  
+
 </div>

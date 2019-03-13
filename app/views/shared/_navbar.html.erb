@@ -1,9 +1,35 @@
 <div class="navbar-wagon navbar-fixed-top">
 
   <%= link_to root_path, class: "navbar-wagon-brand" do %>
-    <%= image_tag("logo_ylw.svg", alt: "WeWorkTogether Logo", height: 50)%>
-
+  <%= image_tag("logo_ylw.svg", alt: "WeWorkTogether Logo", height: 50)%>
   <% end %>
+          <!-- SEARCH-BAR (INPUT + BUTTON) - BEGIN -->
+        <div class="search-bar-in-nav-bar">
+          <script src="https://cdn.jsdelivr.net/npm/places.js@1.16.1"></script>
+
+          <%= form_tag workspaces_path, id: 'algolia_form', method: :get do %>
+            <div class="search-bar-container">
+              <div class="search-bar">
+              <%= text_field_tag :query, params[:query], class: "form-control js-searchbar homepage-search", placeholder: "Where are you going next!", autocomplete:"off" %>
+              </div>
+              <% end %>
+              <input type="submit" value="Search" form="algolia_form" class="wwt-btn-common">
+            </div>
+
+          <script>
+            var placesAutocomplete = places({
+              appId: 'plPXFELQHKO7',
+              apiKey: 'f7133196424bc5de90408baab2aff571',
+              container: document.querySelector('.js-searchbar'),
+              language: 'en'
+            });
+          </script>
+        </div>
+        <!-- SEARCH-BAR (INPUT + BUTTON) - END -->
+
+
+
+
   <div class="navbar-wagon-right hidden-xs hidden-sm">
     <%= link_to "About", root_path, class: "navbar-wagon-home-item navbar-wagon-home-link"%>
     <%= link_to "Sign up", root_path, class: "navbar-wagon-home-item navbar-wagon-home-link"%>
