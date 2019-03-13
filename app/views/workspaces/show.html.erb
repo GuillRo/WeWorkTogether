@@ -1,5 +1,10 @@
 <div class="container">
   <h1><%= @workspace.title %></h1>
+  <%if @workspace.average == 0%>
+    <p>Unknown average score</p>
+  <% else%>
+    <p>Average score: <%= @workspace.average %></p>
+  <%end%>
   <br/>
   <% @workspace.places.each_with_index do |place, index|%>
     <% chairs_left = place.number_of_chairs - place.bookings.length%>
@@ -26,7 +31,7 @@
         <p>------------------------------------</p>
         <p>You have been to this place and didn't reviewed it yet! Do it now!
           <%= link_to "Add review",new_workspace_workspace_review_path(@workspace), class: "btn btn-info"%>
-      </div>
-     <%end%>
-  <%end%>
-</div>
+        </div>
+      <%end%>
+    <%end%>
+  </div>

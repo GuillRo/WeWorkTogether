@@ -13,4 +13,16 @@ class Workspace < ApplicationRecord
 
     workspace_reviews.inject(0) { |sum, x| sum += x.score } / workspace_reviews.length
   end
+
+  def minimum
+    minimum = 0
+    places.each do |place|
+      if minimum.zero?
+        minimum = place.price
+      elsif minimum > place.price
+        minimum = place.price
+      end
+    end
+    return minimum
+  end
 end
