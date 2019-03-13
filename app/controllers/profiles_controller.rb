@@ -2,17 +2,15 @@ class ProfilesController < ApplicationController
   before_action :set_profile, only: [:show, :update, :edit]
 
   def show
-    @bookings = Booking.where(user_id: current_user)
+    @profile = Profile.find(params[:id])
+    @bookings = Booking.where(user_id: @profile.user_id)
     @workspace_reviews = []
     @bookings.each do |booking|
       @workspace_reviews.push(booking.workspace_review)
     end
-    @my_workspaces = Workspace.where(user_id: current_user)
-    # @user_reviews = @bookings.where()
 
-    # @bookings = Booking.where(user_id: current_user)
-    # @booked = Booking.where(user_id: current_user).where(status: "booked")
-    # @past_bookings = Booking.where(user_id: current_user).where(status: "past")
+    @my_workspaces = Workspace.where(user_id: @profile.user_id)
+
   end
 
   # def create
