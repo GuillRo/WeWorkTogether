@@ -1,9 +1,7 @@
 /* Main navbar */
 .navbar-wagon {
-  box-shadow: 0 1px 5px 0 rgba(0,0,0,0.07),0 1px 0 0 rgba(0,0,0,0.03);
-  background-color: rgba(0,0,0,1);
-  background-color: #113f67;
-  opacity:1;
+  /* box-shadow: 0 1px 5px 0 rgba(0,0,0,0.07),0 1px 0 0 rgba(0,0,0,0.03); */
+  background-color: rgba(255,255,255,1);
   transition: all 0.3s ease;
   height: 6em;
   padding: 0px 30px;
@@ -14,10 +12,13 @@
 }
 
 .navbar-wagon-scroll {
-  background-color: #113f67;
+  background-color: rgba(255,255,255,1);
   opacity:1;
   height: 6.39em;
   transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 /* Logo */
@@ -99,4 +100,8 @@
   transform: rotate(45deg);
   border-left: 1px solid #E6E6E6;
   border-top: 1px solid #E6E6E6;
+}
+
+.search-bar-in-nav-bar {
+  display: inline-block;
 }

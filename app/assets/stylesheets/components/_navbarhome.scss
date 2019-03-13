@@ -12,10 +12,13 @@
 }
 
 .navbar-wagon-home-scroll {
-  background-color: #113f67;
+  background-color: rgba(255,255,255,1);
   opacity:1;
   height: 6.39em;
   transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 /* Logo */
