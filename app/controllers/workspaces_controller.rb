@@ -19,10 +19,10 @@ class WorkspacesController < ApplicationController
 
   def show
     @workspace = Workspace.find(params[:id])
-    @booking = Booking.new
-    @reviews = Review.where(workspace_id: @workspace.id)
-    @photo = Photo.where(workspace_id: @workspace.id)
-    @places = Place.where(workspace_id: @workspace.id)
+    # @booking = Booking.new
+    # @reviews = Review.where(workspace: @workspace)
+    # @photo = Photo.where(workspace: @workspace)
+    # @places = Place.where(workspace: @workspace)
   end
 
   def new
