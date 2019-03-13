@@ -18,4 +18,14 @@ class User < ApplicationRecord
     Profile.create(user: self)
   end
 
+  def unreviewed_booking?
+    unreviewed = false
+    bookings.each do |booking|
+      if booking.status == "unreviewed"
+        unreviewed = true
+        break
+      end
+    end
+    return unreviewed
+  end
 end
