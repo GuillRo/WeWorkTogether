@@ -13,7 +13,7 @@ class BookingsController < ApplicationController
 
   def create
     @booking = booking.new(booking_params)
-    @place = Place.find()
+    @place = Place.find(params[:place_id])
     BookingPlace.create!(booking: @booking, place: @place)
     @booking.set_status
     if @booking.save
