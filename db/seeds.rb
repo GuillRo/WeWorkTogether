@@ -24,8 +24,6 @@ user_2 = User.create!(password: "123123", email: "henry@wagon.be", first_name: "
 
 user_1.create_profile!(bio: "Hi. I am a dog fucker")
 
-UserReview.create!(score: 3, content: "What an ass. This guy killed my dog", reviewee: user_1, reviewer: user_2)
-
 service_1 = Service.create!(name: "Nasty toilets")
 
 workspace_1 = Workspace.create!(user: user_1, description: "nice place", address: "15, rue de la gare", title: "Super coworking", website: "www.supercoworking.com", phone_number: "02.123.15.45")
@@ -37,6 +35,8 @@ place_1 = Place.create!(workspace: workspace_1, price: 23)
 booking_1 = Booking.create!(beginning_date: Date.new(2019,2,1), end_date: Date.new(2019,2,3) , status: true, user: user_1)
 
 BookingPlace.create!(booking: booking_1, place: place_1)
+
+UserReview.create!(score: 3, content: "What an ass. This guy killed my dog", booking: booking_1)
 
 WorkspaceReview.create!(booking: booking_1, content: "That place was hell", score: 1)
 
