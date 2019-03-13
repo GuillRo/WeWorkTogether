@@ -8,11 +8,6 @@ class ProfilesController < ApplicationController
       @workspace_reviews.push(booking.workspace_review)
     end
     @my_workspaces = Workspace.where(user_id: current_user)
-    # @user_reviews = @bookings.where()
-    
-    # @bookings = Booking.where(user_id: current_user)
-    # @booked = Booking.where(user_id: current_user).where(status: "booked")
-    # @past_bookings = Booking.where(user_id: current_user).where(status: "past")
   end
 
   # def create

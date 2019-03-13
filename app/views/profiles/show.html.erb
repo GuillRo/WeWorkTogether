@@ -13,8 +13,11 @@
   <% @my_workspaces.each do |wp|%>
     <p><%#= wp.score %></p>
     <p><%= wp.title%></p>
-  <h1>My bookings</h1>
   <%end%>
+  <%if current_user == self%>
+    <%= link_to "Add a workspace",new_workspace_url, class: "btn btn-info"%>
+  <%end%>
+  <h1>My bookings</h1>
 
   <%@bookings.each do |booking|%>
     <p>-----------------------------------------</p>

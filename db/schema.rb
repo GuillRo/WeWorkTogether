@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_12_140736) do
+ActiveRecord::Schema.define(version: 2019_03_13_151155) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -61,6 +61,9 @@ ActiveRecord::Schema.define(version: 2019_03_12_140736) do
     t.float "price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "number_of_chairs"
+    t.text "description"
+    t.string "name"
     t.index ["workspace_id"], name: "index_places_on_workspace_id"
   end
 
