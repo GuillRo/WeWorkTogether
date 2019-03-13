@@ -437,3 +437,58 @@ WorkspaceReview.create!(booking: booking_30, content: "Amazing !!! I highly reco
 
 
 Payment.create!(booking: booking_1, renter: booking_1.user, owner: workspace_1.user)
+
+url_1_1 = "https://res.cloudinary.com/dux1stkfq/image/upload/v1551784212/flat_4.jpg"
+photo_1_1 = Photo.create!(workspace: workspace_1)
+photo_1_1.remote_photo_url = url_1_1
+photo_1_1.save
+
+url_2_1 = "https://res.cloudinary.com/dux1stkfq/image/upload/v1551784212/flat_4.jpg"
+photo_2_1 = Photo.create!(workspace_id: workspace_2)
+photo_2_1.remote_photo_url = url_2_1
+photo_2_1.save
+
+url_3_1 = "https://res.cloudinary.com/dux1stkfq/image/upload/v1551784212/flat_4.jpg"
+photo_3_1 = Photo.create!(workspace_id: workspace_3)
+photo_3_1.remote_photo_url = url_3_1
+photo_3_1.save
+
+url_4_1 = "https://res.cloudinary.com/dux1stkfq/image/upload/v1551784212/flat_4.jpg"
+photo_4_1 = Photo.create!(workspace_id: workspace_4)
+photo_4_1.remote_photo_url = url_4_1
+photo_4_1.save
+
+url_5_1 = "https://res.cloudinary.com/dux1stkfq/image/upload/v1551784212/flat_4.jpg"
+photo_5_1 = Photo.create!(workspace_id: workspace_5)
+photo_5_1.remote_photo_url = url_5_1
+photo_5_1.save
+
+url_6_1 = "https://res.cloudinary.com/dux1stkfq/image/upload/v1551784212/flat_4.jpg"
+photo_6_1 = Photo.create!(workspace_id: workspace_6)
+photo_6_1.remote_photo_url = url_6_1
+photo_6_1.save
+
+url_7_1 = "https://res.cloudinary.com/dux1stkfq/image/upload/v1551784212/flat_4.jpg"
+photo_7_1 = Photo.create!(workspace_id: workspace_7)
+photo_7_1.remote_photo_url = url_7_1
+photo_7_1.save
+
+url_8_1 = "https://res.cloudinary.com/dux1stkfq/image/upload/v1551784212/flat_4.jpg"
+photo_8_1 = Photo.create!(workspace_id: workspace_8)
+photo_8_1.remote_photo_url = url_8_1
+photo_8_1.save
+
+url_9_1 = "https://res.cloudinary.com/dux1stkfq/image/upload/v1551784212/flat_4.jpg"
+photo_9_1 = Photo.create!(workspace_id: workspace_9)
+photo_9_1.remote_photo_url = url_9_1
+photo_9_1.save
+
+url_10_1 = "https://res.cloudinary.com/dux1stkfq/image/upload/v1551784212/flat_4.jpg"
+photo_10_1 = Photo.create!(workspace_id: workspace_10)
+photo_10_1.remote_photo_url = url_10_1
+photo_10_1.save
+
+url_11_1 = "https://res.cloudinary.com/dux1stkfq/image/upload/v1551784212/flat_4.jpg"
+photo_11_1 = Photo.create!(workspace_id: workspace_11)
+photo_11_1.remote_photo_url = url_11_1
+photo_11_1.save
