@@ -1,4 +1,5 @@
 <div class="container">
+  <div class="wwt-ctn">
   <h1>kikou</h1>
   <h1>Reviews I posted</h1>
   <% @workspace_reviews.each do |wp_review|%>
@@ -36,10 +37,9 @@
   <h1>What other users say about me</h1>
   <%@bookings.each do |booking|%>
     <p>
-      <%= booking.find_workspace.user.first_name%> says: 
+      <%= booking.find_workspace.user.first_name%> says:
       <%= booking.user_review.content%> |
       Score: <%= booking.user_review.score%>
     </p>
   <%end%>
-  
-</div>
+  </div>
