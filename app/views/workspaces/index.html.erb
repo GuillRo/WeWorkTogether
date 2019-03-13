@@ -4,3 +4,50 @@
     <p>Workspace n° <%=index+1%> | name: <%= workspace.title%> <%= link_to "Go to workspace #{index+1}", workspace_path(workspace), class: "btn btn-info" %></p>
   <%end%>
 </div>
+
+
+
+<!-- BACK-END (ONLY) OF GEOMAP CODE -->
+<!-- <div
+  id="map"
+  data-markers="<%= @markers.to_json %>"
+  data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+</div> -->
+<!-- END -->
+
+<div id='map' style='width: 400px; height: 300px;' data-markers="<%= @markers.to_json %>"
+  data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+<script>
+const mapElement = document.getElementById('map');
+mapboxgl.accessToken = '<%= ENV['MAPBOX_API_KEY'] %>';
+var map = new mapboxgl.Map({
+container: 'map',
+style: 'mapbox://styles/mapbox/streets-v9',
+trackResize: true,
+scrollZoom: true
+});
+
+    const markers = JSON.parse(mapElement.dataset.markers);
+      markers.forEach((marker) => {
+        const popup = new mapboxgl.Popup().setHTML(marker.infoWindow);
+
+        new mapboxgl.Marker()
+        .setLngLat([ marker.lng, marker.lat ])
+        .setPopup(popup)
+        .addTo(map);
+        });
+
+      if(markers.length === 0) {
+        map.setZoom(1);
+        } else if (markers.length === 1) {
+        map.setZoom(14);
+        map.setCenter([markers[0].lng, markers[0].lat]);
+        } else {
+        const bounds = new mapboxgl.LngLatBounds();
+        markers.forEach((marker) => {
+        bounds.extend([marker.lng, marker.lat]);
+        });
+        map.fitBounds(bounds, {duration: 0, padding:75})
+        }
+
+</script>
