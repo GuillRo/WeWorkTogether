@@ -1,6 +1,5 @@
 <div class="container">
-  <h1>Workspace <%= @workspace.id %></h1>
-
+  <h1><%= @workspace.title %></h1>
   <br/>
   <% @workspace.places.each_with_index do |place, index|%>
     <% chairs_left = place.number_of_chairs - place.bookings.length%>
@@ -21,11 +20,13 @@
   <% else%>
     <p>This place has no reviews yet!</p>
   <%end%>
-  <%if current_user.unreviewed_booking?%>
-    <div>
-      <p>------------------------------------</p>
-      <p>You have been to this place and didn't reviewed it yet! Do it now!
-        <%= link_to "Add review",new_workspace_workspace_review_path(@workspace), class: "btn btn-info"%>
+  <%if user_signed_in?%>
+    <%if current_user.unreviewed_booking?(@workspace)%>
+      <div>
+        <p>------------------------------------</p>
+        <p>You have been to this place and didn't reviewed it yet! Do it now!
+          <%= link_to "Add review",new_workspace_workspace_review_path(@workspace), class: "btn btn-info"%>
       </div>
-    <%end%>
-  </div>
+     <%end%>
+  <%end%>
+</div>

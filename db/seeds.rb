@@ -305,7 +305,7 @@ place_75 = Place.create!(workspace: workspace_27, price: 15, name: "nice room", 
 
 
 booking_1 = Booking.create!(beginning_date: Date.new(2019,2,1), end_date: Date.new(2019,2,3)     ,status: "waiting_for_payment",  user: user_1)
-booking_2 = Booking.create!(beginning_date: Date.new(2019,5,1), end_date: Date.new(2019,5,8)     ,status: "waiting_for_payment",  user: user_1)
+booking_2 = Booking.create!(beginning_date: Date.new(2019,5,1), end_date: Date.new(2019,5,8)     ,status: "unreviewed",  user: user_1)
 booking_3 = Booking.create!(beginning_date: Date.new(2018,12,1), end_date: Date.new(2018,12,3)   ,status: "paid",  user: user_1)
 booking_4 = Booking.create!(beginning_date: Date.new(2019,4,1), end_date: Date.new(2019,4,4)     ,status: "past",  user: user_2)
 booking_5 = Booking.create!(beginning_date: Date.new(2019,3,1), end_date: Date.new(2019,3,2)     ,status: "paid",  user: user_3)

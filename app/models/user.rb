@@ -18,10 +18,12 @@ class User < ApplicationRecord
     Profile.create(user: self)
   end
 
-  def unreviewed_booking?
+  def unreviewed_booking?(workspace)
     unreviewed = false
-    bookings.each do |booking|
-      if booking.status == "unreviewed"
+
+    bookings_of_workspace = workspace.bookings
+    bookings_of_workspace.each do |booking|
+      if booking.user_id == id && booking.status == "unreviewed"
         unreviewed = true
         break
       end
