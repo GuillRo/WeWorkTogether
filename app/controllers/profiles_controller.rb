@@ -1,5 +1,5 @@
 class ProfilesController < ApplicationController
-  before_action :set_profile, only: %i[show update edit]
+  before_action :set_profile, only: [:show, :update, :edit]
 
   def show
     @bookings = Booking.where(user_id: current_user)
@@ -9,7 +9,7 @@ class ProfilesController < ApplicationController
     end
     @my_workspaces = Workspace.where(user_id: current_user)
     # @user_reviews = @bookings.where()
-    
+
     # @bookings = Booking.where(user_id: current_user)
     # @booked = Booking.where(user_id: current_user).where(status: "booked")
     # @past_bookings = Booking.where(user_id: current_user).where(status: "past")

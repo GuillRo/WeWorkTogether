@@ -7,4 +7,10 @@ class Workspace < ApplicationRecord
   has_many :places
   has_many :bookings, through: :places
   has_many :workspace_reviews, through: :bookings
+
+  def average
+    return 0 if workspace_reviews.empty?
+
+    workspace_reviews.inject(0) { |sum, x| sum += x.score } / workspace_reviews.length
+  end
 end
