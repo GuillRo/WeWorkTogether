@@ -4,15 +4,16 @@ class WorkspacesController < ApplicationController
   def index
     if params[:query].present?
       @workspaces = Workspace.near(params[:query], 50)
+      @markers = @workspaces.map do |workspace|
+        {
+          lng: workspace.longitude,
+          lat: workspace.latitude,
+          infoWindow: render_to_string(partial: "shared/infowindow", locals: { workspace: workspace })
+        }
+      end
     else
-      @workspaces = Workspace.where.not(latitude: nil, longitude: nil)
-    end
-    @markers = @workspaces.map do |workspace|
-      {
-        lng: workspace.longitude,
-        lat: workspace.latitude,
-        infoWindow: render_to_string(partial: "shared/infowindow", locals: { workspace: workspace })
-      }
+      redirect_to root_path
+      # @workspaces = Workspace.where.not(latitude: nil, longitude: nil)
     end
   end
 
