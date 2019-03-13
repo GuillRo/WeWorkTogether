@@ -1,7 +1,6 @@
 <div class="container">
   <h1>Every workspaces</h1>
-  
-      <%= link_to "Go to first workspace", workspace_path(@workspace = Workspace.find(1)),
-          class: "btn btn-info" %>
-
+  <% @workspaces.each_with_index do |workspace, index|%>
+    <p>Workspace n° <%=index+1%> | name: <%= workspace.title%> <%= link_to "Go to workspace #{index+1}", workspace_path(workspace), class: "btn btn-info" %></p>
+  <%end%>
 </div>

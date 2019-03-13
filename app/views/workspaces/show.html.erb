@@ -3,8 +3,12 @@
   <% @workspace.workspace_reviews.each_with_index do |w_review, index|%>
     <p>Review n°<%= index + 1 %>: <%= w_review.content%> </p>
   <%end%>
+  <br/>
+  <br/>
+  <% @workspace.places.each_with_index do |place, index|%>
+    <p>Place n°<%= index + 1 %>: <%= place.price%> € || Status: <%= place.bookings.first.status%></p>
+  <%end%>
   <%#= link_to "Go to first workspace's reviews", workspace_workspace_reviews_path(@workspace),
           class: "btn btn-info" %>
-
   <%= link_to "Add review",new_workspace_workspace_review_path(@workspace), class: "btn btn-info"%>
 </div>
