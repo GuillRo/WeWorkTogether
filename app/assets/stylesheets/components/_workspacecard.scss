@@ -1,0 +1,100 @@
+/* Your card CSS code here */
+.worspace-cards {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+.worspace-cards .worspace-card{
+  flex: 1 1 auto;
+  box-sizing: border-box;
+  border: 1px solid #ccc!important;
+  border-radius: 4px;
+  margin: 20px;
+  transition: all 0.3s ease;
+
+  a {
+    color: gray !important;
+    text-decoration: none !important;
+  }
+
+  p {
+    font-size: 16px;
+    padding-top: 5px;
+  }
+}
+
+.worspace-card:hover{
+  box-shadow: 0 0 8px rgba(0,0,0,0.4);
+
+}
+
+.worspace-card-content {
+  display: flex;
+  flex-direction: row;
+
+}
+
+.worspace-card-image {
+  margin: 10px;
+  background-size: cover;
+  width: 40%;
+  color: white !important;
+
+}
+
+.worspace-card-rating {
+  position: absolute;
+  font-size: 15px;
+  letter-spacing: 2px;
+  opacity: 0.8;
+}
+
+.worspace-card-title {
+  position: relative;
+  padding: 10px;
+  font-size: 25px;
+  height:200px;
+  width: 60%;
+}
+
+.worspace-card-title-position {
+  position: absolute;
+  bottom: 20px;
+
+}
+
+.worspace-card-user {
+}
+
+.worspace-card-user h2{
+  font-size: 15px;
+}
+
+
+.worspace-card-footer {
+  display:flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.worspace-card-footer p{
+  font-weight: lighter;
+  color: rgb(150, 150, 150);
+  font-size: 13px;
+}
+
+.worspace-card-footer .controls {
+  display: flex;
+  align-items: center;
+}
+
+.worspace-card-footer .controls i{
+  color: black;
+  opacity: 0.2;
+  padding: 0 8px;
+}
+
+.worspace-card-footer .controls i:hover {
+  opacity: 0.5;
+}

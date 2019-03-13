@@ -1,5 +1,5 @@
 <div class="container">
-  <h1>Worspace <%= @workspace.id %></h1>
+  <h1>Workspace <%= @workspace.id %></h1>
   <% @workspace.workspace_reviews.each_with_index do |w_review, index|%>
     <p>Review n°<%= index + 1 %>: <%= w_review.content%> </p>
   <%end%>
