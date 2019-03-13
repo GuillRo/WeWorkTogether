@@ -1,0 +1,33 @@
+.main-map-container {
+  display: flex;
+}
+
+#map {
+  flex: 0 0 550px;
+  height: 100vh;
+  position: sticky !important;
+  top: 0 !important;
+  margin-right: 20px;
+  margin-top: 20px;
+}
+
+.cards-container {
+  flex-grow: 1;
+}
+
+.mapboxgl-popup {
+  max-width: 350px;
+  min-width:200px;
+  min-height: 100px;
+  max-height: 200px;
+}
+
+.mapboxgl-popup-content {
+  text-align: center;
+  font-family: 'Open Sans', sans-serif;
+
+}
+
+.mapboxgl-popup-tip {
+    z-index: -2 !important;
+}

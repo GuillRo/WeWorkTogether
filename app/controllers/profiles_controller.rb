@@ -1,5 +1,5 @@
 class ProfilesController < ApplicationController
-  before_action :set_profile, only: %i[show update edit]
+  before_action :set_profile, only: [:show, :update, :edit]
 
   def show
     @profile = Profile.find(params[:id])
@@ -8,7 +8,9 @@ class ProfilesController < ApplicationController
     @bookings.each do |booking|
       @workspace_reviews.push(booking.workspace_review)
     end
+
     @my_workspaces = Workspace.where(user_id: @profile.user_id)
+
   end
 
   # def create
