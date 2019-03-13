@@ -11,4 +11,11 @@ class User < ApplicationRecord
   has_many :workspace_reviews, through: :booking
   has_many :renter_payments, class_name: "Payment", foreign_key: "renter_id"
   has_many :owner_payments, class_name: "Payment", foreign_key: "owner_id"
+
+  after_create :create_profile
+
+  def create_profile
+    Profile.create(user: self)
+  end
+
 end

@@ -6,7 +6,7 @@
   <br/>
   <br/>
   <% @workspace.places.each_with_index do |place, index|%>
-    <p>Place n°<%= index + 1 %>: <%= place.price%> € || Status: <%= place.bookings.first.status%></p>
+    <p>Place n°<%= index + 1 %>: <%= place.price%> € </p>
   <%end%>
   <%#= link_to "Go to first workspace's reviews", workspace_workspace_reviews_path(@workspace),
           class: "btn btn-info" %>

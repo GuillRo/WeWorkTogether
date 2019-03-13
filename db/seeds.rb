@@ -35,11 +35,6 @@ user_13 = User.create!(password: "123123", email: "harold@wagon.be", first_name:
 user_14 = User.create!(password: "123123", email: "alexia@wagon.be", first_name: "Alexia", last_name: "Fadiga", address: "63 avenue de la république")
 
 
-
-
-user_1.create_profile!(bio: "Hi. I am a dog fucker")
-
-
 service_1 = Service.create!(name: "24 Hr Access")
 service_2 = Service.create!(name: "Natural light")
 service_3 = Service.create!(name: "Conference Rooms")
