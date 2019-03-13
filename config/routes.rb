@@ -5,7 +5,9 @@ Rails.application.routes.draw do
   resources :profiles, only: [:show, :update, :create, :new, :edit]
   resources :workspaces do
     resources :workspace_reviews, only: [:new, :create]
-    resources :bookings, only: [:new, :create]
+    resources :places, only: [:show, :new, :create] do
+      resources :bookings, only: [:new, :create]
+    end
   end
   resources :bookings, only: [:new, :create, :show, :index]
   resources :payments

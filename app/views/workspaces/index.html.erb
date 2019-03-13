@@ -13,9 +13,7 @@
               <div class="workspace-card-title">
                 <div class="workspace-card-title-position">
                   <%= workspace.title %>
-                  <%= workspace.places.each do |place| %>
-                  <p> Price: <%= place.price%>€</p>
-                  <% end %>
+                  <p> Workspaces starting at <%=workspace.minimum%> €/day</p>
                 </div>
                 <div class="workspace-card-rating">
                   <p><%= "★" * workspace.average %><%= "☆" * (5 - workspace.average ) %> </p>

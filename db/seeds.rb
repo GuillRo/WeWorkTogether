@@ -304,36 +304,36 @@ place_75 = Place.create!(workspace: workspace_27, price: 15, name: "nice room", 
 
 
 
-booking_1 = Booking.create!(beginning_date: Date.new(2019,2,1), end_date: Date.new(2019,2,3) , status: true, user: user_1)
-booking_2 = Booking.create!(beginning_date: Date.new(2019,5,1), end_date: Date.new(2019,5,8) , status: true, user: user_1)
-booking_3 = Booking.create!(beginning_date: Date.new(2018,12,1), end_date: Date.new(2018,12,3) , status: true, user: user_1)
-booking_4 = Booking.create!(beginning_date: Date.new(2019,4,1), end_date: Date.new(2019,4,4) , status: true, user: user_2)
-booking_5 = Booking.create!(beginning_date: Date.new(2019,3,1), end_date: Date.new(2019,3,2) , status: true, user: user_3)
-booking_6 = Booking.create!(beginning_date: Date.new(2019,2,7), end_date: Date.new(2019,2,10) , status: true, user: user_3)
-booking_7 = Booking.create!(beginning_date: Date.new(2018,2,1), end_date: Date.new(2019,2,5) , status: true, user: user_4)
-booking_8 = Booking.create!(beginning_date: Date.new(2019,2,1), end_date: Date.new(2019,2,28) , status: true, user: user_4)
-booking_9 = Booking.create!(beginning_date: Date.new(2019,4,1), end_date: Date.new(2019,4,10) , status: true, user: user_4)
-booking_10 = Booking.create!(beginning_date: Date.new(2019,3,6), end_date: Date.new(2019,3,6) , status: true, user: user_5)
-booking_11 = Booking.create!(beginning_date: Date.new(2019,2,1), end_date: Date.new(2019,3,3) , status: true, user: user_6)
-booking_12 = Booking.create!(beginning_date: Date.new(2019,9,1), end_date: Date.new(2019,9,17) , status: true, user: user_7)
-booking_13 = Booking.create!(beginning_date: Date.new(2018,11,1), end_date: Date.new(2018,11,10) , status: true, user: user_7)
-booking_14 = Booking.create!(beginning_date: Date.new(2019,2,18), end_date: Date.new(2019,2,20) , status: true, user: user_7)
-booking_15 = Booking.create!(beginning_date: Date.new(2019,2,14), end_date: Date.new(2019,2,19) , status: true, user: user_8)
-booking_16 = Booking.create!(beginning_date: Date.new(2019,5,10), end_date: Date.new(2019,5,12) , status: true, user: user_8)
-booking_17 = Booking.create!(beginning_date: Date.new(2019,2,11), end_date: Date.new(2019,2,15) , status: true, user: user_9)
-booking_18 = Booking.create!(beginning_date: Date.new(2019,4,1), end_date: Date.new(2019,4,3) , status: true, user: user_9)
-booking_19 = Booking.create!(beginning_date: Date.new(2019,1,10), end_date: Date.new(2019,1,15) , status: true, user: user_9)
-booking_20 = Booking.create!(beginning_date: Date.new(2019,1,20), end_date: Date.new(2019,1,23) , status: true, user: user_9)
-booking_21 = Booking.create!(beginning_date: Date.new(2019,6,1), end_date: Date.new(2019,6,3) , status: true, user: user_10)
-booking_22 = Booking.create!(beginning_date: Date.new(2019,7,1), end_date: Date.new(2019,7,10) , status: true, user: user_11)
-booking_23 = Booking.create!(beginning_date: Date.new(2019,3,1), end_date: Date.new(2019,3,3) , status: true, user: user_12)
-booking_24 = Booking.create!(beginning_date: Date.new(2019,4,1), end_date: Date.new(2019,4,5) , status: true, user: user_12)
-booking_25 = Booking.create!(beginning_date: Date.new(2019,4,17), end_date: Date.new(2019,4,20) , status: true, user: user_12)
-booking_26 = Booking.create!(beginning_date: Date.new(2019,9,1), end_date: Date.new(2019,9,20) , status: true, user: user_13)
-booking_27 = Booking.create!(beginning_date: Date.new(2019,8,1), end_date: Date.new(2019,9,1) , status: true, user: user_13)
-booking_28 = Booking.create!(beginning_date: Date.new(2019,7,1), end_date: Date.new(2019,7,2) , status: true, user: user_14)
-booking_29 = Booking.create!(beginning_date: Date.new(2019,10,1), end_date: Date.new(2019,10,29) , status: true, user: user_14)
-booking_30 = Booking.create!(beginning_date: Date.new(2019,5,10), end_date: Date.new(2019,5,14) , status: true, user: user_14)
+booking_1 = Booking.create!(beginning_date: Date.new(2019,2,1), end_date: Date.new(2019,2,3)     ,status: "waiting_for_payment",  user: user_1)
+booking_2 = Booking.create!(beginning_date: Date.new(2019,5,1), end_date: Date.new(2019,5,8)     ,status: "unreviewed",  user: user_1)
+booking_3 = Booking.create!(beginning_date: Date.new(2018,12,1), end_date: Date.new(2018,12,3)   ,status: "paid",  user: user_1)
+booking_4 = Booking.create!(beginning_date: Date.new(2019,4,1), end_date: Date.new(2019,4,4)     ,status: "past",  user: user_2)
+booking_5 = Booking.create!(beginning_date: Date.new(2019,3,1), end_date: Date.new(2019,3,2)     ,status: "paid",  user: user_3)
+booking_6 = Booking.create!(beginning_date: Date.new(2019,2,7), end_date: Date.new(2019,2,10)    ,status: "waiting_for_payment",  user: user_3)
+booking_7 = Booking.create!(beginning_date: Date.new(2018,2,1), end_date: Date.new(2019,2,5)     ,status: "unreviewed",   user: user_4)
+booking_8 = Booking.create!(beginning_date: Date.new(2019,2,1), end_date: Date.new(2019,2,28)    ,status: "paid",  user: user_4)
+booking_9 = Booking.create!(beginning_date: Date.new(2019,4,1), end_date: Date.new(2019,4,10)    ,status: "unreviewed",  user: user_4)
+booking_10 = Booking.create!(beginning_date: Date.new(2019,3,6), end_date: Date.new(2019,3,6)    ,status: "past",  user: user_5)
+booking_11 = Booking.create!(beginning_date: Date.new(2019,2,1), end_date: Date.new(2019,3,3)    ,status: "waiting_for_payment",  user: user_6)
+booking_12 = Booking.create!(beginning_date: Date.new(2019,9,1), end_date: Date.new(2019,9,17)   ,status: "past",  user: user_7)
+booking_13 = Booking.create!(beginning_date: Date.new(2018,11,1), end_date: Date.new(2018,11,10) ,status: "waiting_for_payment",  user: user_7)
+booking_14 = Booking.create!(beginning_date: Date.new(2019,2,18), end_date: Date.new(2019,2,20)  ,status: "paid",  user: user_7)
+booking_15 = Booking.create!(beginning_date: Date.new(2019,2,14), end_date: Date.new(2019,2,19)  ,status: "waiting_for_payment",  user: user_8)
+booking_16 = Booking.create!(beginning_date: Date.new(2019,5,10), end_date: Date.new(2019,5,12)  ,status: "unreviewed",  user: user_8)
+booking_17 = Booking.create!(beginning_date: Date.new(2019,2,11), end_date: Date.new(2019,2,15)  ,status: "waiting_for_payment",  user: user_9)
+booking_18 = Booking.create!(beginning_date: Date.new(2019,4,1), end_date: Date.new(2019,4,3)    ,status: "waiting_for_payment",  user: user_9)
+booking_19 = Booking.create!(beginning_date: Date.new(2019,1,10), end_date: Date.new(2019,1,15)  ,status: "past",  user: user_9)
+booking_20 = Booking.create!(beginning_date: Date.new(2019,1,20), end_date: Date.new(2019,1,23)  ,status: "unreviewed",  user: user_9)
+booking_21 = Booking.create!(beginning_date: Date.new(2019,6,1), end_date: Date.new(2019,6,3)    ,status: "waiting_for_payment",  user: user_10)
+booking_22 = Booking.create!(beginning_date: Date.new(2019,7,1), end_date: Date.new(2019,7,10)   ,status: "waiting_for_payment",  user: user_11)
+booking_23 = Booking.create!(beginning_date: Date.new(2019,3,1), end_date: Date.new(2019,3,3)    ,status: "past",  user: user_12)
+booking_24 = Booking.create!(beginning_date: Date.new(2019,4,1), end_date: Date.new(2019,4,5)    ,status: "unreviewed",  user: user_12)
+booking_25 = Booking.create!(beginning_date: Date.new(2019,4,17), end_date: Date.new(2019,4,20)  ,status: "unreviewed",  user: user_12)
+booking_26 = Booking.create!(beginning_date: Date.new(2019,9,1), end_date: Date.new(2019,9,20)   ,status: "waiting_for_payment",  user: user_13)
+booking_27 = Booking.create!(beginning_date: Date.new(2019,8,1), end_date: Date.new(2019,9,1)    ,status: "unreviewed",  user: user_13)
+booking_28 = Booking.create!(beginning_date: Date.new(2019,7,1), end_date: Date.new(2019,7,2)    ,status: "waiting_for_payment",  user: user_14)
+booking_29 = Booking.create!(beginning_date: Date.new(2019,10,1), end_date: Date.new(2019,10,29) ,status: "waiting_for_payment",  user: user_14)
+booking_30 = Booking.create!(beginning_date: Date.new(2019,5,10), end_date: Date.new(2019,5,14)  ,status: "waiting_for_payment",  user: user_14)
 
 
 
@@ -444,51 +444,51 @@ photo_1_1.remote_photo_url = url_1_1
 photo_1_1.save
 
 url_2_1 = "https://res.cloudinary.com/dux1stkfq/image/upload/v1551784212/flat_4.jpg"
-photo_2_1 = Photo.create!(workspace_id: workspace_2)
+photo_2_1 = Photo.create!(workspace: workspace_2)
 photo_2_1.remote_photo_url = url_2_1
 photo_2_1.save
 
 url_3_1 = "https://res.cloudinary.com/dux1stkfq/image/upload/v1551784212/flat_4.jpg"
-photo_3_1 = Photo.create!(workspace_id: workspace_3)
+photo_3_1 = Photo.create!(workspace: workspace_3)
 photo_3_1.remote_photo_url = url_3_1
 photo_3_1.save
 
 url_4_1 = "https://res.cloudinary.com/dux1stkfq/image/upload/v1551784212/flat_4.jpg"
-photo_4_1 = Photo.create!(workspace_id: workspace_4)
+photo_4_1 = Photo.create!(workspace: workspace_4)
 photo_4_1.remote_photo_url = url_4_1
 photo_4_1.save
 
 url_5_1 = "https://res.cloudinary.com/dux1stkfq/image/upload/v1551784212/flat_4.jpg"
-photo_5_1 = Photo.create!(workspace_id: workspace_5)
+photo_5_1 = Photo.create!(workspace: workspace_5)
 photo_5_1.remote_photo_url = url_5_1
 photo_5_1.save
 
 url_6_1 = "https://res.cloudinary.com/dux1stkfq/image/upload/v1551784212/flat_4.jpg"
-photo_6_1 = Photo.create!(workspace_id: workspace_6)
+photo_6_1 = Photo.create!(workspace: workspace_6)
 photo_6_1.remote_photo_url = url_6_1
 photo_6_1.save
 
 url_7_1 = "https://res.cloudinary.com/dux1stkfq/image/upload/v1551784212/flat_4.jpg"
-photo_7_1 = Photo.create!(workspace_id: workspace_7)
+photo_7_1 = Photo.create!(workspace: workspace_7)
 photo_7_1.remote_photo_url = url_7_1
 photo_7_1.save
 
 url_8_1 = "https://res.cloudinary.com/dux1stkfq/image/upload/v1551784212/flat_4.jpg"
-photo_8_1 = Photo.create!(workspace_id: workspace_8)
+photo_8_1 = Photo.create!(workspace: workspace_8)
 photo_8_1.remote_photo_url = url_8_1
 photo_8_1.save
 
 url_9_1 = "https://res.cloudinary.com/dux1stkfq/image/upload/v1551784212/flat_4.jpg"
-photo_9_1 = Photo.create!(workspace_id: workspace_9)
+photo_9_1 = Photo.create!(workspace: workspace_9)
 photo_9_1.remote_photo_url = url_9_1
 photo_9_1.save
 
 url_10_1 = "https://res.cloudinary.com/dux1stkfq/image/upload/v1551784212/flat_4.jpg"
-photo_10_1 = Photo.create!(workspace_id: workspace_10)
+photo_10_1 = Photo.create!(workspace: workspace_10)
 photo_10_1.remote_photo_url = url_10_1
 photo_10_1.save
 
 url_11_1 = "https://res.cloudinary.com/dux1stkfq/image/upload/v1551784212/flat_4.jpg"
-photo_11_1 = Photo.create!(workspace_id: workspace_11)
+photo_11_1 = Photo.create!(workspace: workspace_11)
 photo_11_1.remote_photo_url = url_11_1
 photo_11_1.save
