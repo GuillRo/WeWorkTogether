@@ -8,12 +8,14 @@
     <p>Score: <%= wp_review.score %></p>
     <p>Date: </p>
   <% end %>
+  
   <h1>The workspaces I own</h1>
   <% @my_workspaces.each do |wp|%>
     <p><%#= wp.score %></p>
     <p><%= wp.title%></p>
-  <%end%>
   <h1>My bookings</h1>
+  <%end%>
+
   <%@bookings.each do |booking|%>
     <p>-----------------------------------------</p>
     <p><%= booking.find_workspace.title%></p>
@@ -26,6 +28,7 @@
     <%end%>
     <p>Total: <%= booking.price%></p>
   <%end%>
+
   <h1>What other users say about me</h1>
   <%@bookings.each do |booking|%>
     <p>
@@ -34,4 +37,5 @@
       Score: <%= booking.user_review.score%>
     </p>
   <%end%>
+  
 </div>
