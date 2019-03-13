@@ -14,7 +14,7 @@
     <p><%#= wp.score %></p>
     <p><%= wp.title%></p>
   <%end%>
-  <%if current_user == self%>
+  <%if @profile%>
     <%= link_to "Add a workspace",new_workspace_url, class: "btn btn-info"%>
   <%end%>
   <h1>My bookings</h1>

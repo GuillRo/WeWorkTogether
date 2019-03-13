@@ -2,7 +2,7 @@ class ProfilesController < ApplicationController
   before_action :set_profile, only: %i[show update edit]
 
   def show
-    @bookings = Booking.where(user_id: current_user)
+    @bookings = Booking.where(user: :id)
     @workspace_reviews = []
     @bookings.each do |booking|
       @workspace_reviews.push(booking.workspace_review)
