@@ -1,13 +1,10 @@
-
 <div class="navbar-wagon navbar-fixed-top">
-  <!-- Logo -->
+
   <%= link_to root_path, class: "navbar-wagon-brand" do %>
-    <%= image_tag("logo_ylw.svg", alt: "WeWorkTogether Logo", height: 50 %>
+    <%= image_tag("logo_ylw.svg", alt: "WeWorkTogether Logo", height: 50)%>
+
   <% end %>
-  <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
-
-
     <%= link_to "About", root_path, class: "navbar-wagon-home-item navbar-wagon-home-link"%>
     <%= link_to "Sign up", root_path, class: "navbar-wagon-home-item navbar-wagon-home-link"%>
     <% if user_signed_in? %>
@@ -22,7 +19,7 @@
           <%= cl_image_tag current_user&.profile&.photo&.url, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
           <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
             <li>
-              <%= link_to profile_url(current_user.profile) do %>
+              <%= link_to root_path do %>
                 <i class="fa fa-user"></i> <%= t(".profile", default: "Profile") %>
               <% end %>
             </li>
