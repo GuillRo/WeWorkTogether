@@ -14,11 +14,12 @@
     <p><%#= wp.score %></p>
     <p><%= wp.title%></p>
   <%end%>
-  <%if @profile%>
+  <%if @profile.user == current_user%>
     <%= link_to "Add a workspace",new_workspace_url, class: "btn btn-info"%>
   <%end%>
-  <h1>My bookings</h1>
 
+
+  <h1>My bookings</h1>
   <%@bookings.each do |booking|%>
     <p>-----------------------------------------</p>
     <p><%= booking.find_workspace.title%></p>
