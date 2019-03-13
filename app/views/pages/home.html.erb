@@ -1,71 +1,42 @@
-<div class="container">
-  <h1>Pages#home</h1>
-  <p>Find me in app/views/pages/home.html.erb</p>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<div class="wrapper">
+  <div class="home-container">
+    <div class="banner">
+      <div class="banner-content homepage-banner-container">
+        <div class="title-main"><div id="title-main">Unique, creative workspaces</div></div>
+        <div>
+          <script src="https://cdn.jsdelivr.net/npm/places.js@1.16.1"></script>
+          <!-- CHANGE ROOT_PATH INTO CWS_PATH -->
+          <%= form_tag root_path, method: :get do %>
+
+            <div class="search-bar-container">
+
+              <div class="search-bar">
+                <%= text_field_tag :query, params[:query], class: "form-control js-searchbar homepage-search", placeholder: "Where are you going next!", autocomplete:"off" %>
+              </div>
+              <div class="wwt-btn">Search</div>
+
+            </div>
+          <% end %>
+          <script>
+            var placesAutocomplete = places({
+              appId: 'plPXFELQHKO7',
+              apiKey: 'f7133196424bc5de90408baab2aff571',
+              container: document.querySelector('.js-searchbar'),
+              language: 'en'
+            });
+          </script>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="intro">
+    <h3>Unique coworking places for your next creation</h3>
+    <p>Book one of these spots and find the extraordinary</p>
+    <%#= render 'shared/carousel' %>
+  </div>
+  
+  
     <%= link_to "Go to all workspaces", workspaces_path,
           class: "btn btn-info" %>
-
+  
 </div>
