@@ -1,0 +1,39 @@
+@media screen and (max-width: 600px) {
+  .search-bar {
+    width: 90%;
+  }
+
+  .ap-input {
+    width: 100% !important;
+  }
+
+  .title-main {
+    font-size: 40px !important;
+  }
+
+  .navbar-wagon-home-brand img {
+    height: 50px;
+    margin-left: 0em !important;
+  }
+
+  .navbar-wagon-home {
+    /* box-shadow: 0 1px 5px 0 rgba(0,0,0,0.07), 0 1px 0 0 rgba(0,0,0,0.03); */
+    height: 4em !important;
+  }
+
+  .ap-dropdown-menu {
+  width: 100% !important;
+  margin-left: 0px;
+  border-radius:15px;
+  }
+
+  .wwt-btn {
+  margin-top: 15px;
+  }
+
+  .homepage-banner-container {
+    margin-top: 0em !important;
+  }
+}
+
+

@@ -40,9 +40,6 @@ user_14 = User.create!(password: "123123", email: "alexia@wagon.be", first_name:
 user_1.create_profile!(bio: "Hi. I am a dog fucker")
 
 
-
-
-
 service_1 = Service.create!(name: "24 Hr Access")
 service_2 = Service.create!(name: "Natural light")
 service_3 = Service.create!(name: "Conference Rooms")
@@ -417,6 +414,8 @@ UserReview.create!(score: 5, content: "Amazing customer !!! Everything was perfe
 UserReview.create!(score: 4, content: "He was very respectful. I highly recommend him", booking: booking_30)
 
 
+
+UserReview.create!(score: 3, content: "What an ass. This guy killed my dog", booking: booking_1)
 
 WorkspaceReview.create!(booking: booking_1, content: "That place was hell", score: 1)
 WorkspaceReview.create!(booking: booking_2, content: "That place has everything you can expect from a co-working", score: 4)

@@ -4,4 +4,8 @@ class Booking < ApplicationRecord
   has_one :payment
   belongs_to :user
   has_many :places, through: :booking_places
+
+  def find_workspace
+    places.first.workspace
+  end
 end
