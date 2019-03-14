@@ -14,8 +14,8 @@
 
 
       <h1>Your reviews about workspaces</h1>
-      <%if @profile.user.workspace_reviews?%>
-        <% @workspace_reviews.each do |wp_review|%>
+      <%if @reviews_i_posted_about_workspaces.length.positive?%>
+        <% @reviews_i_posted_about_workspaces.each do |wp_review|%>
           <p>-----------------------------</p>
           <p>Workspace name: <%= wp_review.booking.find_workspace.title%></p>
           <p><%= wp_review.content%></p>
@@ -27,8 +27,8 @@
       <% end %>
 
       <h1>Your reviews about other users</h1>
-      <%if @profile.user.user_reviews? %>
-        <% @profile.user.user_reviews.each do |u_review|%>
+      <%if @reviews_i_posted_about_users.length.positive? %>
+        <% @reviews_i_posted_about_users.each do |u_review|%>
           <p>-----------------------------</p>
           <p>User name: <%= u_review.booking.user.first_name%> <%= u_review.booking.user.last_name%></p>
           <p><%= u_review.content%></p>
@@ -41,7 +41,7 @@
 
 
       <h1>Your workspaces</h1>
-      <%if @profile.user.workspaces?%>
+      <%if @my_workspaces.length.positive?%>
         <% @my_workspaces.each do |wp|%>
           <p><%= wp.title%></p>
           <p>Average score: 
@@ -119,15 +119,16 @@
 
     
       <h1>What other users say about you</h1>
-      <%if @profile.user.user_reviews?%>
-        <%@bookings.each do |booking|%>
-          <%if !booking.user_review.nil?%>
+      <%if @reviews_about_me.length.positive?%>
+        <%@reviews_about_me.each do |review|%>
+          <%#if !booking.user_review.nil? %>
             <p>
-              <%= booking.find_workspace.user.first_name%> says:
-              <%= booking.user_review.content%> |
-              Score: <%= booking.user_review.score%>
+              <%#= booking.find_workspace.user.first_name%> 
+              <%= review.booking.find_workspace.user.first_name%> says:
+              <%= review.content%>
+              Score: <%= review.score%>
             </p>
-          <%end%>
+          <%#end%>
         <%end%>
       <% else %>
         <p>Nobody has written any reviews about you!</p>
@@ -146,15 +147,15 @@
       <%end%>
 
       <h1>What other users say about me</h1>
-      <%if @profile.user.user_reviews? %>
-        <%@bookings.each do |booking|%>
-          <%if !booking.user_review.nil?%>
+      <%if @reviews_about_me.length.positive? %>
+        <%@reviews_about_me.each do |review|%>
+          <%#if !booking.user_review.nil?%>
             <p>
-            <%= booking.find_workspace.user.first_name%> says:
-            <%= booking.user_review.content%> |
-            Score: <%= booking.user_review.score%>
+            <%= review.booking.find_workspace.user.first_name%> says:
+            <%= review.content%>
+            Score: <%= review.score %>
             </p>
-          <% end %>
+          <%# end %>
         <%end%>
       <%else %>
         <p>Nobody has written any reviews about <%= @profile.user.first_name%></p>      
@@ -162,7 +163,7 @@
 
 
       <h1><%=@profile.user.first_name.capitalize%>'s workspaces</h1>
-      <%if @profile.user.workspaces?%>
+      <%if @my_workspaces.length.positive?%>
         <% @my_workspaces.each do |wp|%>
           <p><%= wp.title%></p>
           <p>Average score: 
