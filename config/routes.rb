@@ -5,11 +5,12 @@ Rails.application.routes.draw do
   resources :profiles, only: [:show, :update, :create, :new, :edit]
   resources :workspaces do
     resources :workspace_reviews, only: [:new, :create]
-    resources :places, only: [:show, :new, :create] do
-      resources :bookings, only: [:new, :create]
-    end
+    resources :places, only: [:show, :new, :create]
   end
-  resources :bookings, only: [:new, :create, :show, :index]
+
+  resources :places, only: [] do
+    resources :bookings, only: [:new, :create]
+  end
   resources :payments
   resources :profiles, only: [:show, :new, :create, :edit, :update, :destroy] do
     resources :user_reviews, only: [:index, :new, :create]
