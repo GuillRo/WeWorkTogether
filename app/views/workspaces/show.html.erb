@@ -6,13 +6,19 @@
     <p>Average score: <%= @workspace.average %></p>
   <%end%>
   <br/>
-  <% @workspace.places.each_with_index do |place, index|%>
+
+  <% @workspace.places.each do |place|%>
     <% chairs_left = place.number_of_chairs - place.bookings.length%>
+
     <%if chairs_left > 0%>
       <p>-----------------------------------------</p>
-      <p>Place n°<%= index + 1 %>: <%= place.price%> €/day | <%= chairs_left %>out of <%= place.number_of_chairs %> places left</p>
-      <%= link_to "Book this place !", workspace_workspace_reviews_path(@workspace),
+      <p>Name: <%= place.name.capitalize %></p>
+      <p>Description: <%= place.description %> </p>
+      <p> <%= place.price %> €/day | <%= chairs_left %>out of <%= place.number_of_chairs %> places left</p>
+      <% if user_signed_in?%>
+      <%= link_to "Book this place !", new_place_booking_url(place),
           class: "btn btn-info" %>
+      <% end %>
     <%end%>
   <%end%>
   <h3>What other people say of this workspace</h3>

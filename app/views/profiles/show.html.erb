@@ -1,45 +1,144 @@
 <div class="container">
   <div class="wwt-ctn">
-  <h1>kikou</h1>
-  <h1>Reviews I posted</h1>
-  <% @workspace_reviews.each do |wp_review|%>
-  <p>-----------------------------</p>
-    <p>Workspace name: <%= wp_review.booking.find_workspace.title%></p>
-    <p><%= wp_review.content%></p>
-    <p>Score: <%= wp_review.score %></p>
-    <p>Date: </p>
-  <% end %>
-  
-  <h1>The workspaces I own</h1>
-  <% @my_workspaces.each do |wp|%>
-    <p><%#= wp.score %></p>
-    <p><%= wp.title%></p>
-  <%end%>
-  <%if @profile.user == current_user%>
-    <%= link_to "Add a workspace",new_workspace_url, class: "btn btn-info"%>
-  <%end%>
+    <h1>kikou</h1>
+    <%if @profile.user == current_user %>
+
+      <h1>My bio</h1>
+      <%if @profile.bio.nil? || @profile.bio == ""%>
+        <p>You have has not yet written your bio!</p>
+        <%= link_to "Do it now",root_url, class: "btn btn-info"%>
+      <%elsif%>
+        <p><%= @profile.bio%></p>
+        <%= link_to "Edit",root_url, class: "btn btn-info"%>
+      <%end%>
 
 
-  <h1>My bookings</h1>
-  <%@bookings.each do |booking|%>
-    <p>-----------------------------------------</p>
-    <p><%= booking.find_workspace.title%></p>
-    <p>Beginning: <%= booking.beginning_date%></p>
-    <p>End: <%= booking.end_date%></p>
-    <%i = 0%>
-    <% booking.places.each do |place|%>
-      <% i += 1%>
-      <p>place <%= i%>: <%=place.price%> €</p>
+      <h1>Reviews I posted</h1>
+      <%if @profile.user.workspace_reviews?%>
+        <% @workspace_reviews.each do |wp_review|%>
+          <p>-----------------------------</p>
+          <p>Workspace name: <%= wp_review.booking.find_workspace.title%></p>
+          <p><%= wp_review.content%></p>
+          <p>Score: <%= wp_review.score %></p>
+          <p>Date: </p>
+        <% end %>
+      <%else%>
+        <p> You have not posted any reviews</p>
+      <% end %>
+
+      <h1>The workspaces I own</h1>
+      <%if @profile.user.workspaces?%>
+        <% @my_workspaces.each do |wp|%>
+          <p><%= wp.average %></p>
+          <p><%= wp.title%></p>
+        <%end%>
+        <%= link_to "Add a workspace",new_workspace_url, class: "btn btn-info"%>
+      <% else %>
+        <p>You have not yet added a workspace</p>
+        <%= link_to "Do it now",root_url, class: "btn btn-info"%>
+      <% end %>
+
+      <h1>My future bookings</h1>
+      <%if @profile.user.future_bookings?%>
+        <%@bookings.each do |booking|%>
+          <%if booking.status =="paid"%>
+            <p>-----------------------------------------</p>
+            <p><%= booking.find_workspace.title%></p>
+            <p>Beginning: <%= booking.beginning_date%></p>
+            <p>End: <%= booking.end_date%></p>
+            <% booking.places.each do |place|%>
+              <p><%= place.name%>: <%=place.price%> €</p>
+            <%end%>
+          <%end%>
+        <%end%>
+      <% else%>
+        <p>No planned booking for you!</p>
+      <% end%>
+      
+
+      <h1> My previous bookings </h1>
+      <%if @profile.user.past_bookings?%>
+        <%@bookings.each do |booking|%>
+          <%if booking.status =="unreviewed" || booking.status == "past"%>
+            <p>-----------------------------------------</p>
+            <p><%= booking.find_workspace.title%></p>
+            <p>Beginning: <%= booking.beginning_date%></p>
+            <p>End: <%= booking.end_date%></p>
+            <% booking.places.each do |place|%>
+              <p><%= place.name%>: <%=place.price%> €</p>
+            <%end%>
+          <%end%>
+          <% if booking.status == "unreviewed"%>
+            <%= link_to "Add review", new_workspace_workspace_review_path(booking.find_workspace), class: "btn btn-info"%>
+          <%end%>
+        <%end%>
+      <% else%>
+        <p>You have no past bookings!</p>
+      <% end%>
+
+    
+      <h1>What other users say about me</h1>
+      <%if @profile.user.user_reviews?%>
+        <%@bookings.each do |booking|%>
+          <%if !booking.user_review.nil?%>
+            <p>
+              <%= booking.find_workspace.user.first_name%> says:
+              <%= booking.user_review.content%> |
+              Score: <%= booking.user_review.score%>
+            </p>
+          <%end%>
+        <%end%>
+      <% else %>
+        <p>Nobody has written any reviews about you!</p>
+      <%end%>
+
+
+    <%else%>
+
+      <h1>Hi! I'm <%= @profile.user.first_name%></h1>
+
+      <h1>My bio</h1>
+      <%if @profile.bio.nil? || @profile.bio == ""%>
+        <p>This user has not yet written his bio!</p>
+      <%elsif%>
+        <p><%= @profile.bio%></p>
+      <%end%>
+
+      <h1>What other users say about me</h1>
+      <%if @profile.user.user_reviews? %>
+        <%@bookings.each do |booking|%>
+          <%if !booking.user_review.nil?%>
+            <p>
+            <%= booking.find_workspace.user.first_name%> says:
+            <%= booking.user_review.content%> |
+            Score: <%= booking.user_review.score%>
+            </p>
+          <% end %>
+        <%end%>
+      <%else %>
+        <p>Nobody has written any reviews about <%= @profile.user.first_name%></p>      
+      <%end%>
+
+
+      <h1><%=@profile.user.first_name.capitalize%>'s workspaces</h1>
+      <%if @profile.user.workspaces?%>
+        <% @my_workspaces.each do |wp|%>
+          <p><%= wp.title%></p>
+          <p>Average score: 
+            <%if wp.average >0 %> 
+              <%= wp.average %>
+            <%else%>
+              Unknown
+            <%end%>
+          </p>
+        <%end%>
+      <%else%>
+        <p><%= @profile.user.first_name%> doesn't have any workspaces!</p> 
+      <%end%>
+
+
     <%end%>
-    <p>Total: <%= booking.price%></p>
-  <%end%>
 
-  <h1>What other users say about me</h1>
-  <%@bookings.each do |booking|%>
-    <p>
-      <%= booking.find_workspace.user.first_name%> says:
-      <%= booking.user_review.content%> |
-      Score: <%= booking.user_review.score%>
-    </p>
-  <%end%>
   </div>
+</div>
+   

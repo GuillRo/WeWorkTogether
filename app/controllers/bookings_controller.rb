@@ -1,5 +1,4 @@
 class BookingsController < ApplicationController
-
   def index
     @bookings = Booking.where(user: current_user)
   end
@@ -9,16 +8,21 @@ class BookingsController < ApplicationController
 
   def new
     @booking = Booking.new
+    @workspace = Workspace.find(params[:workspace_id])
+    @place = Place.find(params[:place_id])
   end
 
   def create
-    @booking = booking.new(booking_params)
+    @booking = Booking.new(booking_params)
     @place = Place.find(params[:place_id])
-    BookingPlace.create!(booking: @booking, place: @place)
+    @booking.user = current_user
     @booking.set_status
     if @booking.save
-      redirect_to workspace_path(@workspace)
+      BookingPlace.create!(booking: @booking, place: @place)
+      redirect_to workspace_path(@place.workspace)
     else
+      @workspace = Workspace.find(params[:workspace_id])
+      @place = Place.find(params[:place_id])
       render :new
     end
   end
@@ -28,9 +32,7 @@ class BookingsController < ApplicationController
   def booking_params
     params.require(:booking).permit(:beginning_date, :end_date)
   end
-
 end
-
 
 # @booking = Booking.new(booking_params)
 # if check_correctdate?(@booking)

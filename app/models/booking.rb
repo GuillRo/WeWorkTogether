@@ -6,8 +6,11 @@ class Booking < ApplicationRecord
   belongs_to :user
   has_many :places, through: :booking_places
 
+  validates :beginning_date, presence: true
+  validates :end_date, presence: true
+
   def find_workspace
-    places.first.workspace
+    places.first&.workspace
   end
 
   def set_status
