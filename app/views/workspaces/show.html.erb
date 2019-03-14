@@ -11,8 +11,22 @@
     <%if chairs_left > 0%>
       <p>-----------------------------------------</p>
       <p>Place n°<%= index + 1 %>: <%= place.price%> €/day | <%= chairs_left %>out of <%= place.number_of_chairs %> places left</p>
-      <%= link_to "Book this place !", workspace_workspace_reviews_path(@workspace),
-          class: "btn btn-info" %>
+      <%#= link_to "Book this place !", workspace_workspace_reviews_path(@workspace), class: "btn btn-info" %>
+
+      <!-- HM Code -->
+      <div class="show-cal">Show calendar</div>
+      <div class="show-book-btn" style="display:none;">
+
+        <%= simple_form_for(Booking.new) do |t| %>
+          <%= t.input :beginning_date, as: :string, input_html: { class: "datepicker" } %>
+          <%= t.input :end_date, as: :string, input_html: { class: "datepicker" } %>
+          <%= t.submit "Book this place !", class: "btn btn-info" %>
+        <% end %>
+        <%#= link_to "Book this place !", workspace_workspace_reviews_path(@workspace), class: "btn btn-info" %>
+
+      </div>
+      <!-- HM Code -->
+
     <%end%>
   <%end%>
   <h3>What other people say of this workspace</h3>
@@ -35,3 +49,17 @@
       <%end%>
     <%end%>
   </div>
+
+
+ <!-- HM Code -->
+      <script>
+        flatpickr('.datepicker', {
+        altInput: true,
+        altFormat: "j F, Y",
+        dateFormat: "d-m-Y",
+        minDate: "today",
+        maxDate: new Date().fp_incr(365),
+        weekNumbers: true // 1 year from now
+        });
+      </script>
+ <!-- HM Code -->
