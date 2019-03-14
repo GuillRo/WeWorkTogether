@@ -4,15 +4,32 @@ class ProfilesController < ApplicationController
   def show
     @profile = Profile.find(params[:id])
     @bookings = Booking.where(user_id: @profile.user_id)
-    # @workspace_reviews = []
-    # @bookings.each do |booking|
-    #   @workspace_reviews.push(booking.workspace_review)
-
-    # end
-    @workspace_reviews = WorkspaceReview.where(booking_id: @bookings.ids)
-
     @my_workspaces = Workspace.where(user_id: @profile.user_id)
 
+    @reviews_about_my_workspaces = []
+    @my_workspaces.each do |ws|
+      ws.workspace_reviews.each do |review|
+        @reviews_about_my_workspaces.push(review)
+      end
+    end
+
+    # @reviews_i_posted_about_workspaces = WorkspaceReview.where(booking_id: @bookings.ids)
+    @reviews_i_posted_about_workspaces = []
+    @bookings.each do |booking|
+      @reviews_i_posted_about_workspaces.push(booking.workspace_review)
+    end
+
+    @reviews_i_posted_about_users = []
+    @my_workspaces.each do |ws|
+      ws.bookings.each do |booking|
+        @reviews_i_posted_about_users.push(booking.user_review)
+      end
+    end
+
+    @reviews_about_me = []
+    @bookings.each do |booking|
+      @reviews_about_me.push(booking.user_review)
+    end
   end
 
   # def create
