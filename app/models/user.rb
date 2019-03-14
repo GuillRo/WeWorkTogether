@@ -37,7 +37,7 @@ class User < ApplicationRecord
   end
 
   def user_reviews?
-    return user_reviews
+    return user_reviews.length.positive?
   end
 
   def workspace_reviews?
@@ -58,7 +58,18 @@ class User < ApplicationRecord
   def past_bookings?
     has_bookings = false
     bookings.each do |booking|
-      if booking.status == "unreviews" || booking.status == "past"
+      if booking.status == "unreviewed" || booking.status == "past"
+        has_bookings = true
+        break
+      end
+    end
+    return has_bookings
+  end
+
+  def pending_bookings?
+    has_bookings = false
+    bookings.each do |booking|
+      if booking.status == "waiting_for_payment"
         has_bookings = true
         break
       end
