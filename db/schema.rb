@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_14_103025) do
+ActiveRecord::Schema.define(version: 2019_03_14_184628) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "booking_dates", force: :cascade do |t|
+    t.date "day"
+    t.integer "chairs_taken"
+    t.bigint "place_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["place_id"], name: "index_booking_dates_on_place_id"
+  end
 
   create_table "booking_places", force: :cascade do |t|
     t.bigint "booking_id"
@@ -25,18 +34,17 @@ ActiveRecord::Schema.define(version: 2019_03_14_103025) do
   end
 
   create_table "bookings", force: :cascade do |t|
-    t.float "price"
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "status"
     t.date "beginning_date"
     t.date "end_date"
+    t.integer "price"
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end
 
   create_table "payments", force: :cascade do |t|
-    t.float "price"
     t.string "workspace_address"
     t.bigint "booking_id"
     t.string "payment_json"
@@ -44,6 +52,7 @@ ActiveRecord::Schema.define(version: 2019_03_14_103025) do
     t.bigint "owner_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "price"
     t.index ["booking_id"], name: "index_payments_on_booking_id"
     t.index ["owner_id"], name: "index_payments_on_owner_id"
     t.index ["renter_id"], name: "index_payments_on_renter_id"
@@ -59,12 +68,12 @@ ActiveRecord::Schema.define(version: 2019_03_14_103025) do
 
   create_table "places", force: :cascade do |t|
     t.bigint "workspace_id"
-    t.float "price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "number_of_chairs"
     t.text "description"
     t.string "name"
+    t.integer "price"
     t.index ["workspace_id"], name: "index_places_on_workspace_id"
   end
 
@@ -139,6 +148,7 @@ ActiveRecord::Schema.define(version: 2019_03_14_103025) do
     t.index ["user_id"], name: "index_workspaces_on_user_id"
   end
 
+  add_foreign_key "booking_dates", "places"
   add_foreign_key "booking_places", "bookings"
   add_foreign_key "booking_places", "places"
   add_foreign_key "bookings", "users"
