@@ -17,6 +17,7 @@ class User < ApplicationRecord
 
   def create_profile
     Profile.create(user: self, bio: "")
+    Dashboard.create(user: self)
   end
 
   def unreviewed_booking?(workspace)
