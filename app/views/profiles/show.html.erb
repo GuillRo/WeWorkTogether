@@ -61,62 +61,6 @@
         <%= link_to "Do it now",root_url, class: "btn btn-info"%>
       <% end %>
 
-      <h1>Your pending bookings</h1>
-      <%if @profile.user.pending_bookings?%>
-        <%@bookings.each do |booking|%>
-          <%if booking.status =="waiting_for_payment"%>
-            <p>-----------------------------------------</p>
-            <p><%= booking.find_workspace.title%></p>
-            <p>Beginning: <%= booking.beginning_date%></p>
-            <p>End: <%= booking.end_date%></p>
-            <% booking.places.each do |place|%>
-              <p><%= place.name%>: <%=place.price%> €</p>
-            <%end%>
-          <%= link_to "Pay now",root_url, class: "btn btn-info"%>
-          <%end%>
-        <%end%>
-      <%else%>
-        <p>No pending bookings!
-      <%end%>
-
-      <h1>Your future bookings</h1>
-      <%if @profile.user.future_bookings?%>
-        <%@bookings.each do |booking|%>
-          <%if booking.status =="paid"%>
-            <p>-----------------------------------------</p>
-            <p><%= booking.find_workspace.title%></p>
-            <p>Beginning: <%= booking.beginning_date%></p>
-            <p>End: <%= booking.end_date%></p>
-            <% booking.places.each do |place|%>
-              <p><%= place.name%>: <%=place.price%> €</p>
-            <%end%>
-          <%end%>
-        <%end%>
-      <% else%>
-        <p>No planned booking for you!</p>
-      <% end%>
-      
-
-      <h1>Your previous bookings </h1>
-      <%if @profile.user.past_bookings?%>
-        <%@bookings.each do |booking|%>
-          <%if booking.status =="unreviewed" || booking.status == "past"%>
-            <p>-----------------------------------------</p>
-            <p><%= booking.find_workspace.title%></p>
-            <p>Beginning: <%= booking.beginning_date%></p>
-            <p>End: <%= booking.end_date%></p>
-            <% booking.places.each do |place|%>
-              <p><%= place.name%>: <%=place.price%> €</p>
-            <%end%>
-          <%end%>
-          <% if booking.status == "unreviewed"%>
-            <%= link_to "Add review", new_workspace_workspace_review_path(booking.find_workspace), class: "btn btn-info"%>
-          <%end%>
-        <%end%>
-      <% else%>
-        <p>You have no past bookings!</p>
-      <% end%>
-
     
       <h1>What other users say about you</h1>
       <%if @reviews_about_me.length.positive?%>

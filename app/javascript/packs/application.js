@@ -4,8 +4,10 @@ import { initUpdateNavbarHomeOnScroll } from '../components/navbarhome';
 import { showCalendar } from '../components/showcalendar';
 import { mapAction } from '../components/map';
 // import { hideCalendar } from '../components/hidecalendar';
+import { changeTab} from '../components/tabs'
 
 initUpdateNavbarOnScroll();
 initUpdateNavbarHomeOnScroll();
 showCalendar();
+changeTab();
 mapAction();
