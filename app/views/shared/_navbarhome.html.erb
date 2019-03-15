@@ -5,14 +5,15 @@
   <% end %>
   <!-- Right Navigation -->
   <div class="navbar-wagon-home-right hidden-xs hidden-sm">
-    <%#= link_to "About", root_path, class: "navbar-wagon-home-item navbar-wagon-home-link"%>
     <% if user_signed_in? %>
+
       <!-- Links when logged in -->
       <%#= link_to "Add flat", new_flat_url, class: "navbar-wagon-home-item navbar-wagon-home-link"%>
       <%#= link_to "Host", "#", class: "navbar-wagon-home-item navbar-wagon-home-link" %>
       <%#= link_to "Trips", "#", class: "navbar-wagon-home-item navbar-wagon-home-link" %>
       <%#= link_to "Messages", "#", class: "navbar-wagon-home-item navbar-wagon-home-link" %>
       <!-- Avatar with dropdown menu -->
+      <%= link_to "Dashboard", dashboard_path(current_user), class: "navbar-wagon-home-item navbar-wagon-home-link"%>
       <div class="navbar-wagon-home-item">
         <div class="dropdown">
           <%= cl_image_tag current_user&.profile&.photo&.url, class: "avatar dropdown-toggle", id: "navbar-wagon-home-menu", "data-toggle" => "dropdown" %>
