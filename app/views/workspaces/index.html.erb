@@ -1,4 +1,4 @@
-<div class="text-center" style="margin-top: 100px;"><h1>Where will you work next?</h1></div>
+<div class="text-center" style="margin-top: 150px;"><h1>Where will you work next?</h1></div>
 
 <div class="main-map-container">
   <div class="cards-container">
@@ -13,7 +13,7 @@
               <div class="workspace-card-title">
                 <div class="workspace-card-title-position">
                   <%= workspace.title %>
-                  <p> Workspaces starting at <%=workspace.minimum%> €/day</p>
+                  <p> Starting at <%=workspace.minimum%>€/day</p>
                 </div>
                 <div class="workspace-card-rating">
                   <p><%= "★" * workspace.average %><%= "☆" * (5 - workspace.average ) %> </p>
@@ -26,8 +26,8 @@
       <% end %>
     </div>
   </div>
-
-
+  <div id="map-x"><i class="fas fa-times"></i></div>
+  <div id="map-button"><i class="fas fa-map-marker-alt"></i></div>
 
 
 <!-- BACK-END (ONLY) OF GEOMAP CODE -->
