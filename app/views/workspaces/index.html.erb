@@ -1,4 +1,4 @@
-<div class="text-center" style="margin-top: 150px;"><h1>Where will you work next?</h1></div>
+<div class="text-center" style="margin-top: 150px; margin-bottom: 20px;"><h1>Where will you work next?</h1></div>
 
 <div class="main-map-container">
   <div class="cards-container">
@@ -26,14 +26,15 @@
       <% end %>
     </div>
   </div>
-  <div id="map-x"><i class="fas fa-times"></i></div>
   <div id="map-button"><i class="fas fa-map-marker-alt"></i></div>
 
 
 <!-- BACK-END (ONLY) OF GEOMAP CODE -->
 
   <div id='map' data-markers="<%= @markers.to_json %>"
-  data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+  data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+    <div id="map-x"><i class="fas fa-times"></i></div>
+  </div>
 </div>
 <!-- END -->
 

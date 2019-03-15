@@ -4,11 +4,12 @@ const mapAction = () => {
   mapButton.addEventListener("click", () => {
     mapBox.style.cssText = 'top: 0vh !important';
     mapX.style.display = "block";
+    mapX.style.visibility = "visible";
   });
 
   const mapX = document.getElementById("map-x");
   mapX.addEventListener("click", () => {
-    mapX.style.display = "none";
+    mapX.style.visibility = "hidden";
     mapBox.style.cssText = 'top: 150vh !important';
   })
 }

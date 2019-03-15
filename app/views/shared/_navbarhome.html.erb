@@ -18,7 +18,7 @@
           <%= cl_image_tag current_user&.profile&.photo&.url, class: "avatar dropdown-toggle", id: "navbar-wagon-home-menu", "data-toggle" => "dropdown" %>
           <ul class="dropdown-menu dropdown-menu-right navbar-wagon-home-dropdown-menu">
             <li>
-              <%= link_to profile_url(current_user) do %>
+              <%= link_to profile_url(current_user.profile) do %>
                 <i class="fa fa-user"></i> <%= t(".profile", default: "Profile") %>
               <% end %>
             </li>
@@ -37,8 +37,8 @@
       </div>
     <% else %>
       <!-- Login link (when logged out) -->
-      <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-home-item navbar-wagon-home-link login-link" %>
       <%= link_to "Sign up", root_path, class: "navbar-wagon-home-item navbar-wagon-home-link"%>
+      <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-home-item navbar-wagon-home-link login-link" %>
     <% end %>
   </div>
   <!-- Dropdown list appearing on mobile only -->
@@ -48,7 +48,7 @@
       <ul class="dropdown-menu dropdown-menu-right navbar-wagon-home-dropdown-menu">
         <li>
           <%if user_signed_in?%>
-            <%= link_to profile_url(current_user) do %>
+            <%= link_to profile_url(current_user.profile) do %>
               <i class="fa fa-user"></i> <%= t(".profile", default: "Profile") %>
             <% end %>
           </li>
