@@ -24,7 +24,7 @@
 /* Logo */
 .navbar-wagon-home-brand img {
   height: 50px;
-  margin-left: 3.333em;
+  margin-left: 8px;
 }
 
 /* User Avatar */
@@ -52,23 +52,30 @@
 /* Navbar link */
 .navbar-wagon-home-link {
   color: #626161;
-  font-weight: bolder;
   font-size: 1em;
 }
 
 .login-link {
-  background-color: #4E4C4C;
+  background-color: #C4C4C4;
   border-radius: 4px;
-  padding-top: 0.833em;
-  padding-bottom: 0.833em;
-  color: #FFFFFF;
-  margin-left: 1.234em;
-  margin-right: 3.333em;
+  padding-top: 0.4em !important;
+  padding-bottom: 0.4em !important;
+  color: rgb(250,250,250);
+  margin-left: 8px;
+  margin-right: 8px;
+  transition: .3s ease;
 }
 
 .navbar-wagon-home-link:hover {
   color: #C4C4C4;
   text-decoration: none;
+}
+
+
+.login-link:hover {
+  background-color: #F5E965;
+  text-decoration: none;
+  color: rgb(250,250,250);
 }
 
 /* Dropdown menu */

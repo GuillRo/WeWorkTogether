@@ -1,24 +1,23 @@
+
 <div class="navbar-wagon navbar-fixed-top">
-  <%= link_to root_path, class: "navbar-wagon-brand" do %>
-  <%= image_tag("logo_ylw.svg", alt: "WeWorkTogether Logo", class: "navbar-logo-img")%>
-
-  <% end %>
+  <div>
+    <%= link_to root_path, class: "navbar-wagon-brand" do %>
+      <%= image_tag("logo_ylw.svg", alt: "WeWorkTogether Logo", class: "navbar-logo-img")%>
+    <% end %>
           <!-- SEARCH-BAR (INPUT + BUTTON) - BEGIN -->
-        <div class="search-bar-in-nav-bar">
-          <script src="https://cdn.jsdelivr.net/npm/places.js@1.16.1"></script>
-
-          <%= form_tag workspaces_path, id: 'algolia_form', method: :get do %>
-            <div class="search-bar-container">
-              <div class="search-bar">
-
-              <%= text_field_tag :query, params[:query], class: "form-control js-searchbar homepage-search", placeholder: "Enter your city!", autocomplete:"off" %>
-
-              </div>
-              <% end %>
+    <div class="search-bar-in-nav-bar">
+      <script src="https://cdn.jsdelivr.net/npm/places.js@1.16.1"></script>
+      <%= form_tag workspaces_path, id: 'algolia_form', method: :get do %>
+        <div class="search-bar-container">
+          <div class="search-bar">
+            <%= text_field_tag :query, params[:query], class: "form-control js-searchbar homepage-search", placeholder: "Enter a city", autocomplete:"off" %>
+          </div>
+        </div>
+      <% end %>
               <!-- <input type="submit" value="Search" form="algolia_form" class="wwt-btn-common">
               <input type="submit" value="Search" form="algolia_form" class="wwt-btn-common-cellphone" style="display: none;">
  -->
-            </div>
+    </div>
 
           <script>
             var placesAutocomplete = places({
@@ -28,7 +27,7 @@
               language: 'en'
             });
           </script>
-        </div>
+  </div>
         <!-- SEARCH-BAR (INPUT + BUTTON) - END -->
 
 
@@ -48,7 +47,7 @@
           <%= cl_image_tag current_user&.profile&.photo&.url, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
           <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
             <li>
-              <%= link_to profile_url(current_user) do %>
+              <%= link_to profile_url(current_user.profile) do %>
                 <i class="fa fa-user"></i> <%= t(".profile", default: "Profile") %>
               <% end %>
             </li>
@@ -67,8 +66,8 @@
       </div>
     <% else %>
       <!-- Login link (when logged out) -->
-      <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link login-link" %>
       <%= link_to "Sign up", root_path, class: "navbar-wagon-home-item navbar-wagon-home-link"%>
+      <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link inner-login-link" %>
     <% end %>
   </div>
   <!-- Dropdown list appearing on mobile only -->
@@ -78,7 +77,7 @@
       <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
         <li>
           <%if user_signed_in?%>
-            <%= link_to profile_url(current_user) do %>
+            <%= link_to profile_url(current_user.profile) do %>
               <i class="fa fa-user"></i> <%= t(".profile", default: "Profile") %>
             <% end %>
           </li>
