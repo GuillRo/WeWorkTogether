@@ -48,12 +48,25 @@ body {
   border-radius: 50px;
   height: 60px;
   width: 440px;
-  padding-left: 36px !important;
+  padding-left: 36px;
   position: relative;
   font-size: 18px;
   color: #626161;
   font-weight: normal;
 }
+
+.ap-input-home {
+  border: 1px solid #C4C4C4;
+  border-radius: 50px;
+  height: 60px !important;
+  width: 440px;
+  padding-left: 36px !important;
+  position: relative;
+  font-size: 18px !important;
+  color: #626161;
+  font-weight: normal;
+}
+
 
 .ap-input-icon {
   display: none !important;

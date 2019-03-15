@@ -23,8 +23,8 @@
 
 /* Logo */
 .navbar-wagon-brand img {
-  height: 50px;
-  margin-left: 3.333em;
+  /* height: 25px; */
+  /* margin-left: 1.234em; */
 }
 
 /* User Avatar */
@@ -71,6 +71,10 @@
   text-decoration: none;
 }
 
+
+.small-fa-bars {
+  font-size: 25px;
+}
 /* Dropdown menu */
 .navbar-wagon-dropdown-menu {
   margin-top: 15px;
