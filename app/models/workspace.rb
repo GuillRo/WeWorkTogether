@@ -18,9 +18,9 @@ class Workspace < ApplicationRecord
     minimum = 0
     places.each do |place|
       if minimum.zero?
-        minimum = place.price
-      elsif minimum > place.price
-        minimum = place.price
+        minimum = place.price_cents
+      elsif minimum > place.price_cents
+        minimum = place.price_cents
       end
     end
     return minimum

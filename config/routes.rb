@@ -2,7 +2,6 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  resources :profiles, only: [:show, :update, :create, :new, :edit]
   resources :workspaces do
     resources :workspace_reviews, only: [:new, :create]
     resources :places, only: [:show, :new, :create]
@@ -11,7 +10,10 @@ Rails.application.routes.draw do
   resources :places, only: [] do
     resources :bookings, only: [:new, :create]
   end
-  resources :payments
+  resources :payments, only: [:new, :create] do
+   resources :stripe, only: [:new, :create]
+  end
+
   resources :profiles, only: [:show, :new, :create, :edit, :update, :destroy] do
     resources :user_reviews, only: [:index, :new, :create]
 
