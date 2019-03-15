@@ -41,22 +41,22 @@ class ProfilesController < ApplicationController
   #   end
   # end
 
-  # def new
-  #   @profile = Profile.new
-  # end
+  def new
+    @profile = Profile.new
+  end
 
-  # def edit
-  # end
+  def edit
+  end
 
-  # def update
-  #   @profile.update(profile_params)
-  #   redirect_to profile_path(@profile)
-  # end
+  def update
+    @profile.update(profile_params)
+    redirect_to profile_path(@profile)
+  end
 
   private
 
   def profile_params
-    params.require(:profile).permit(:photo)
+    params.require(:profile).permit(:photo, :bio)
   end
 
   def set_profile
