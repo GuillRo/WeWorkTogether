@@ -1,6 +1,6 @@
 <div class="navbar-wagon navbar-fixed-top">
   <%= link_to root_path, class: "navbar-wagon-brand" do %>
-  <%= image_tag("logo_ylw.svg", alt: "WeWorkTogether Logo", height: 50)%>
+  <%= image_tag("logo_ylw.svg", alt: "WeWorkTogether Logo", class: "navbar-logo-img")%>
 
   <% end %>
           <!-- SEARCH-BAR (INPUT + BUTTON) - BEGIN -->
@@ -10,10 +10,14 @@
           <%= form_tag workspaces_path, id: 'algolia_form', method: :get do %>
             <div class="search-bar-container">
               <div class="search-bar">
-              <%= text_field_tag :query, params[:query], class: "form-control js-searchbar homepage-search", placeholder: "Where are you going next!", autocomplete:"off" %>
+
+              <%= text_field_tag :query, params[:query], class: "form-control js-searchbar homepage-search", placeholder: "Enter your city!", autocomplete:"off" %>
+
               </div>
               <% end %>
-              <input type="submit" value="Search" form="algolia_form" class="wwt-btn-common">
+              <!-- <input type="submit" value="Search" form="algolia_form" class="wwt-btn-common">
+              <input type="submit" value="Search" form="algolia_form" class="wwt-btn-common-cellphone" style="display: none;">
+ -->
             </div>
 
           <script>
@@ -70,7 +74,7 @@
   <!-- Dropdown list appearing on mobile only -->
   <div class="navbar-wagon-item hidden-md hidden-lg">
     <div class="dropdown">
-      <i class="fa fa-bars" data-toggle="dropdown"></i>
+      <i class="fa fa-bars small-fa-bars" data-toggle="dropdown"></i>
       <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
         <li>
           <%if user_signed_in?%>
