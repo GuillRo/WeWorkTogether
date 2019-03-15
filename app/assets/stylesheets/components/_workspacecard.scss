@@ -1,10 +1,10 @@
 /* Your card CSS code here */
-.worspace-cards {
+.workspace-cards {
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
 }
-.worspace-cards .worspace-card{
+.workspace-cards .workspace-card{
   flex: 1 1 auto;
   box-sizing: border-box;
   border: 1px solid #ccc!important;
@@ -23,18 +23,18 @@
   }
 }
 
-.worspace-card:hover{
+.workspace-card:hover{
   box-shadow: 0 0 8px rgba(0,0,0,0.4);
 
 }
 
-.worspace-card-content {
+.workspace-card-content {
   display: flex;
   flex-direction: row;
 
 }
 
-.worspace-card-image {
+.workspace-card-image {
   margin: 10px;
   background-size: cover;
   width: 40%;
@@ -42,14 +42,14 @@
 
 }
 
-.worspace-card-rating {
+.workspace-card-rating {
   position: absolute;
   font-size: 15px;
   letter-spacing: 2px;
   opacity: 0.8;
 }
 
-.worspace-card-title {
+.workspace-card-title {
   position: relative;
   padding: 10px;
   font-size: 25px;
@@ -57,44 +57,102 @@
   width: 60%;
 }
 
-.worspace-card-title-position {
+.workspace-card-title-position {
   position: absolute;
   bottom: 20px;
 
 }
 
-.worspace-card-user {
+.workspace-card-user {
 }
 
-.worspace-card-user h2{
+.workspace-card-user h2{
   font-size: 15px;
 }
 
 
-.worspace-card-footer {
+.workspace-card-footer {
   display:flex;
   align-items: center;
   justify-content: space-between;
   padding: 10px;
 }
 
-.worspace-card-footer p{
+.workspace-card-footer p{
   font-weight: lighter;
   color: rgb(150, 150, 150);
   font-size: 13px;
 }
 
-.worspace-card-footer .controls {
+.workspace-card-footer .controls {
   display: flex;
   align-items: center;
 }
 
-.worspace-card-footer .controls i{
+.workspace-card-footer .controls i{
   color: black;
   opacity: 0.2;
   padding: 0 8px;
 }
 
-.worspace-card-footer .controls i:hover {
+.workspace-card-footer .controls i:hover {
   opacity: 0.5;
+}
+
+#map-button {
+display: none;
+color: white;
+padding: 15px;
+border-radius: 50px;
+font-weight: bold;
+background: #F5E965;
+transition: background 0.3s ease;
+height: 40px;
+width: 40px;
+position: fixed;
+bottom: 15px;
+right: 15px;
+justify-content: center;
+align-items: center;
+
+}
+
+#map-button:hover {
+opacity: 1;
+background: #F5E965;
+text-decoration: none;
+color: white;
+}
+
+#map-x {
+padding: 15px;
+border-radius: 50px;
+transition: background 0.3s ease;
+height: 40px;
+width: 40px;
+position: absolute;
+top: 60px;
+left: 4px;
+display: flex;
+justify-content: center;
+align-items: center;
+z-index: 1100;
+font-size: 40px;
+font-weight:lighter;
+display: none;
+transition: .4s ease;
+}
+
+@media all and (max-width: 800px) {
+  #map {
+    height: 100vh;
+    width: 100vw;
+    position: fixed !important;
+    top: 150vh !important;
+    margin: 0;
+    transition: .4s ease;
+  }
+  #map-button  {
+    display: flex;
+  }
 }

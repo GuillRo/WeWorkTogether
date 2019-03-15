@@ -10,10 +10,10 @@
           <%= form_tag workspaces_path, id: 'algolia_form', method: :get do %>
             <div class="search-bar-container">
               <div class="search-bar">
-              <%= text_field_tag :query, params[:query], class: "form-control js-searchbar homepage-search", placeholder: "Where are you going next!", autocomplete:"off" %>
+              <%= text_field_tag :query, params[:query], class: "form-control js-searchbar homepage-search  ap-input-home", placeholder: "Enter a city", autocomplete:"off" %>
               </div>
               <% end %>
-              <input type="submit" value="Search" form="algolia_form" class="wwt-btn">
+              <!-- <input type="submit" value="Search" form="algolia_form" class="wwt-btn"> -->
             </div>
 
           <script>
@@ -32,7 +32,7 @@
   </div>
   <div class="intro">
     <h3>Unique workspaces for your next trip</h3>
-    <p>Book one of these unique spots to escape the ordinary</p>
+    <p>Book one of these spots and escape the ordinary</p>
     <%#= render 'shared/carousel' %>
   </div>
 
