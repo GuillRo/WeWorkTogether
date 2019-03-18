@@ -1,4 +1,5 @@
 class Workspace < ApplicationRecord
+  before_validation :check_pic
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
   belongs_to :user
@@ -12,6 +13,10 @@ class Workspace < ApplicationRecord
     return 0 if workspace_reviews.empty?
 
     workspace_reviews.inject(0) { |sum, x| sum += x.score } / workspace_reviews.length
+  end
+
+  def main_photo
+    photos.first&.photo&.url
   end
 
   def minimum
