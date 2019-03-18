@@ -25,7 +25,7 @@ class Booking < ApplicationRecord
     end
   end
 
-  def calculate_price
-    
+  def calculate_time
+    return (end_date - beginning_date).to_i + 1
   end
 end
