@@ -17,6 +17,7 @@ class BookingsController < ApplicationController
     @place = Place.find(params[:place_id])
     @booking.user = current_user
     @booking.set_status
+    @booking.price = @place.price * @booking.calculate_time
     if @booking.save
       BookingPlace.create!(booking: @booking, place: @place)
       # HM Codeline below (if save_the_days condition)
