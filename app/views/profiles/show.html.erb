@@ -21,7 +21,7 @@
       </div>
       <div class="review-white-container">
         <h2>Reviews about me</h2>
-          <%if @reviews_about_me.length.positive?%>
+          <%unless @reviews_about_me == [nil]%>
             <%@reviews_about_me.each do |review|%>
               <div class="review-container text-center">
                 <div><p><%= review.booking.find_workspace.user.first_name%> says <em>
@@ -38,7 +38,7 @@
 
       <div class="review-bottom-white-container">
         <h2>My reviews</h2>
-          <%if @reviews_i_posted_about_workspaces.length.positive?%>
+          <%unless @reviews_i_posted_about_workspaces == [nil]%>
             <% @reviews_i_posted_about_workspaces.each do |wp_review|%>
             <div class="review-container text-center">
               <h4><%= wp_review.booking.find_workspace.title%></h4>
