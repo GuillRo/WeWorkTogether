@@ -1,0 +1,88 @@
+.dashboard-yellow-container {
+    background-color: #f5e965;
+    margin-top: 50px;
+    padding: 50px;
+    border-radius: 10px;
+}
+
+.dashboard-white-container {
+  background-color: white;
+  min-height: 100px;
+  border-radius: 4px;
+  padding: 20px;
+  margin: 30px 30px 80px 30px;
+  position:relative;
+
+  h2 {
+    font-weight: lighter;
+    position: absolute;
+    top: -58px;
+    left: 8px;
+
+  }
+
+  h4 {
+    font-weight: normal;
+  }
+
+}
+
+.bottom-dashboard-white-container {
+  background-color: white;
+  min-height: 100px;
+  border-radius: 4px;
+  padding: 20px;
+  margin: 30px;
+  position:relative;
+
+  h2 {
+    font-weight: lighter;
+    position: absolute;
+    top: -58px;
+    left: 8px;
+
+  }
+
+  h4 {
+    font-weight: normal;
+  }
+}
+
+.border-box {
+  border: 1px solid #C4C4C4;
+  min-height: 100px;
+  border-radius: 4px;
+  padding: 20px;
+  margin: 20px;
+  position: relative;
+
+}
+
+#paid {
+  color: $nice-green;
+}
+
+#unpaid {
+  color: $nice-red;
+}
+
+
+.dashboard-booking-status {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: #C4C4C4;
+  font-size: 18px;
+}
+
+.payment-button {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+
+}
+
+
+#dashboard-tabs {
+  margin-bottom: 80px;
+}
