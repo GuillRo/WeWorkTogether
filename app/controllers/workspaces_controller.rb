@@ -27,10 +27,14 @@ class WorkspacesController < ApplicationController
 
   def create
     @workspace = Workspace.new(workspace_params)
-    @user = current_user
-
+    @workspace.user = current_user
     if @workspace.save
-      redirect_to workspace_path(@workspace)
+      if @workspace.place?
+        redirect_to workspace_path(@workspace)
+      else
+        Workspace.destroy(@workspace.id)
+        render :new
+      end
     else
       render :new
     end

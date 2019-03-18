@@ -9,6 +9,10 @@ class Workspace < ApplicationRecord
   has_many :bookings, through: :places
   has_many :workspace_reviews, through: :bookings
 
+  validates :description, presence: true
+  validates :address, presence: true
+  validates :title, presence: true
+
   def average
     return 0 if workspace_reviews.empty?
 
@@ -27,8 +31,7 @@ class Workspace < ApplicationRecord
     return minimum
   end
 
-def add_place 
-
-end
-
+  def place?
+    return !places.empty?
+  end
 end
