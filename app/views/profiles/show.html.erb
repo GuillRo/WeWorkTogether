@@ -1,88 +1,62 @@
 <div class="container">
-  <div class="yellow-container">
+  <div class="profile-yellow-container">
     <div class="text-center">
       <%if @profile.user == current_user %>
-      <h1>My profile</h1>
+      <h1 style="font-weight: normal">My profile</h1>
     </div>
     <div class="text-center">
       <%= cl_image_tag @profile&.photo&.url, class: 'avatar-large'  %>
     </div>
-    <div class="text-center">
-      <h1>Bio</h1>
-      <%if @profile.bio.nil? || @profile.bio == ""%>
-        <p>Add a bio</p>
-        <%= link_to "Edit", edit_profile_path(@profile),
-          class: "btn btn-info btn-sm" %>
-      <%elsif%>
-        <p><%= @profile.bio%></p>
-        <%= link_to "Edit", edit_profile_path(@profile),
-          class: "btn btn-info btn-sm" %>
-      <%end%>
-    </div>
-
-      <h1>My workspace reviews</h1>
-      <%if @reviews_i_posted_about_workspaces.length.positive?%>
-        <% @reviews_i_posted_about_workspaces.each do |wp_review|%>
-          <p>-----------------------------</p>
-          <p>Workspace name: <%= wp_review.booking.find_workspace.title%></p>
-          <p><%= wp_review.content%></p>
-          <p>Score: <%= wp_review.score %></p>
-          <p>Date: </p>
-        <% end %>
-      <%else%>
-        <p> You haven't reviewed any workspaces yet.</p>
-      <% end %>
-
-      <h1>My user reviews</h1>
-      <%if @reviews_i_posted_about_users.length.positive? %>
-        <% @reviews_i_posted_about_users.each do |u_review|%>
-          <p>-----------------------------</p>
-          <p>User name: <%= u_review.booking.user.first_name%> <%= u_review.booking.user.last_name%></p>
-          <p><%= u_review.content%></p>
-          <p>Score: <%= u_review.score %></p>
-          <p>Date: </p>
-        <% end %>
-      <%else%>
-        <p>You haven't reviewed any users yet.</p>
-      <%end%>
-
-
-      <h1>My workspaces</h1>
-      <%if @my_workspaces.length.positive?%>
-        <% @my_workspaces.each do |wp|%>
-          <p><%= wp.title%></p>
-          <p>Average score:
-          <%if wp.average == 0%>
-            unknown
-          <%else%>
-            <%= wp.average %>
+      <div class="profile-white-container">
+        <h2>My bio</h2>
+          <%if @profile.bio.nil? || @profile.bio == ""%>
+            <p>Add a bio via 'edit'.</p>
+            <%= link_to "Edit", edit_profile_path(@profile),
+              class: "profile-edit" %>
+          <%elsif%>
+            <p><%= @profile.bio%></p>
+            <%= link_to "Edit", edit_profile_path(@profile),
+              class: "profile-edit" %>
           <%end%>
-          </p>
-        <%= link_to "Edit",root_url, class: "btn btn-info"%>
+      </div>
+      <div class="review-white-container">
+        <h2>Reviews about me</h2>
+          <%unless @reviews_about_me == [nil]%>
+            <%@reviews_about_me.each do |review|%>
+              <%unless review.nil? %>
+                <div class="review-container text-center">
+                  <div><p><%= review.booking.find_workspace.user.first_name%> says <em>
+                    "<%= review.content%>"</em>
+                  </p></div>
+                  <div><p><%= "★" * review.score %><%= "☆" * (5 - review.score) %> </p></div>
+                  <p class="review-post-time"><%= review.created_at %></p>
+                </div>
+              <%end%>
+            <%end%>
+          <% else %>
+            <p>There are no reviews about you yet.</p>
+          <%end%>
+      </div>
 
-        <%end%>
-        <p>----------------------------------</p>
-        <%= link_to "Add a workspace",new_workspace_url, class: "btn btn-info"%>
-      <% else %>
-        <p>You haven't added a workspace yet.</p>
-        <%= link_to "Do it now",root_url, class: "btn btn-info"%>
-      <% end %>
-    
-      <h1>Reviews about me</h1>
-      <%if @reviews_about_me.length.positive?%>
-        <%@reviews_about_me.each do |review|%>
-          <%#if !booking.user_review.nil? %>
-            <p>
-              <%#= booking.find_workspace.user.first_name%>
-              <%= review.booking.find_workspace.user.first_name%> says:
-              <%= review.content%>
-              Score: <%= review.score%>
-            </p>
-          <%#end%>
-        <%end%>
-      <% else %>
-        <p>Nobody has written any reviews about you</p>
-      <%end%>
+      <div class="review-bottom-white-container">
+        <h2>My reviews</h2>
+          <%unless @reviews_i_posted_about_workspaces == [nil]%>
+            <% @reviews_i_posted_about_workspaces.each do |wp_review|%>
+              <%unless wp_review.nil? %>
+                <div class="review-container text-center">
+                <h4><%= wp_review.booking.find_workspace.title%></h4>
+                <p><em> "<%= wp_review.content%>" </em></p>
+                <p><%= "★" * wp_review.score %><%= "☆" * (5 - wp_review.score) %> </p>
+                <p class="review-post-time"><%= wp_review.created_at %></p>
+              </div>
+              <% end %>
+            <%end%>
+          <%else%>
+            <p> You haven't reviewed any workspaces yet.</p>
+          <% end %>
+      </div>
+
+
 
 
     <%else%>
@@ -96,7 +70,7 @@
         <p><%= @profile.bio%></p>
       <%end%>
 
-      <h1>Reviews about <%= @profile.user.first_name.capitalize%></h1>
+      <h1>Reviews about users <%= @profile.user.first_name.capitalize%></h1>
       <%if @reviews_about_me.length.positive? %>
         <%@reviews_about_me.each do |review|%>
           <%#if !booking.user_review.nil?%>
@@ -130,6 +104,5 @@
 
 
     <%end%>
-
   </div>
 </div>

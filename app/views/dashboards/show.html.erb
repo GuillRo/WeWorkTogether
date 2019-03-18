@@ -1,106 +1,92 @@
-<div class="container">
-  <%= render 'shared/tabs' %>
+<div class="container" style="margin-top:100px;">
 
-<div id="tab-bookings" style="">
-      <%# <h1>Your pending bookings</h1> %>
-      <%#if current_user.pending_bookings?%>
-        <%#@bookings.each do |booking|%>
-          <%#if booking.status =="waiting_for_payment"%>
-            <%# <p>-----------------------------------------</p> %>
-            <%# <p> %>
-            <%#= booking.find_workspace.title%>
-            <%# </p> %>
-            <%# <p>Beginning:  %>
-            <%#= booking.beginning_date%>
-            <%# </p> %>
-            <%# <p>End:  %>
-            <%#= booking.end_date%>
-            <%# </p> %>
-            <%# booking.places.each do |place|%>
-              <%# <p> %>
-              <%#= place.name%> 
-              <%#=place.price%>
-              <%# €</p> %>
-            <%#end%>
-          <%#= link_to "Pay now",root_url, class: "btn btn-info"%>
-          <%#end%>
-        <%#end%>
-      <%#else%>
-        <%# <p>No pending bookings! %>
-      <%#end%>
-
-
-      <h1>Upcoming</h1>
-      <%if current_user.future_bookings?%>
-        <%@bookings.each do |booking|%>
-          <%if booking.status =="paid" || booking.status == "waiting_for_payment"%>
-            <p>-----------------------------------------</p>
-            <p><%= booking.find_workspace.title%></p>
-            <p>Beginning: <%= booking.beginning_date%></p>
-            <p>End: <%= booking.end_date%></p>
-            <% booking.places.each do |place|%>
-              <p><%= place.name%>: <%=place.price%> €</p>
-            <%end%>
-            <% if booking.status == 'waiting_for_payment'%>
-            <p> /!\ you have not finalized your booking! /!\ </p>
-              <%= link_to "Pay now",root_url, class: "btn btn-info"%>
-            <%end%>
+  <div class="yellow-container">
+    <div id="dashboard-tabs"><%= render 'shared/tabs' %></div>
+    <div id="tab-bookings">
+      <div class="dashboard-white-container">
+        <h2>Upcoming</h2>
+        <%if !current_user.upcoming_bookings.empty?%>
+        <%@current_user.upcoming_bookings.each do |booking|%>
+        <div class="border-box">
+          <h4><%= booking.find_workspace.title%></h4>
+          <% booking.places.each do |place|%>
+          <p><%= place.name.capitalize%>: <%=place.price%>€ per day</p>
           <%end%>
+          <p><strong>Start:</strong> <%= booking.beginning_date%> <strong>End:</strong> <%= booking.end_date%></p>
+          <div class="dashboard-booking-status" id="unpaid">
+            <p><%= "Unpaid" if booking.status == "waiting_for_payment"  %></p>
+          </div>
+            <%= link_to "Pay now",root_url, class: "btn btn-danger btn-xs payment-button" if booking.status == "waiting_for_payment"%>
+          <div class="dashboard-booking-status" id="paid">
+            <p><%= "Paid" if booking.status == "paid" %></p>
+          </div>
+        </div>
+
         <%end%>
-      <% else%>
-        <p>No planned booking for you!</p>
-      <% end%>
 
+        <%else%>
+        <div class="border-box">
+          <p>No upcoming bookings</p>
+        </div>
+        <%end%>
+      </div>
 
-
-      <h1>Past</h1>
-      <%if current_user.past_bookings?%>
+      <div class="bottom-dashboard-white-container">
+        <h2>Past</h2>
+        <%if current_user.past_bookings? %>
         <%@bookings.each do |booking|%>
-          <%if booking.status =="unreviewed" || booking.status == "past"%>
-            <p>-----------------------------------------</p>
-            <p><%= booking.find_workspace.title%></p>
-            <p>Beginning: <%= booking.beginning_date%></p>
-            <p>End: <%= booking.end_date%></p>
-            <% booking.places.each do |place|%>
-              <p><%= place.name%>: <%=place.price%> €</p>
-            <%end%>
+        <%if booking.status =="unreviewed" || booking.status == "past"%>
+
+        <div class="border-box">
+          <h4><%= booking.find_workspace.title%></h4>
+          <% booking.places.each do |place|%>
+          <p><%= place.name.capitalize%>: <%=place.price%> € per day</p>
           <%end%>
+          <p><strong>Start:</strong> <%= booking.beginning_date%> <strong>End:</strong> <%= booking.end_date%></p>
           <% if booking.status == "unreviewed"%>
-            <%= link_to "Add review", new_workspace_workspace_review_path(booking.find_workspace), class: "btn btn-info"%>
+          <%= link_to "Add review", new_workspace_workspace_review_path(booking.find_workspace), class: "btn btn-success btn-xs"%>
           <%end%>
+
+        </div>
         <%end%>
-      <% else%>
-        <p>You have no past bookings!</p>
-      <% end%>
 
-</div>
+        <%end%>
+        <% else%>
+        <div class="border-box">
+          <p>No past bookings</p>
+        </div>
+        <% end%>
+      </div>
+
+    </div>
 
 
-<div id="tab-workspaces" style="display:none;">
+    <div id="tab-workspaces" style="display:none;">
       <h1>Your workspaces</h1>
       <%if @my_workspaces.length.positive?%>
-        <% @my_workspaces.each do |wp|%>
-          <p><%= wp.title%></p>
-          <p>Average score: 
-          <%if wp.average == 0%>
-            unknown
-          <%else%>
-            <%= wp.average %>
-          <%end%>
-          </p>
-        <%= link_to "Edit",root_url, class: "btn btn-info"%>
-        <p>Reviews</p>
-        <%wp.workspace_reviews.each do |wp_review|%>
-          <p><%= wp_review.booking.user.first_name %></p>
-          <p><%= wp_review.content%></p>
-          <p>Score: <%= wp_review.score%></p>
+      <% @my_workspaces.each do |wp|%>
+      <p><%= wp.title%></p>
+      <p>Average score:
+        <%if wp.average == 0%>
+        unknown
+        <%else%>
+        <%= wp.average %>
         <%end%>
-        <%end%>
-        <p>----------------------------------</p>
-        <%= link_to "Add a workspace",new_workspace_url, class: "btn btn-info"%>
+      </p>
+      <%= link_to "Edit",root_url, class: "btn btn-info"%>
+      <p>Reviews</p>
+      <%wp.workspace_reviews.each do |wp_review|%>
+      <p><%= wp_review.booking.user.first_name %></p>
+      <p><%= wp_review.content%></p>
+      <p>Score: <%= wp_review.score%></p>
+      <%end%>
+      <%end%>
+      <p>----------------------------------</p>
+      <%= link_to "Add a workspace",new_workspace_url, class: "btn btn-info"%>
       <% else %>
-        <p>You have not yet added a workspace</p>
-        <%= link_to "Do it now",root_url, class: "btn btn-info"%>
+      <p>You have not yet added a workspace</p>
+      <%= link_to "Do it now",root_url, class: "btn btn-info"%>
       <% end %>
-</div>
+    </div>
+  </div>
 </div>
