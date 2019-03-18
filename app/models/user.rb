@@ -12,7 +12,7 @@ class User < ApplicationRecord
   has_many :user_reviews, through: :bookings
   has_many :renter_payments, class_name: "Payment", foreign_key: "renter_id"
   has_many :owner_payments, class_name: "Payment", foreign_key: "owner_id"
-
+  has_one :dashboard, dependent: :destroy
   after_create :create_profile
 
   def create_profile
