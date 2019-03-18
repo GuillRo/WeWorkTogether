@@ -1,0 +1,33 @@
+<div class='container'>
+  <h1>Hello</h1>
+  <h3>Add a new workspace! </h3>
+  <%= simple_form_for(@workspace) do |t| %>
+    <%= t.input :title%>
+    <%= t.input :description%>
+    <%= t.input :website%>
+    <%= t.input :phone_number, label: 'Phone number'%>
+    <%= t.input :address%>
+    <% if @workspace.places.length == 0 %>
+      <p> Your workspace has no place</p>
+    <% else %>
+      <% @workspace.places.each do |place|%>
+        <p><%= place.name%> </p>
+      <%end %>
+    <%end%>
+
+    <div id='places'>
+      <%= t.simple_fields_for :places do |place|%>
+        <%= render 'shared/place_fields', :f => place %>
+      <%end%>
+      <div class='links'>
+        <%= link_to_add_association 'add place', t, :places%>
+      </div>
+      <%= t.submit "Save workspace", class: "btn btn-primary" %>
+
+    <% if @workspace.places.length.positive?%>
+    <%else%>
+      <p> you must add a place before you can save your workspace</p>
+    <%end%>
+    <%= link_to "add a new place",new_place_url(@workspace, @place), class: "btn btn-info"%>
+  <% end %>
+</div>

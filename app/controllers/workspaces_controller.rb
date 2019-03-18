@@ -1,5 +1,5 @@
 class WorkspacesController < ApplicationController
-  before_action :set_flat, only: %i[show update destroy]
+  before_action :set_workspace, only: %i[show update destroy]
 
   def index
     if params[:query].present?
@@ -19,10 +19,6 @@ class WorkspacesController < ApplicationController
 
   def show
     @workspace = Workspace.find(params[:id])
-    # @booking = Booking.new
-    # @reviews = Review.where(workspace: @workspace)
-    # @photo = Photo.where(workspace: @workspace)
-    # @places = Place.where(workspace: @workspace)
   end
 
   def new
@@ -31,6 +27,8 @@ class WorkspacesController < ApplicationController
 
   def create
     @workspace = Workspace.new(workspace_params)
+    @user = current_user
+
     if @workspace.save
       redirect_to workspace_path(@workspace)
     else
@@ -49,14 +47,13 @@ class WorkspacesController < ApplicationController
     redirect_to workspace_path
   end
 
-
   private
 
   def workspace_params
-    params.require(:workspace).permit(:title, :address, :price, :description, :nbr_rooms, :nbr_beds, :photo)
+    params.require(:workspace).permit(:title, :address, :description, :website, :phone_number, places_attributes: [:id, :name, :description, :price, :number_of_chairs, :_destroy])
   end
 
-  def set_flat
+  def set_workspace
     @workspace = Workspace.find(params[:id])
   end
 

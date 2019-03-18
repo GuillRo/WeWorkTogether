@@ -4,7 +4,8 @@ class Workspace < ApplicationRecord
   belongs_to :user
   has_many :photos
   has_many :service_lists
-  has_many :places
+  has_many :places, inverse_of: :workspace
+  accepts_nested_attributes_for :places, reject_if: :all_blank, allow_destroy: true
   has_many :bookings, through: :places
   has_many :workspace_reviews, through: :bookings
 
@@ -25,4 +26,9 @@ class Workspace < ApplicationRecord
     end
     return minimum
   end
+
+def add_place 
+
+end
+
 end
