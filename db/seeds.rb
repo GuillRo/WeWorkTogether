@@ -438,57 +438,137 @@ WorkspaceReview.create!(booking: booking_30, content: "Amazing !!! I highly reco
 
 Payment.create!(booking: booking_1, renter: booking_1.user, owner: workspace_1.user)
 
-url_1_1 = "https://res.cloudinary.com/dux1stkfq/image/upload/v1551784212/flat_4.jpg"
+url_1_1 = "https://res.cloudinary.com/dux1stkfq/image/upload/v1552919980/workingspace_1_1.png"
 photo_1_1 = Photo.create!(workspace: workspace_1)
 photo_1_1.remote_photo_url = url_1_1
 photo_1_1.save
 
-url_2_1 = "https://res.cloudinary.com/dux1stkfq/image/upload/v1551784212/flat_4.jpg"
+url_2_1 = "https://res.cloudinary.com/dux1stkfq/image/upload/v1552919470/workingspace_2_3_1.jpg"
 photo_2_1 = Photo.create!(workspace: workspace_2)
 photo_2_1.remote_photo_url = url_2_1
 photo_2_1.save
 
-url_3_1 = "https://res.cloudinary.com/dux1stkfq/image/upload/v1551784212/flat_4.jpg"
+url_3_1 = "https://res.cloudinary.com/dux1stkfq/image/upload/v1552919470/workingspace_2_3_2.jpg"
 photo_3_1 = Photo.create!(workspace: workspace_3)
 photo_3_1.remote_photo_url = url_3_1
 photo_3_1.save
 
-url_4_1 = "https://res.cloudinary.com/dux1stkfq/image/upload/v1551784212/flat_4.jpg"
+url_4_1 = "https://res.cloudinary.com/dux1stkfq/image/upload/v1552919470/workingspace_4_2.png"
 photo_4_1 = Photo.create!(workspace: workspace_4)
 photo_4_1.remote_photo_url = url_4_1
 photo_4_1.save
 
-url_5_1 = "https://res.cloudinary.com/dux1stkfq/image/upload/v1551784212/flat_4.jpg"
+url_5_1 = "https://res.cloudinary.com/dux1stkfq/image/upload/v1552919471/workingspace_5_1.jpg"
 photo_5_1 = Photo.create!(workspace: workspace_5)
 photo_5_1.remote_photo_url = url_5_1
 photo_5_1.save
 
-url_6_1 = "https://res.cloudinary.com/dux1stkfq/image/upload/v1551784212/flat_4.jpg"
+url_6_1 = "https://res.cloudinary.com/dux1stkfq/image/upload/v1552919471/workingspace_6_1.jpg"
 photo_6_1 = Photo.create!(workspace: workspace_6)
 photo_6_1.remote_photo_url = url_6_1
 photo_6_1.save
 
-url_7_1 = "https://res.cloudinary.com/dux1stkfq/image/upload/v1551784212/flat_4.jpg"
+url_7_1 = "https://res.cloudinary.com/dux1stkfq/image/upload/v1552919474/workspace_7_18_1.jpg"
 photo_7_1 = Photo.create!(workspace: workspace_7)
 photo_7_1.remote_photo_url = url_7_1
 photo_7_1.save
 
-url_8_1 = "https://res.cloudinary.com/dux1stkfq/image/upload/v1551784212/flat_4.jpg"
+url_8_1 = "https://res.cloudinary.com/dux1stkfq/image/upload/v1552919474/workspace_7_18_2.jpg"
 photo_8_1 = Photo.create!(workspace: workspace_8)
 photo_8_1.remote_photo_url = url_8_1
 photo_8_1.save
 
-url_9_1 = "https://res.cloudinary.com/dux1stkfq/image/upload/v1551784212/flat_4.jpg"
+url_9_1 = "https://res.cloudinary.com/dux1stkfq/image/upload/v1552919474/workspace_7_18_3.jpg"
 photo_9_1 = Photo.create!(workspace: workspace_9)
 photo_9_1.remote_photo_url = url_9_1
 photo_9_1.save
 
-url_10_1 = "https://res.cloudinary.com/dux1stkfq/image/upload/v1551784212/flat_4.jpg"
+url_10_1 = "https://res.cloudinary.com/dux1stkfq/image/upload/v1552919474/workspace_7_18_1.jpg"
 photo_10_1 = Photo.create!(workspace: workspace_10)
 photo_10_1.remote_photo_url = url_10_1
 photo_10_1.save
 
-url_11_1 = "https://res.cloudinary.com/dux1stkfq/image/upload/v1551784212/flat_4.jpg"
+url_11_1 = "https://res.cloudinary.com/dux1stkfq/image/upload/v1552919474/workspace_7_18_2.jpg"
 photo_11_1 = Photo.create!(workspace: workspace_11)
 photo_11_1.remote_photo_url = url_11_1
 photo_11_1.save
+
+url_12_1 = "https://res.cloudinary.com/dux1stkfq/image/upload/v1552919474/workspace_7_18_3.jpg"
+photo_12_1 = Photo.create!(workspace: workspace_12)
+photo_12_1.remote_photo_url = url_12_1
+photo_12_1.save
+
+url_13_1 = "https://res.cloudinary.com/dux1stkfq/image/upload/v1552919474/workspace_7_18_1.jpg"
+photo_13_1 = Photo.create!(workspace: workspace_13)
+photo_13_1.remote_photo_url = url_13_1
+photo_13_1.save
+
+url_14_1 = "https://res.cloudinary.com/dux1stkfq/image/upload/v1552919474/workspace_7_18_2.jpg"
+photo_14_1 = Photo.create!(workspace: workspace_14)
+photo_14_1.remote_photo_url = url_14_1
+photo_14_1.save
+
+url_15_1 = "https://res.cloudinary.com/dux1stkfq/image/upload/v1552919474/workspace_7_18_3.jpg"
+photo_15_1 = Photo.create!(workspace: workspace_15)
+photo_15_1.remote_photo_url = url_15_1
+photo_15_1.save
+
+url_16_1 = "https://res.cloudinary.com/dux1stkfq/image/upload/v1552919474/workspace_7_18_1.jpg"
+photo_16_1 = Photo.create!(workspace: workspace_16)
+photo_16_1.remote_photo_url = url_16_1
+photo_16_1.save
+
+url_17_1 = "https://res.cloudinary.com/dux1stkfq/image/upload/v1552919474/workspace_7_18_2.jpg"
+photo_17_1 = Photo.create!(workspace: workspace_17)
+photo_17_1.remote_photo_url = url_17_1
+photo_17_1.save
+
+url_18_1 = "https://res.cloudinary.com/dux1stkfq/image/upload/v1552919474/workspace_7_18_3.jpg"
+photo_18_1 = Photo.create!(workspace: workspace_18)
+photo_18_1.remote_photo_url = url_18_1
+photo_18_1.save
+
+url_19_1 = "https://res.cloudinary.com/dux1stkfq/image/upload/v1552919474/workspace_19_1.jpg"
+photo_19_1 = Photo.create!(workspace: workspace_19)
+photo_19_1.remote_photo_url = url_19_1
+photo_19_1.save
+
+url_20_1 = "https://res.cloudinary.com/dux1stkfq/image/upload/v1552919473/workingspace_20_1.jpg"
+photo_20_1 = Photo.create!(workspace: workspace_20)
+photo_20_1.remote_photo_url = url_20_1
+photo_20_1.save
+
+url_21_1 = "https://res.cloudinary.com/dux1stkfq/image/upload/v1552919472/workingspace_21_1.png"
+photo_21_1 = Photo.create!(workspace: workspace_21)
+photo_21_1.remote_photo_url = url_21_1
+photo_21_1.save
+
+url_22_1 = "https://res.cloudinary.com/dux1stkfq/image/upload/v1552919471/workingspace_22_1.jpg"
+photo_22_1 = Photo.create!(workspace: workspace_22)
+photo_22_1.remote_photo_url = url_22_1
+photo_22_1.save
+
+url_23_1 = "https://res.cloudinary.com/dux1stkfq/image/upload/v1552919473/workingspace_23_1.jpg"
+photo_23_1 = Photo.create!(workspace: workspace_23)
+photo_23_1.remote_photo_url = url_23_1
+photo_23_1.save
+
+url_24_1 = "https://res.cloudinary.com/dux1stkfq/image/upload/v1552919473/workingspace_24_2.jpg"
+photo_24_1 = Photo.create!(workspace: workspace_24)
+photo_24_1.remote_photo_url = url_24_1
+photo_24_1.save
+
+url_25_1 = "https://res.cloudinary.com/dux1stkfq/image/upload/v1552919474/workingspace_25_2.jpg"
+photo_25_1 = Photo.create!(workspace: workspace_25)
+photo_25_1.remote_photo_url = url_25_1
+photo_25_1.save
+
+url_26_1 = "https://res.cloudinary.com/dux1stkfq/image/upload/v1552919473/workingspace_26_2.jpg"
+photo_26_1 = Photo.create!(workspace: workspace_26)
+photo_26_1.remote_photo_url = url_26_1
+photo_26_1.save
+
+url_27_1 = "https://res.cloudinary.com/dux1stkfq/image/upload/v1552919474/workingspace_27_2.jpg"
+photo_27_1 = Photo.create!(workspace: workspace_27)
+photo_27_1.remote_photo_url = url_27_1
+photo_27_1.save
