@@ -24,4 +24,8 @@ class Booking < ApplicationRecord
       self.status = "past"
     end
   end
+
+  def calculate_time
+    return (end_date - beginning_date).to_i + 1
+  end
 end

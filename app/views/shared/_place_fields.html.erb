@@ -1,0 +1,7 @@
+  <div class="nested-fields">
+    <%= f.input :name, error: 'Mandatory'%>
+    <%= f.input :description, error: 'Mandatory'%>
+    <%= f.input :number_of_chairs, label: "number of chairs" %>
+    <%= f.input :price %>
+    <%= link_to_remove_association "remove place", f %>
+</div>

@@ -2,17 +2,17 @@
   <div class="workspace-yellow-container">
         <%  if @workspace.main_photo.present? %>
           <div class="workspace-header" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('<%= cl_image_path @workspace.main_photo %>');">
-
-          <%#= cl_image_tag @workspace.main_photo, class: 'workspace-image' %>
+            <%#= cl_image_tag @workspace.main_photo, class: 'workspace-image' %>       
         <% else %>
           <div class="workspace-header" style="background-image: url('<%= image_url 'placeholder.jpg' %>');">
-          <%#= image_tag 'placeholder.jpg', class: "workspace-image"; %>
-        <% end %>
+            <%#= image_tag 'placeholder.jpg', class: "workspace-image"; %>        
+            <% end %>
         <div class="workspace-title"><h1><%= @workspace.title %></h1></div>
         <div class="workspace-stars">
           <p><% @workspace.average.times do %><span class="full-color">★</span><% end %><%= "☆" * (5 - @workspace.average ) %></p>
         </div>
       </div>
+
 
 
     <div class="workspace-white-container">
@@ -81,6 +81,7 @@
                         dayElem.className += " booked-day";
                       }
                     },
+
                 weekNumbers: true // 1 year from now
               });
             </script>
