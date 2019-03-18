@@ -23,13 +23,15 @@
         <h2>Reviews about me</h2>
           <%unless @reviews_about_me == [nil]%>
             <%@reviews_about_me.each do |review|%>
-              <div class="review-container text-center">
-                <div><p><%= review.booking.find_workspace.user.first_name%> says <em>
-                  "<%= review.content%>"</em>
-                </p></div>
-                <div><p><%= "★" * review.score %><%= "☆" * (5 - review.score) %> </p></div>
-                <p class="review-post-time"><%= review.created_at %></p>
-              </div>
+              <%unless review.nil? %>
+                <div class="review-container text-center">
+                  <div><p><%= review.booking.find_workspace.user.first_name%> says <em>
+                    "<%= review.content%>"</em>
+                  </p></div>
+                  <div><p><%= "★" * review.score %><%= "☆" * (5 - review.score) %> </p></div>
+                  <p class="review-post-time"><%= review.created_at %></p>
+                </div>
+              <%end%>
             <%end%>
           <% else %>
             <p>There are no reviews about you yet.</p>
@@ -40,13 +42,15 @@
         <h2>My reviews</h2>
           <%unless @reviews_i_posted_about_workspaces == [nil]%>
             <% @reviews_i_posted_about_workspaces.each do |wp_review|%>
-            <div class="review-container text-center">
-              <h4><%= wp_review.booking.find_workspace.title%></h4>
-              <p><em> "<%= wp_review.content%>" </em></p>
-              <p><%= "★" * wp_review.score %><%= "☆" * (5 - wp_review.score) %> </p>
-              <p class="review-post-time"><%= wp_review.created_at %></p>
-            </div>
-            <% end %>
+              <%unless wp_review.nil? %>
+                <div class="review-container text-center">
+                <h4><%= wp_review.booking.find_workspace.title%></h4>
+                <p><em> "<%= wp_review.content%>" </em></p>
+                <p><%= "★" * wp_review.score %><%= "☆" * (5 - wp_review.score) %> </p>
+                <p class="review-post-time"><%= wp_review.created_at %></p>
+              </div>
+              <% end %>
+            <%end%>
           <%else%>
             <p> You haven't reviewed any workspaces yet.</p>
           <% end %>
