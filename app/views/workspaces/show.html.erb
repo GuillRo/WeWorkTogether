@@ -1,110 +1,117 @@
 <div class="container">
-  <h1><%= @workspace.title %></h1>
-  <%if @workspace.average == 0%>
-    <p>Unknown average score</p>
-  <% else%>
-    <p>Average score: <%= @workspace.average %></p>
-  <%end%>
-  <br/>
+  <div class="workspace-yellow-container">
+        <%  if @workspace.main_photo.present? %>
+          <div class="workspace-header" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('<%= cl_image_path @workspace.main_photo %>');">
+            <%#= cl_image_tag @workspace.main_photo, class: 'workspace-image' %>       
+        <% else %>
+          <div class="workspace-header" style="background-image: url('<%= image_url 'placeholder.jpg' %>');">
+            <%#= image_tag 'placeholder.jpg', class: "workspace-image"; %>        
+            <% end %>
+        <div class="workspace-title"><h1><%= @workspace.title %></h1></div>
+        <div class="workspace-stars">
+          <p><% @workspace.average.times do %><span class="full-color">★</span><% end %><%= "☆" * (5 - @workspace.average ) %></p>
+        </div>
+      </div>
 
 
 
-  <% @workspace.places.each_with_index do |place, place_index|%>
-    <% chairs_left = place.number_of_chairs - place.bookings.length%>
-
+    <div class="workspace-white-container">
       <script>
-        let bookedarray<%= place_index %> = [];
-        let disablearray<%= place_index %> = [];
+        let bookedarray = [];
+        let disablearray = [];
       </script>
-    <%#if chairs_left > 0%>
-      <p>-----------------------------------------</p>
+
+
+      <% @workspace.places.each_with_index do |place, place_index|%>
+      <% chairs_left = place.number_of_chairs - place.bookings.length%>
+
       <p>Name: <%= place.name.capitalize %></p>
       <p>Description: <%= place.description %> </p>
       <p> <%= place.price %> €/day</p>
       <p><%= chairs_left %>out of <%= place.number_of_chairs %> places left</p>
 
+    <% if user_signed_in?%>
 
-      <% if user_signed_in?%>
-      <%#= link_to "Book this place !", workspace_workspace_reviews_path(@workspace), class: "btn btn-info" %>
+    <!-- HM Code -->
+    <div class="show-cal">Show calendar</div>
+    <div class="show-book-btn" style="display:none;">
 
-      <!-- HM Code -->
-      <div class="show-cal">Show calendar</div>
-      <div class="show-book-btn" style="display:none;">
+      <%= simple_form_for([place,Booking.new]) do |t| %>
+      <%= t.input :beginning_date, as: :string, input_html: { class: "datepicker#{place_index}" } %>
+      <%= t.input :end_date, as: :string, input_html: { class: "datepicker#{place_index}" } %>
+      <%= t.submit "Book this place !", class: "btn btn-info" %>
+      <% end %>
 
-        <%= simple_form_for([place,Booking.new]) do |t| %>
-          <%= t.input :beginning_date, as: :string, input_html: { class: "datepicker#{place_index}" } %>
-          <%= t.input :end_date, as: :string, input_html: { class: "datepicker#{place_index}" } %>
-          <%= t.submit "Book this place !", class: "btn btn-info" %>
+      <!-- HM Code next - begin -->
+
+      <% bookingplace = place.booking_dates %>
+      <% allplaces = bookingplace if bookingplace.exists? %>
+
+      <% if allplaces  %>
+        <% allplaces.each_with_index do |placedate, index| %>
+         <% if placedate.chairs_taken == place.number_of_chairs %>
+       <p>Fully booked on that day</p>
+      <script>
+        <% array = placedate.day.to_s.split("-") %>
+        <% array[0] = array[0].to_i %>
+        <% array[1] = array[1].to_i %>
+        <% array[2] = array[2].to_i %>
+        <% string = array.join("-") %>
+        bookedarray.push(Date.parse('<%= string %>'));
+        disablearray.push('<%= placedate.day.to_s %>');
+        <%# raise %>
+      </script>
+         <p>There are <%= placedate.chairs_taken - place.number_of_chairs %> left for the <%= placedate.day %></p>
         <% end %>
+       <% end %>
+      <% end %>
 
-        <!-- HM Code next - begin -->
-
-        <% bookingplace = BookingDate.where(place_id: place.id) %>
-        <% allplaces = bookingplace if bookingplace.exists? %>
-
-        <% if allplaces  %>
-           <% allplaces.each_with_index do |placedate, index| %>
-            <% if placedate.chairs_taken == place.number_of_chairs %>
-              <p>Fully booked on that day</p>
-              <script>
-                <% array = placedate.day.to_s.split("-") %>
-                <% array[0] = array[0].to_i %>
-                <% array[1] = array[1].to_i %>
-                <% array[2] = array[2].to_i %>
-                <% string = array.join("-") %>
-                bookedarray<%= place_index %>.push(Date.parse('<%= string %>'));
-                disablearray<%= place_index %>.push('<%= placedate.day.to_s %>');
-                <%# raise %>
-              </script>
-              <p>There are <%= placedate.chairs_taken - place.number_of_chairs %> left for the <%= placedate.day %></p>
-            <% end %>
-          <% end %>
-        <% end %>
-
-                <script>
-                flatpickr('.datepicker<%= place_index %>', {
-                disable: disablearray<%= place_index %>,
-                altInput: true,
-                altFormat: "j F, Y",
-                dateFormat: "d-m-Y",
-                minDate: "today",
-                maxDate: new Date().fp_incr(93),
-                      onDayCreate: function(dObj, dStr, fp, dayElem) {
+      <script>
+        flatpickr('.datepicker<%= place_index %>', {
+          disable: disablearray,
+          altInput: true,
+          altFormat: "j F, Y",
+          dateFormat: "d-m-Y",
+          minDate: "today",
+          maxDate: new Date().fp_incr(93),
+          onDayCreate: function(dObj, dStr, fp, dayElem) {
                        // Checking to see if the current day object is in our array
                        // The `+` is just a shortcut for parsing the date
-                        if (bookedarray<%= place_index %>.indexOf(+dayElem.dateObj) !== -1) {
-                          dayElem.className += " booked-day";
-                        }
-                },
+                       if (bookedarray.indexOf(+dayElem.dateObj) !== -1) {
+                        dayElem.className += " booked-day";
+                      }
+                    },
+
                 weekNumbers: true // 1 year from now
-                });
-                </script>
+              });
+            </script>
 
 
-          </div> <!-- show-book-btn div -->
-        <%end%>
-      <%end%>
+    </div> <!-- show-book-btn div -->
+          <%end%>
+          <%end%>
 
 
 
-  <h3>What other people say of this workspace</h3>
-  <%if @workspace.workspace_reviews.length >0 %>
-    <% @workspace.workspace_reviews.each do |review| %>
-      <p><%= review.booking.user.first_name%> says:</p>
-      <p><%= review.content%></p>
-      <p>Score: <%= review.score %></p>
-    <%end%>
-  <% else%>
-    <p>This place has no reviews yet!</p>
-  <%end%>
-  <%if user_signed_in?%>
-    <%if current_user.unreviewed_booking?(@workspace)%>
-      <div>
-        <p>------------------------------------</p>
-        <p>You have been to this place and didn't reviewed it yet! Do it now!
-          <%= link_to "Add review",new_workspace_workspace_review_path(@workspace), class: "btn btn-info"%>
-        </div>
-      <%end%>
-    <%end%>
+          <h3>Reviews about <%= @workspace.title %></h3>
+          <%if @workspace.workspace_reviews.length >0 %>
+          <% @workspace.workspace_reviews.each do |review| %>
+          <p><%= review.booking.user.first_name%> says:</p>
+          <p><%= review.content%></p>
+          <p>Score: <%= review.score %></p>
+          <%end%>
+          <% else%>
+          <p>This place has no reviews yet!</p>
+          <%end%>
+          <%if user_signed_in?%>
+          <%if current_user.unreviewed_booking?(@workspace)%>
+          <div>
+            <p>------------------------------------</p>
+            <p>You have been to this place and didn't reviewed it yet! Do it now!
+              <%= link_to "Add review",new_workspace_workspace_review_path(@workspace), class: "btn btn-info"%>
+            </div>
+            <%end%>
+            <%end%>
+    </div>
   </div>
-
+</div>
