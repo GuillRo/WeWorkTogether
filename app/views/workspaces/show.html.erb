@@ -7,18 +7,23 @@
   <%end%>
   <br/>
 
-  <% @workspace.places.each do |place|%>
+  <script>
+    let bookedarray = [];
+    let disablearray = [];
+  </script>
+
+  <% @workspace.places.each_with_index do |place, place_index|%>
     <% chairs_left = place.number_of_chairs - place.bookings.length%>
 
-    <%if chairs_left > 0%>
+    <%#if chairs_left > 0%>
       <p>-----------------------------------------</p>
       <p>Name: <%= place.name.capitalize %></p>
       <p>Description: <%= place.description %> </p>
       <p> <%= place.price %> €/day</p>
       <p><%= chairs_left %>out of <%= place.number_of_chairs %> places left</p>
+
+
       <% if user_signed_in?%>
-
-
       <%#= link_to "Book this place !", workspace_workspace_reviews_path(@workspace), class: "btn btn-info" %>
 
       <!-- HM Code -->
@@ -26,18 +31,61 @@
       <div class="show-book-btn" style="display:none;">
 
         <%= simple_form_for([place,Booking.new]) do |t| %>
-          <%= t.input :beginning_date, as: :string, input_html: { class: "datepicker" } %>
-          <%= t.input :end_date, as: :string, input_html: { class: "datepicker" } %>
+          <%= t.input :beginning_date, as: :string, input_html: { class: "datepicker#{place_index}" } %>
+          <%= t.input :end_date, as: :string, input_html: { class: "datepicker#{place_index}" } %>
           <%= t.submit "Book this place !", class: "btn btn-info" %>
         <% end %>
-        <%#= link_to "Book this place !", workspace_workspace_reviews_path(@workspace), class: "btn btn-info" %>
 
-      </div>
-      <!-- HM Code -->
+        <!-- HM Code next - begin -->
 
-    <%end%>
-  <%end%>
-  <%end%>
+        <% bookingplace = BookingDate.where(place_id: place.id) %>
+        <% allplaces = bookingplace if bookingplace.exists? %>
+
+        <% if allplaces  %>
+           <% allplaces.each_with_index do |placedate, index| %>
+            <% if placedate.chairs_taken == place.number_of_chairs %>
+              <p>Fully booked on that day</p>
+              <script>
+                <% array = placedate.day.to_s.split("-") %>
+                <% array[0] = array[0].to_i %>
+                <% array[1] = array[1].to_i %>
+                <% array[2] = array[2].to_i %>
+                <% string = array.join("-") %>
+                bookedarray.push(Date.parse('<%= string %>'));
+                disablearray.push('<%= placedate.day.to_s %>');
+                <%# raise %>
+              </script>
+              <p>There are <%= placedate.chairs_taken - place.number_of_chairs %> left for the <%= placedate.day %></p>
+            <% end %>
+          <% end %>
+        <% end %>
+
+                <script>
+                flatpickr('.datepicker<%= place_index %>', {
+                disable: disablearray,
+                altInput: true,
+                altFormat: "j F, Y",
+                dateFormat: "d-m-Y",
+                minDate: "today",
+                maxDate: new Date().fp_incr(93),
+                      onDayCreate: function(dObj, dStr, fp, dayElem) {
+                       // Checking to see if the current day object is in our array
+                       // The `+` is just a shortcut for parsing the date
+                        if (bookedarray.indexOf(+dayElem.dateObj) !== -1) {
+                          dayElem.className += " booked-day";
+                        }
+                },
+                weekNumbers: true // 1 year from now
+                });
+                </script>
+
+
+          </div> <!-- show-book-btn div -->
+        <%end%>
+      <%end%>
+
+
+
   <h3>What other people say of this workspace</h3>
   <%if @workspace.workspace_reviews.length >0 %>
     <% @workspace.workspace_reviews.each do |review| %>
@@ -59,16 +107,3 @@
     <%end%>
   </div>
 
-
- <!-- HM Code -->
-      <script>
-        flatpickr('.datepicker', {
-        altInput: true,
-        altFormat: "j F, Y",
-        dateFormat: "d-m-Y",
-        minDate: "today",
-        maxDate: new Date().fp_incr(365),
-        weekNumbers: true // 1 year from now
-        });
-      </script>
- <!-- HM Code -->
