@@ -24,4 +24,8 @@ class Booking < ApplicationRecord
       self.status = "past"
     end
   end
+
+  def calculate_price
+    
+  end
 end
