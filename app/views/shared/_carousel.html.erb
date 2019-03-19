@@ -6,24 +6,32 @@
 
   <div class='carousel__controls'>
     <label class='carousel__control carousel__control--forward' for='carousel-slide-activator-2'>
-      >
+      ⟩
     </label>
   </div>
 
   <div class='carousel__controls'>
     <label class='carousel__control carousel__control--backward' for='carousel-slide-activator-1'>
-      <
+      ⟨
     </label>
   </div>
 
   <div class='carousel__screen'>
     <div class='carousel__track'>
       <% @workspaces.each do |workspace| %>
+         <%= link_to workspace_path(workspace) do %>
       <div class='carousel__item
       carousel__item--mobile-in-1 carousel__item--tablet-in-2 carousel__item--desktop-in-3'>
         <div class="demo-content" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.4) 0%, rgba(0,36,61,0.4) 50%), url(' <%= cl_image_path workspace.photos.first.photo.url if workspace.photos.first.present? %> ' )">
-        <%= link_to workspace_path(workspace) do %>
-          <%= workspace.title %>
+          <div id="carousel-card-title">
+            <%= workspace.title %>
+          </div>
+          <div class="carousel-card-rating">
+              <p><span class="full-color"><%= "★" * workspace.average %></span><span class="carousel-outline-color"><%= "☆" * (5 - workspace.average ) %></span>  </p>
+          </div>
+          <div id="carousel-card-price">
+            <%= workspace.minimum %>€/day
+          </div>
         <% end %>
         </div>
       </div>
