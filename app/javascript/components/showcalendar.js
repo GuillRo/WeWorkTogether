@@ -5,10 +5,14 @@
               bookbtnall.forEach((bookbtn) => {
               bookbtn.addEventListener("click", (event) => {
               bookbtnall.forEach((bookpurg) => { if(bookpurg) {
-              bookpurg.innerHTML = "Show calendar";
+              bookpurg.innerHTML = "Book now";
               bookpurg.nextElementSibling.style.display = "none";
               } else { } });
-              event.currentTarget.innerHTML = "<strong>Select dates please</strong>";
+              let parent_div = event.currentTarget
+              parent_div.classList.remove('btn')
+              parent_div.classList.remove('btn-info')
+              parent_div.classList.remove('btn-xs')
+              event.currentTarget.innerHTML = "Select your dates";
               event.currentTarget.nextElementSibling.style.display = "unset";
               event.stopPropagation();
             });
@@ -24,7 +28,7 @@
               if (hideall) {
                 hideall.forEach((hide) => {
 
-                  hide.innerHTML = "Show calendar";
+                  hide.innerHTML = "Book now";
                   hide.nextElementSibling.style.display = "none";
 
                 }); } else { }
@@ -47,7 +51,7 @@
             console.log("--- hide current target node parent ---");
             console.log(event.currentTarget.parentNode);
 
-              event.currentTarget.parentNode.innerHTML = "Show calendar";
+              event.currentTarget.parentNode.innerHTML = "Book now";
               event.stopPropagation();
             });
 
