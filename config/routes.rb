@@ -14,10 +14,11 @@ Rails.application.routes.draw do
   resources :places, only: [] do
     resources :bookings, only: [:new, :create]
   end
-  resources :payments
-  resources :profiles, only: [:show, :new, :create, :edit, :update, :destroy] do
+  resources :bookings, only: [] do
+    resources :payments, only: [:new, :create]
+  end
+    resources :profiles, only: [:show, :new, :create, :edit, :update, :destroy] do
     resources :user_reviews, only: [:index, :new, :create]
-
   end
 
   get "workspace_reviews/error", to: "workspace_reviews#error"
