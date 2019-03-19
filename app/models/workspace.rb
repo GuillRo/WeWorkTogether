@@ -1,5 +1,4 @@
 class Workspace < ApplicationRecord
-  before_validation :check_pic
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
   belongs_to :user
