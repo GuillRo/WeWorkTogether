@@ -1,0 +1,34 @@
+
+<div class='carousel'>
+  <input checked='checked' class='carousel__activator' id='carousel-slide-activator-1' name='carousel' type='radio'>
+  <input class='carousel__activator' id='carousel-slide-activator-2' name='carousel' type='radio'>
+  <input class='carousel__activator' id='carousel-slide-activator-3' name='carousel' type='radio'>
+
+  <div class='carousel__controls'>
+    <label class='carousel__control carousel__control--forward' for='carousel-slide-activator-2'>
+      >
+    </label>
+  </div>
+
+  <div class='carousel__controls'>
+    <label class='carousel__control carousel__control--backward' for='carousel-slide-activator-1'>
+      <
+    </label>
+  </div>
+
+  <div class='carousel__screen'>
+    <div class='carousel__track'>
+      <% @workspaces.each do |workspace| %>
+      <div class='carousel__item
+      carousel__item--mobile-in-1 carousel__item--tablet-in-2 carousel__item--desktop-in-3'>
+        <div class="demo-content" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.4) 0%, rgba(0,36,61,0.4) 50%), url(' <%= cl_image_path workspace.photos.first.photo.url if workspace.photos.first.present? %> ' )">
+        <%= link_to workspace_path(workspace) do %>
+          <%= workspace.title %>
+        <% end %>
+        </div>
+      </div>
+      <% end %>
+
+    </div>
+  </div>
+</div>
