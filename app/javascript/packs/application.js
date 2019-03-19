@@ -5,7 +5,9 @@ import { showCalendar } from '../components/showcalendar';
 import { mapAction } from '../components/map';
 // import { hideCalendar } from '../components/hidecalendar';
 import { changeTab} from '../components/tabs'
+import { loadDynamicBannerText } from '../components/banner';
 
+loadDynamicBannerText();
 initUpdateNavbarOnScroll();
 initUpdateNavbarHomeOnScroll();
 showCalendar();
