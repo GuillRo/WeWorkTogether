@@ -22,6 +22,9 @@ Rails.application.routes.draw do
   end
 
   get "workspace_reviews/error", to: "workspace_reviews#error"
+  get "workspaces/payment_accepted/:id", to: "workspaces#payment_accepted", as: :workspaces_payment_accepted
+  get "workspaces/payment_error/:id", to: "workspaces#payment_error",  as: :workspaces_payment_error
+
 
   # resources :flats, only: [:index, :new, :create, :show, :destroy] do
   #   resources :reviews, only: [:index, :new,  :create]

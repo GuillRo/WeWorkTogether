@@ -12,7 +12,7 @@
   <%= form_tag booking_payments_path(@booking) do %>
     <article>
       <label class="amount">
-        <span>Amount: <%= humanized_money_with_symbol(@payment.amount) %></span>
+        <span>Amount: <%= humanized_money_with_symbol(@booking.price) %></span>
       </label>
     </article>
 
@@ -25,6 +25,4 @@
       data-currency="<%= @payment.amount.currency %>"></script>
   <% end %>
   
-
-
-</div²>
+</div>
