@@ -1,23 +1,27 @@
-<%= simple_form_for(@workspace) do |t| %>
-    <%= t.input :title%>
-    <%= t.input :description%>
-    <%= t.input :address%>
-    <%= t.input :website%>
-    <%= t.input :phone_number, label: 'Phone number'%>
-    <% if @workspace.places.length == 0 %>
-      <p> Your workspace has no place</p>
-    <% else %>
-      <% @workspace.places.each do |place|%>
-        <p><%= place.name%> </p>
-      <%end %>
-    <%end%>
-
-    <div id='places'>
-      <%= t.simple_fields_for :places do |place|%>
-        <%= render 'shared/place_fields', :f => place %>
-      <%end%>
-      <div class='links'>
-        <%= link_to_add_association 'add place', t, :places,     partial: 'shared/place_fields'%>
+<div class="workspace-form">
+  <%= simple_form_for(@workspace) do |t| %>
+      <%= t.input :title%>
+      <%= t.input :description%>
+      <%= t.input :address%>
+      <%= t.input :website%>
+      <%= t.input :phone_number, label: 'Phone number'%>
+      <% if @workspace.places.length == 0 %>
+      <div>
+        <p> Your workspace currently has no rooms or spots listed.</p>
       </div>
-      <%= t.submit "Add", class: "btn btn-info" %>
-  <% end %>
+      <% else %>
+        <% @workspace.places.each do |place|%>
+          <p><%= place.name.capitalize%> </p>
+        <%end %>
+      <%end%>
+
+      <div id='places'>
+        <%= t.simple_fields_for :places do |place|%>
+          <%= render 'shared/place_fields', :f => place %>
+        <%end%>
+        <div class='links'>
+          <%= link_to_add_association 'Add a room', t, :places,     partial: 'shared/place_fields'%>
+        </div>
+        <div class="text-center" style="margin-top: 20px;"><%= t.submit "Add", class: "btn btn-info" %></div>
+    <% end %>
+</div>

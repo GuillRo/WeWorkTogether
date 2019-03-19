@@ -25,15 +25,9 @@
     font-weight: normal;
   }
 
-  a {
-    color: $light-gray;
-  }
-
-  a:hover {
-    color: #626161;
-  }
-
 }
+
+
 
 .bottom-dashboard-white-container {
   background-color: white;
@@ -87,7 +81,7 @@
   font-size: 18px;
 }
 
-.payment-button {
+.card-button {
   position: absolute;
   bottom: 10px;
   right: 10px;
@@ -108,5 +102,13 @@
     text-align: right !important;
     font-weight: lighter;
     text-decoration: underline;
+
+  a {
+    color: $light-gray;
+  }
+
+  a:hover {
+    color: #626161;
+  }
 
 }

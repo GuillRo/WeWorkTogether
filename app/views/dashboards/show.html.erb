@@ -10,13 +10,14 @@
         <div class="border-box">
           <h4><%= booking.find_workspace.title%></h4>
           <% booking.places.each do |place|%>
-          <p><%= place.name.capitalize%>: <%=place.price%>€ per day</p>
+          <p>Place reserved: <%= place.name.capitalize%></p>
+          <p>Total: <%=place.price%>€</p>
           <%end%>
-          <p><strong>Start:</strong> <%= booking.beginning_date%> <strong>End:</strong> <%= booking.end_date%></p>
+          <p>Start: <%= booking.beginning_date%> End: <%= booking.end_date%></p>
           <div class="dashboard-booking-status" id="unpaid">
             <p><%= "Unpaid" if booking.status == "waiting_for_payment"  %></p>
           </div>
-            <%= link_to "Pay now",root_url, class: "btn btn-danger btn-xs payment-button" if booking.status == "waiting_for_payment"%>
+            <%= link_to "Pay now",root_url, class: "btn btn-danger btn-xs card-button" if booking.status == "waiting_for_payment"%>
           <div class="dashboard-booking-status" id="paid">
             <p><%= "Paid" if booking.status == "paid" %></p>
           </div>
@@ -40,11 +41,12 @@
         <div class="border-box">
           <h4><%= booking.find_workspace.title%></h4>
           <% booking.places.each do |place|%>
-          <p><%= place.name.capitalize%>: <%=place.price%> € per day</p>
+          <p>Place booked: <%= place.name.capitalize%></p>
+          <p>Total: <%=place.price%>€</p>
           <%end%>
-          <p><strong>Start:</strong> <%= booking.beginning_date%> <strong>End:</strong> <%= booking.end_date%></p>
+          <p>Start: <%= booking.beginning_date%> End: <%= booking.end_date%></p>
           <% if booking.status == "unreviewed"%>
-          <%= link_to "Add review", new_workspace_workspace_review_path(booking.find_workspace), class: "btn btn-success btn-xs"%>
+          <%= link_to "Add review", new_workspace_workspace_review_path(booking.find_workspace), class: "btn btn-info btn-xs"%>
           <%end%>
 
         </div>
