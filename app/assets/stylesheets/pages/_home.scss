@@ -1,7 +1,7 @@
 // Specific CSS for your home-page
 
 body {
-  color: #626161 !important;
+  color: $dark-gray !important;
 }
 
 .wrapper {
@@ -46,18 +46,18 @@ body {
 .ap-input {
   font-family: "Roboto", "Open Sans", "Helvetica", "sans-serif";
   font-weight: lighter !important;
-  border: .5px solid #C4C4C4 !important;
+  border: .5px solid $light-gray !important;
   border-radius: 40px;
   height: 50px !important;
   width: 400px;
   padding-left: 20px;
   position: relative;
   font-size: 18px;
-  color: #C4C4C4;
+  color: $dark-gray;
 }
 
 .ap-input-home {
-  border: 1px solid #C4C4C4;
+  border: none !important;
   border-radius: 50px;
   height: 50px !important;
   width: 400px;
@@ -78,7 +78,7 @@ body {
 .ap-dropdown-menu {
   width: 390px;
   margin-left: 0px;
-  border-radius:15px;
+  border-radius:5px;
 }
 
 .ap-suggestion {
