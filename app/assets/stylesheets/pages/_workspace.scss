@@ -7,15 +7,16 @@
 
 .workspace-header {
   background-size: cover;
+  background-position: center;
   position: relative;
   height: 300px;
   border-radius: 4px;
-  margin: 30px;
+  margin: 30px 30px 80px 30px;
   h1 {
     color: white;
     position: absolute;
-    bottom:110px;
-    left: 100px;
+    bottom:45px;
+    left: 55px;
   }
 }
 
@@ -28,6 +29,11 @@
 
 .full-color {
   color: #F5E965;
+}
+
+.outline-color {
+  color: $light-gray;
+
 }
 
 .workspace-stars {
@@ -46,14 +52,28 @@
 }
 
 .workspace-bottom-container {
+  position: relative;
   background-color: white;
-  border: 1px solid #ccc!important;
   border-radius: 4px;
   padding: 20px;
   margin:30px;
-}
 
+  h2 {
+    font-weight: lighter;
+    position: absolute;
+    top: -58px;
+    left: 8px;
+
+  }
+}
+.new_booking {
+  padding: 20px;
+}
 .workspace-white-container  {
+  .form-control {
+  background-color: white !important;
+
+   }
   background-color: white;
   min-height: 100px;
   border-radius: 4px;
@@ -70,21 +90,61 @@
   }
 
   p {
-    color: #C4C4C4;
+    color: $dark-gray;
+  }
+
+  a {
+    text-decoration: underline;
+    color: $dark-gray;
+    opacity: 1;
+    font-weight: lighter;
+    font-style: italic;
+
+
+  }
+
+  a:hover {
+    opacity: .5;
   }
 }
 
 
 .booking-button {
   position: absolute;
-  bottom: 20px;
-  right: 20px;
+  bottom: 40px;
+  right: 40px;
 }
 
 .show-container {
+  position: relative;
   background-color: white;
   border: 1px solid #ccc!important;
   border-radius: 4px;
-  padding-bottom: 20px;
+  padding: 10px;
   margin: 30px;
+
+  .review-post-time {
+    margin: 10px;
+  }
+
+  .review-stars {
+    margin-bottom: 10px;
+  }
+
+  h4 {
+    margin: 20px;
+    font-weight: lighter;
+  }
+
+  p {
+    margin: 20px;
+    font-weight: lighter;
+  }
+
+  a {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    margin: 10px;
+  }
 }

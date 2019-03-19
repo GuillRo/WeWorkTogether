@@ -2,20 +2,28 @@
   <div class="workspace-yellow-container">
         <%  if @workspace.main_photo.present? %>
           <div class="workspace-header" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('<%= cl_image_path @workspace.main_photo %>');">
-            <%#= cl_image_tag @workspace.main_photo, class: 'workspace-image' %>       
         <% else %>
           <div class="workspace-header" style="background-image: url('<%= image_url 'placeholder.jpg' %>');">
-            <%#= image_tag 'placeholder.jpg', class: "workspace-image"; %>        
+
             <% end %>
         <div class="workspace-title"><h1><%= @workspace.title %></h1></div>
         <div class="workspace-stars">
-          <p><% @workspace.average.times do %><span class="full-color">★</span><% end %><%= "☆" * (5 - @workspace.average ) %></p>
+          <p><% @workspace.average.times do %><span class="full-color">★</span><% end %><span class="outline-color"><%= "☆" * (5 - @workspace.average ) %></span></p>
         </div>
       </div>
 
-
+    <div class="workspace-white-container">
+      <h2>About</h2>
+      <div class="show-container">
+        <p><%= @workspace.description %></p>
+        <p><span style="font-weight: normal;">Address:</span> <%= @workspace.address  %></p>
+        <div style="padding:10px;"><p><span style="font-weight: normal;">Phone number:</span> <%= @workspace.phone_number %></p></div>
+        <div><p><%= link_to 'Visit website', @workspace.website %></p></div>
+      </div>
+    </div>
 
     <div class="workspace-white-container">
+      <h2>Book a spot</h2>
       <script>
         let bookedarray = [];
         let disablearray = [];
@@ -23,23 +31,24 @@
 
 
       <% @workspace.places.each_with_index do |place, place_index|%>
+      <div class="show-container">
       <% chairs_left = place.number_of_chairs - place.bookings.length%>
 
-      <p>Name: <%= place.name.capitalize %></p>
-      <p>Description: <%= place.description %> </p>
+      <h4><%= place.name.capitalize %></h4>
+      <p><%= place.description %> </p>
       <p> <%= place.price %> €/day</p>
-      <p><%= chairs_left %>out of <%= place.number_of_chairs %> places left</p>
+      <p><%= chairs_left %> out of <%= place.number_of_chairs %> places left</p>
 
     <% if user_signed_in?%>
 
     <!-- HM Code -->
-    <div class="show-cal">Show calendar</div>
+    <div class="show-cal btn btn-info btn-xs" style="margin-left: 20px; margin-bottom: 10px;">Book now</div>
     <div class="show-book-btn" style="display:none;">
 
       <%= simple_form_for([place,Booking.new]) do |t| %>
       <%= t.input :beginning_date, as: :string, input_html: { class: "datepicker#{place_index}" } %>
       <%= t.input :end_date, as: :string, input_html: { class: "datepicker#{place_index}" } %>
-      <%= t.submit "Book this place !", class: "btn btn-info" %>
+      <%= t.submit "Book now", class: "btn btn-info" %>
       <% end %>
 
       <!-- HM Code next - begin -->
@@ -87,31 +96,44 @@
             </script>
 
 
-    </div> <!-- show-book-btn div -->
+        </div> <!-- show-book-btn div -->
           <%end%>
+          </div>
           <%end%>
 
 
 
-          <h3>Reviews about <%= @workspace.title %></h3>
+
+    </div>
+
+
+    <div class="workspace-bottom-container">
+       <h2>Reviews</h2>
           <%if @workspace.workspace_reviews.length >0 %>
           <% @workspace.workspace_reviews.each do |review| %>
-          <p><%= review.booking.user.first_name%> says:</p>
-          <p><%= review.content%></p>
-          <p>Score: <%= review.score %></p>
+        <div class="show-container">
+          <div class="text-center">
+            <p><%= review.booking.user.first_name%> says <em>"<%= review.content%>"</em></p>
+            <div class="review-stars"><p><span class="full-color"><%= "★" * review.score %></span><span class="outline-color"><%= "☆" * (5 - review.score) %></span></p>
+            </div>
+          <p class="review-post-time"><%= review.created_at %></p>
+          </div>
+          </div>
           <%end%>
           <% else%>
-          <p>This place has no reviews yet!</p>
+          <div class="text-center">
+            <p>No current reviews.</p>
+          </div>
           <%end%>
           <%if user_signed_in?%>
           <%if current_user.unreviewed_booking?(@workspace)%>
-          <div>
-            <p>------------------------------------</p>
-            <p>You have been to this place and didn't reviewed it yet! Do it now!
+          <div class="text-center">
+            <p>Share your experience at <%= @workspace.title  %></p>
               <%= link_to "Add review",new_workspace_workspace_review_path(@workspace), class: "btn btn-info"%>
-            </div>
-            <%end%>
-            <%end%>
+          </div>
+
+        <%end%>
+      <%end%>
     </div>
   </div>
 </div>
