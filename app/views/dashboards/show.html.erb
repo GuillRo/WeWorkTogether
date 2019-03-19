@@ -62,31 +62,42 @@
 
 
     <div id="tab-workspaces" style="display:none;">
-      <h1>Your workspaces</h1>
-      <%if @my_workspaces.length.positive?%>
-      <% @my_workspaces.each do |wp|%>
-      <p><%= wp.title%></p>
-      <p>Average score:
-        <%if wp.average == 0%>
-        unknown
-        <%else%>
-        <%= wp.average %>
+      <div class="dashboard-white-container">
+        <h2>Your workspaces</h2>
+        <div class="border-box">
+          <%if @my_workspaces.length.positive?%>
+          <% @my_workspaces.each do |wp|%>
+            <h4><%= wp.title%></h4>
+            <span style="font-weight: lighter;"><p><%= wp.description  %></p></span>
+            <%if wp.average == 0%>
+              <p>No current reviews</p>
+            <%else%>
+              <div class="workspace-stars">
+                <p><% wp.average.times do %><span class="full-color">★</span><% end %><span class="outline-color"><%= "☆" * (5 - wp.average ) %></span></p>
+              </div>
+        <div class=workspace-edit> <%= link_to "Edit", edit_workspace_path %></div>
+        </div>
+          <%end%>
+      </div>
+      <div class="bottom-dashboard-white-container">
+        <h2>Reviews</h2>
+          <%wp.workspace_reviews.each do |wp_review|%>
+        <div class="border-box text-center">
+            <p><%= wp_review.booking.user.first_name %> says <em>"<%= wp_review.content%>"</em> </p>
+            <div class="review-stars"><p><span class="full-color"><%= "★" * wp_review.score %></span><span class="outline-color"><%= "☆" * (5 - wp_review.score) %></span></p>
+            </div>
+            <p class="review-post-time"><%= wp_review.created_at %></p>
+        </div>
         <%end%>
-      </p>
-      <%= link_to "Edit",root_url, class: "btn btn-info"%>
-      <p>Reviews</p>
-      <%wp.workspace_reviews.each do |wp_review|%>
-      <p><%= wp_review.booking.user.first_name %></p>
-      <p><%= wp_review.content%></p>
-      <p>Score: <%= wp_review.score%></p>
-      <%end%>
-      <%end%>
-      <p>----------------------------------</p>
-      <%= link_to "Add a workspace",new_workspace_url, class: "btn btn-info"%>
-      <% else %>
-      <p>You have not yet added a workspace</p>
-      <%= link_to "Do it now",root_url, class: "btn btn-info"%>
-      <% end %>
+        <%end%>
+        <div class="text-center">
+          <%= link_to "Add a workspace",new_workspace_url, class: "btn btn-info"%>
+          <% else %>
+          <p>You have not yet added a workspace</p>
+          <%= link_to "Do it now",root_url, class: "btn btn-info"%>
+        </div>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
