@@ -65,12 +65,12 @@ class User < ApplicationRecord
   end
   def upcoming_bookings
       bookings.select{ |booking| booking.status == "paid" || booking.status == "waiting_for_payment" }
-
   end
 
   def pending_bookings
       bookings.select{ |booking| booking.status == "waiting_for_payment" }
   end
+  
   def past_bookings?
     has_bookings = false
     bookings.each do |booking|
