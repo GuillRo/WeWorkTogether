@@ -1,5 +1,5 @@
 class WorkspacesController < ApplicationController
-  before_action :set_workspace, only: %i[show update destroy]
+  before_action :set_workspace, only: %i[show update edit destroy]
 
   def index
     if params[:query].present?

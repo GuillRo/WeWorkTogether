@@ -28,7 +28,8 @@
                   <div><p><%= review.booking.find_workspace.user.first_name%> says <em>
                     "<%= review.content%>"</em>
                   </p></div>
-                  <div><p><%= "★" * review.score %><%= "☆" * (5 - review.score) %> </p></div>
+                  <div class="review-stars"><p><span class="full-color"><%= "★" * review.score %></span><span class="outline-color"><%= "☆" * (5 - review.score) %></span></p>
+            </div>
                   <p class="review-post-time"><%= review.created_at %></p>
                 </div>
               <%end%>
@@ -46,7 +47,8 @@
                 <div class="review-container text-center">
                 <h4><%= wp_review.booking.find_workspace.title%></h4>
                 <p><em> "<%= wp_review.content%>" </em></p>
-                <p><%= "★" * wp_review.score %><%= "☆" * (5 - wp_review.score) %> </p>
+                <div class="review-stars"><p><span class="full-color"><%= "★" * wp_review.score %></span><span class="outline-color"><%= "☆" * (5 - wp_review.score) %></span></p>
+                </div>
                 <p class="review-post-time"><%= wp_review.created_at %></p>
               </div>
               <% end %>
