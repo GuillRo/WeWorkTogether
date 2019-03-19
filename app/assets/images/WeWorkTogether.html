@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<!-- saved from url=(0034)http://localhost:3000/workspaces/3 -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style type="text/css">.algolia-places {
+  width: 100%;
+}
+
+.ap-input, .ap-hint {
+  width: 100%;
+  padding-right: 35px;
+  padding-left: 16px;
+  line-height: 40px;
+  height: 40px;
+  border: 1px solid #CCC;
+  border-radius: 3px;
+  outline: none;
+  font: inherit;
+  appearance: none;
+  -webkit-appearance: none;
+  box-sizing: border-box;
+}
+
+.ap-input::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+.ap-input::-ms-clear {
+  display: none;
+}
+
+.ap-input:hover ~ .ap-input-icon svg,
+.ap-input:focus ~ .ap-input-icon svg,
+.ap-input-icon:hover svg {
+  fill: #aaaaaa;
+}
+
+.ap-dropdown-menu {
+  width: 100%;
+  background: #ffffff;
+  box-shadow: 0 1px 10px rgba(0, 0, 0, 0.2), 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+  border-radius: 3px;
+  margin-top: 3px;
+  overflow: hidden;
+}
+
+.ap-suggestion {
+  cursor: pointer;
+  height: 46px;
+  line-height: 46px;
+  padding-left: 18px;
+  overflow: hidden;
+}
+
+.ap-suggestion em {
+  font-weight: bold;
+  font-style: normal;
+}
+
+.ap-address {
+  font-size: smaller;
+  margin-left: 12px;
+  color: #aaaaaa;
+}
+
+.ap-suggestion-icon {
+  margin-right: 10px;
+  width: 14px;
+  height: 20px;
+  vertical-align: middle;
+}
+
+.ap-suggestion-icon svg {
+  -webkit-transform: scale(0.9) translateY(2px);
+          transform: scale(0.9) translateY(2px);
+  fill: #cfcfcf;
+}
+
+.ap-input-icon {
+  border: 0;
+  background: transparent;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 16px;
+  outline: none;
+}
+
+.ap-input-icon.ap-icon-pin {
+  cursor: initial;
+}
+
+.ap-input-icon svg {
+  fill: #cfcfcf;
+  position: absolute;
+  top: 50%;
+  right: 0;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+
+.ap-cursor {
+  background: #efefef;
+}
+
+.ap-cursor .ap-suggestion-icon svg {
+  -webkit-transform: scale(1) translateY(2px);
+          transform: scale(1) translateY(2px);
+  fill: #aaaaaa;
+}
+
+.ap-footer {
+  opacity: .8;
+  text-align: right;
+  padding: .5em 1em .5em 0;
+  font-size: 12px;
+  line-height: 12px;
+}
+
+.ap-footer a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.ap-footer a svg {
+  vertical-align: middle;
+}
+
+.ap-footer:hover {
+  opacity: 1;
+}
+</style>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>WeWorkTogether</title>
+    <link rel="shortcut icon" type="image/x-icon" href="http://localhost:3000/assets/logo_bk-2056aed34e223ebad67999ed4f78672b2dff9fa31688eb6dcd747b93d2be456b.png">
+    <meta name="csrf-param" content="authenticity_token">
+<meta name="csrf-token" content="5NpDXpntBkcLevj/0vRZL0xms//N/a5fhyjydBT5jqMUhovXdFGVs7mmrIYpvCSyWiN5BUxGyXH2LXkhheL59g==">
+    <meta name="action-cable-url" content="/cable">
+    <link rel="stylesheet" media="all" href="./WeWorkTogether_files/application-4773b040e6530c53902cf8216537a469f9788a37964abf80caa2accfaafdf70b.css">
+    <script src="./WeWorkTogether_files/mapbox-gl.js"></script>
+    <link rel="stylesheet" type="text/css" href="./WeWorkTogether_files/mapbox-gl.css">
+    <link rel="stylesheet" href="./WeWorkTogether_files/flatpickr.min.css">
+    <script src="./WeWorkTogether_files/flatpickr"></script>
+    <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
+  </head>
+  <body cz-shortcut-listen="true">
+    
+
+<div class="navbar-wagon navbar-fixed-top">
+  <div>
+    <a class="navbar-wagon-brand" href="http://localhost:3000/">
+      <img alt="WeWorkTogether Logo" class="navbar-logo-img" src="./WeWorkTogether_files/logo_ylw-0f4f4b52c75317510abbaf35554ea7a6e6b00cc7472411e3f4595bea55e7268e.svg">
+</a>          <!-- SEARCH-BAR (INPUT + BUTTON) - BEGIN -->
+    <div class="search-bar-in-nav-bar">
+      <script src="./WeWorkTogether_files/places.js@1.16.1"></script>
+      <form id="algolia_form" action="http://localhost:3000/workspaces" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="✓">
+        <div class="search-bar-container">
+          <div class="search-bar">
+            <span class="algolia-places" style="position: relative; display: inline-block; direction: ltr;"><input type="text" name="query" id="query" class="form-control js-searchbar homepage-search ap-input" placeholder="Enter a city" autocomplete="off" spellcheck="false" role="combobox" aria-autocomplete="both" aria-expanded="false" aria-owns="algolia-places-listbox-0" dir="auto" style="position: relative; vertical-align: top;"><pre aria-hidden="true" style="position: absolute; visibility: hidden; white-space: pre; font-family: Roboto, &quot;Open Sans&quot;, Helvetica, sans-serif; font-size: 18px; font-style: normal; font-variant: normal; font-weight: 100; word-spacing: 0px; letter-spacing: normal; text-indent: 0px; text-rendering: auto; text-transform: none;"></pre><span class="ap-dropdown-menu" role="listbox" id="algolia-places-listbox-0" style="position: absolute; top: 100%; z-index: 100; display: none; left: 0px; right: auto;"><div class="ap-dataset-places"></div></span><button type="button" aria-label="clear" class="ap-input-icon ap-icon-clear" style="display: none;"><svg width="12" height="12" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg"><path d="M.566 1.698L0 1.13 1.132 0l.565.566L6 4.868 10.302.566 10.868 0 12 1.132l-.566.565L7.132 6l4.302 4.3.566.568L10.868 12l-.565-.566L6 7.132l-4.3 4.302L1.13 12 0 10.868l.566-.565L4.868 6 .566 1.698z"></path></svg>
+</button><button type="button" aria-label="focus" class="ap-input-icon ap-icon-pin"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 14 20"><path d="M7 0C3.13 0 0 3.13 0 7c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5C5.62 9.5 4.5 8.38 4.5 7S5.62 4.5 7 4.5 9.5 5.62 9.5 7 8.38 9.5 7 9.5z"></path></svg>
+</button></span>
+          </div>
+        </div>
+</form>              <!-- <input type="submit" value="Search" form="algolia_form" class="wwt-btn-common">
+              <input type="submit" value="Search" form="algolia_form" class="wwt-btn-common-cellphone" style="display: none;">
+ -->
+    </div>
+
+          <script>
+            var placesAutocomplete = places({
+              appId: 'plPXFELQHKO7',
+              apiKey: 'f7133196424bc5de90408baab2aff571',
+              container: document.querySelector('.js-searchbar'),
+              language: 'en'
+            });
+          </script>
+  </div>
+        <!-- SEARCH-BAR (INPUT + BUTTON) - END -->
+
+
+
+
+  <div class="navbar-wagon-right hidden-xs hidden-sm">
+    <a class="navbar-wagon-home-item navbar-wagon-home-link" href="http://localhost:3000/dashboards/1">Dashboard</a>
+      <!-- Links when logged in -->
+      <!-- Avatar with dropdown menu -->
+      <div class="navbar-wagon-item">
+        <div class="dropdown">
+          <img class="avatar dropdown-toggle" id="navbar-wagon-menu" data-toggle="dropdown" src="./WeWorkTogether_files/default-avatar.png">
+          <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+            <li>
+              <a href="http://localhost:3000/profiles/1">
+                <i class="fa fa-user"></i> Profile
+</a>            </li>
+            <li>
+              <a href="http://localhost:3000/users/edit">
+                <i class="fa fa-cog"></i>  Settings
+</a>            </li>
+            <li>
+              <a rel="nofollow" data-method="delete" href="http://localhost:3000/users/sign_out">
+                <i class="fa fa-sign-out"></i>  Log out
+</a>            </li>
+          </ul>
+        </div>
+      </div>
+  </div>
+  <!-- Dropdown list appearing on mobile only -->
+  <div class="navbar-wagon-item hidden-md hidden-lg">
+    <div class="dropdown">
+      <i class="fa fa-bars small-fa-bars" data-toggle="dropdown"></i>
+      <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+        <li>
+            <a href="http://localhost:3000/profiles/1">
+              <i class="fa fa-user"></i> Profile
+</a>          </li>
+          <li>
+            <a href="http://localhost:3000/users/edit">
+              <i class="fa fa-cog"></i>  Settings
+</a>          </li>
+          <li>
+            <a rel="nofollow" data-method="delete" href="http://localhost:3000/users/sign_out">
+              <i class="fa fa-sign-out"></i>  Log out
+</a>          </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+    
+    <p class="notice"></p>
+    <p class="alert"></p>
+    <div class="container">
+  <div class="workspace-yellow-container">
+    <div class="workspace-header">
+          <img class="workspace-image" src="./WeWorkTogether_files/woinkyahugnijnpv0cai.jpg">
+      <div class="workspace-title"><h1>House of ape Mechelen</h1></div>
+      <p>★★★☆☆</p>
+    </div>
+
+
+    <div class="workspace-white-container">
+      <script>
+        let bookedarray = [];
+        let disablearray = [];
+      </script>
+    </div>
+
+
+    <p>Name: Nice room</p>
+    <p>Description: You should rent this room </p>
+    <p> 15 €/day</p>
+    <p>9out of 10 places left</p>
+
+
+
+    <!-- HM Code -->
+    <div class="show-cal">Show calendar</div>
+    <div class="show-book-btn" style="display:none;">
+
+      <form class="simple_form new_booking" id="new_booking" novalidate="novalidate" action="http://localhost:3000/places/7/bookings" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="authenticity_token" value="5NpDXpntBkcLevj/0vRZL0xms//N/a5fhyjydBT5jqMUhovXdFGVs7mmrIYpvCSyWiN5BUxGyXH2LXkhheL59g==">
+      <div class="form-group string required booking_beginning_date"><label class="form-control-label string required" for="booking_beginning_date">Beginning date <abbr title="required">*</abbr></label><input class="form-control string required datepicker0 flatpickr-input" type="hidden" name="booking[beginning_date]" id="booking_beginning_date"><input class="form-control string required datepicker0 flatpickr-input form-control input" placeholder="" tabindex="0" type="text" readonly="readonly"></div>
+      <div class="form-group string required booking_end_date"><label class="form-control-label string required" for="booking_end_date">End date <abbr title="required">*</abbr></label><input class="form-control string required datepicker0 flatpickr-input" type="hidden" name="booking[end_date]" id="booking_end_date"><input class="form-control string required datepicker0 flatpickr-input form-control input" placeholder="" tabindex="0" type="text" readonly="readonly"></div>
+      <input type="submit" name="commit" value="Book this place !" class="btn btn-info" data-disable-with="Book this place !">
+</form>
+      <!-- HM Code next - begin -->
+
+
+
+      <script>
+        flatpickr('.datepicker0', {
+          disable: disablearray,
+          altInput: true,
+          altFormat: "j F, Y",
+          dateFormat: "d-m-Y",
+          minDate: "today",
+          maxDate: new Date().fp_incr(93),
+          onDayCreate: function(dObj, dStr, fp, dayElem) {
+                       // Checking to see if the current day object is in our array
+                       // The `+` is just a shortcut for parsing the date
+                       if (bookedarray.indexOf(+dayElem.dateObj) !== -1) {
+                        dayElem.className += " booked-day";
+                      }
+                    },
+                weekNumbers: true // 1 year from now
+              });
+            </script>
+
+
+    </div> <!-- show-book-btn div -->
+
+    <p>Name: Nice room</p>
+    <p>Description: You should rent this room </p>
+    <p> 17 €/day</p>
+    <p>4out of 5 places left</p>
+
+
+
+    <!-- HM Code -->
+    <div class="show-cal">Show calendar</div>
+    <div class="show-book-btn" style="display:none;">
+
+      <form class="simple_form new_booking" id="new_booking" novalidate="novalidate" action="http://localhost:3000/places/8/bookings" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="authenticity_token" value="5NpDXpntBkcLevj/0vRZL0xms//N/a5fhyjydBT5jqMUhovXdFGVs7mmrIYpvCSyWiN5BUxGyXH2LXkhheL59g==">
+      <div class="form-group string required booking_beginning_date"><label class="form-control-label string required" for="booking_beginning_date">Beginning date <abbr title="required">*</abbr></label><input class="form-control string required datepicker1 flatpickr-input" type="hidden" name="booking[beginning_date]" id="booking_beginning_date"><input class="form-control string required datepicker1 flatpickr-input form-control input" placeholder="" tabindex="0" type="text" readonly="readonly"></div>
+      <div class="form-group string required booking_end_date"><label class="form-control-label string required" for="booking_end_date">End date <abbr title="required">*</abbr></label><input class="form-control string required datepicker1 flatpickr-input" type="hidden" name="booking[end_date]" id="booking_end_date"><input class="form-control string required datepicker1 flatpickr-input form-control input" placeholder="" tabindex="0" type="text" readonly="readonly"></div>
+      <input type="submit" name="commit" value="Book this place !" class="btn btn-info" data-disable-with="Book this place !">
+</form>
+      <!-- HM Code next - begin -->
+
+
+
+      <script>
+        flatpickr('.datepicker1', {
+          disable: disablearray,
+          altInput: true,
+          altFormat: "j F, Y",
+          dateFormat: "d-m-Y",
+          minDate: "today",
+          maxDate: new Date().fp_incr(93),
+          onDayCreate: function(dObj, dStr, fp, dayElem) {
+                       // Checking to see if the current day object is in our array
+                       // The `+` is just a shortcut for parsing the date
+                       if (bookedarray.indexOf(+dayElem.dateObj) !== -1) {
+                        dayElem.className += " booked-day";
+                      }
+                    },
+                weekNumbers: true // 1 year from now
+              });
+            </script>
+
+
+    </div> <!-- show-book-btn div -->
+
+
+
+          <h3>Reviews about House of ape Mechelen</h3>
+          <p>Marie says:</p>
+          <p>I was very disappointed with the service provided</p>
+          <p>Score: 2</p>
+          <p>France says:</p>
+          <p>AMMMMAAAAAAZIIIIIIING !!!! just book</p>
+          <p>Score: 5</p>
+  </div>
+</div><div class="flatpickr-calendar hasWeeks animate" tabindex="-1" style="width: 349px;"><div class="flatpickr-months"><span class="flatpickr-prev-month disabled"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 17 17"><g></g><path d="M5.207 8.471l7.146 7.147-0.707 0.707-7.853-7.854 7.854-7.853 0.707 0.707-7.147 7.146z"></path></svg></span><div class="flatpickr-month"><div class="flatpickr-current-month"><span class="cur-month">March </span><div class="numInputWrapper"><input class="numInput cur-year" type="number" tabindex="-1" aria-label="Year" min="2019" max="2019" disabled=""><span class="arrowUp"></span><span class="arrowDown"></span></div></div></div><span class="flatpickr-next-month"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 17 17"><g></g><path d="M13.207 8.472l-7.854 7.854-0.707-0.707 7.146-7.146-7.146-7.148 0.707-0.707 7.854 7.854z"></path></svg></span></div><div class="flatpickr-innerContainer"><div class="flatpickr-weekwrapper"><span class="flatpickr-weekday">Wk</span><div class="flatpickr-weeks"><span class="flatpickr-day">9</span><span class="flatpickr-day">10</span><span class="flatpickr-day">11</span><span class="flatpickr-day">12</span><span class="flatpickr-day">13</span><span class="flatpickr-day">14</span></div></div><div class="flatpickr-rContainer"><div class="flatpickr-weekdays"><div class="flatpickr-weekdaycontainer">
+      <span class="flatpickr-weekday">
+        Sun</span><span class="flatpickr-weekday">Mon</span><span class="flatpickr-weekday">Tue</span><span class="flatpickr-weekday">Wed</span><span class="flatpickr-weekday">Thu</span><span class="flatpickr-weekday">Fri</span><span class="flatpickr-weekday">Sat
+      </span>
+      </div></div><div class="flatpickr-days" tabindex="-1" style="width: 309px;"><div class="dayContainer"><span class="flatpickr-day prevMonthDay disabled" aria-label="February 24, 2019">24</span><span class="flatpickr-day prevMonthDay disabled" aria-label="February 25, 2019">25</span><span class="flatpickr-day prevMonthDay disabled" aria-label="February 26, 2019">26</span><span class="flatpickr-day prevMonthDay disabled" aria-label="February 27, 2019">27</span><span class="flatpickr-day prevMonthDay disabled" aria-label="February 28, 2019">28</span><span class="flatpickr-day disabled" aria-label="March 1, 2019">1</span><span class="flatpickr-day disabled" aria-label="March 2, 2019">2</span><span class="flatpickr-day disabled" aria-label="March 3, 2019">3</span><span class="flatpickr-day disabled" aria-label="March 4, 2019">4</span><span class="flatpickr-day disabled" aria-label="March 5, 2019">5</span><span class="flatpickr-day disabled" aria-label="March 6, 2019">6</span><span class="flatpickr-day disabled" aria-label="March 7, 2019">7</span><span class="flatpickr-day disabled" aria-label="March 8, 2019">8</span><span class="flatpickr-day disabled" aria-label="March 9, 2019">9</span><span class="flatpickr-day disabled" aria-label="March 10, 2019">10</span><span class="flatpickr-day disabled" aria-label="March 11, 2019">11</span><span class="flatpickr-day disabled" aria-label="March 12, 2019">12</span><span class="flatpickr-day disabled" aria-label="March 13, 2019">13</span><span class="flatpickr-day disabled" aria-label="March 14, 2019">14</span><span class="flatpickr-day disabled" aria-label="March 15, 2019">15</span><span class="flatpickr-day disabled" aria-label="March 16, 2019">16</span><span class="flatpickr-day disabled" aria-label="March 17, 2019">17</span><span class="flatpickr-day today" aria-label="March 18, 2019" aria-current="date" tabindex="-1">18</span><span class="flatpickr-day " aria-label="March 19, 2019" tabindex="-1">19</span><span class="flatpickr-day " aria-label="March 20, 2019" tabindex="-1">20</span><span class="flatpickr-day " aria-label="March 21, 2019" tabindex="-1">21</span><span class="flatpickr-day " aria-label="March 22, 2019" tabindex="-1">22</span><span class="flatpickr-day " aria-label="March 23, 2019" tabindex="-1">23</span><span class="flatpickr-day " aria-label="March 24, 2019" tabindex="-1">24</span><span class="flatpickr-day " aria-label="March 25, 2019" tabindex="-1">25</span><span class="flatpickr-day " aria-label="March 26, 2019" tabindex="-1">26</span><span class="flatpickr-day " aria-label="March 27, 2019" tabindex="-1">27</span><span class="flatpickr-day " aria-label="March 28, 2019" tabindex="-1">28</span><span class="flatpickr-day " aria-label="March 29, 2019" tabindex="-1">29</span><span class="flatpickr-day " aria-label="March 30, 2019" tabindex="-1">30</span><span class="flatpickr-day " aria-label="March 31, 2019" tabindex="-1">31</span><span class="flatpickr-day nextMonthDay" aria-label="April 1, 2019" tabindex="-1">1</span><span class="flatpickr-day nextMonthDay" aria-label="April 2, 2019" tabindex="-1">2</span><span class="flatpickr-day nextMonthDay" aria-label="April 3, 2019" tabindex="-1">3</span><span class="flatpickr-day nextMonthDay" aria-label="April 4, 2019" tabindex="-1">4</span><span class="flatpickr-day nextMonthDay" aria-label="April 5, 2019" tabindex="-1">5</span><span class="flatpickr-day nextMonthDay" aria-label="April 6, 2019" tabindex="-1">6</span></div></div></div></div></div><div class="flatpickr-calendar hasWeeks animate" tabindex="-1" style="width: 349px;"><div class="flatpickr-months"><span class="flatpickr-prev-month disabled"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 17 17"><g></g><path d="M5.207 8.471l7.146 7.147-0.707 0.707-7.853-7.854 7.854-7.853 0.707 0.707-7.147 7.146z"></path></svg></span><div class="flatpickr-month"><div class="flatpickr-current-month"><span class="cur-month">March </span><div class="numInputWrapper"><input class="numInput cur-year" type="number" tabindex="-1" aria-label="Year" min="2019" max="2019" disabled=""><span class="arrowUp"></span><span class="arrowDown"></span></div></div></div><span class="flatpickr-next-month"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 17 17"><g></g><path d="M13.207 8.472l-7.854 7.854-0.707-0.707 7.146-7.146-7.146-7.148 0.707-0.707 7.854 7.854z"></path></svg></span></div><div class="flatpickr-innerContainer"><div class="flatpickr-weekwrapper"><span class="flatpickr-weekday">Wk</span><div class="flatpickr-weeks"><span class="flatpickr-day">9</span><span class="flatpickr-day">10</span><span class="flatpickr-day">11</span><span class="flatpickr-day">12</span><span class="flatpickr-day">13</span><span class="flatpickr-day">14</span></div></div><div class="flatpickr-rContainer"><div class="flatpickr-weekdays"><div class="flatpickr-weekdaycontainer">
+      <span class="flatpickr-weekday">
+        Sun</span><span class="flatpickr-weekday">Mon</span><span class="flatpickr-weekday">Tue</span><span class="flatpickr-weekday">Wed</span><span class="flatpickr-weekday">Thu</span><span class="flatpickr-weekday">Fri</span><span class="flatpickr-weekday">Sat
+      </span>
+      </div></div><div class="flatpickr-days" tabindex="-1" style="width: 309px;"><div class="dayContainer"><span class="flatpickr-day prevMonthDay disabled" aria-label="February 24, 2019">24</span><span class="flatpickr-day prevMonthDay disabled" aria-label="February 25, 2019">25</span><span class="flatpickr-day prevMonthDay disabled" aria-label="February 26, 2019">26</span><span class="flatpickr-day prevMonthDay disabled" aria-label="February 27, 2019">27</span><span class="flatpickr-day prevMonthDay disabled" aria-label="February 28, 2019">28</span><span class="flatpickr-day disabled" aria-label="March 1, 2019">1</span><span class="flatpickr-day disabled" aria-label="March 2, 2019">2</span><span class="flatpickr-day disabled" aria-label="March 3, 2019">3</span><span class="flatpickr-day disabled" aria-label="March 4, 2019">4</span><span class="flatpickr-day disabled" aria-label="March 5, 2019">5</span><span class="flatpickr-day disabled" aria-label="March 6, 2019">6</span><span class="flatpickr-day disabled" aria-label="March 7, 2019">7</span><span class="flatpickr-day disabled" aria-label="March 8, 2019">8</span><span class="flatpickr-day disabled" aria-label="March 9, 2019">9</span><span class="flatpickr-day disabled" aria-label="March 10, 2019">10</span><span class="flatpickr-day disabled" aria-label="March 11, 2019">11</span><span class="flatpickr-day disabled" aria-label="March 12, 2019">12</span><span class="flatpickr-day disabled" aria-label="March 13, 2019">13</span><span class="flatpickr-day disabled" aria-label="March 14, 2019">14</span><span class="flatpickr-day disabled" aria-label="March 15, 2019">15</span><span class="flatpickr-day disabled" aria-label="March 16, 2019">16</span><span class="flatpickr-day disabled" aria-label="March 17, 2019">17</span><span class="flatpickr-day today" aria-label="March 18, 2019" aria-current="date" tabindex="-1">18</span><span class="flatpickr-day " aria-label="March 19, 2019" tabindex="-1">19</span><span class="flatpickr-day " aria-label="March 20, 2019" tabindex="-1">20</span><span class="flatpickr-day " aria-label="March 21, 2019" tabindex="-1">21</span><span class="flatpickr-day " aria-label="March 22, 2019" tabindex="-1">22</span><span class="flatpickr-day " aria-label="March 23, 2019" tabindex="-1">23</span><span class="flatpickr-day " aria-label="March 24, 2019" tabindex="-1">24</span><span class="flatpickr-day " aria-label="March 25, 2019" tabindex="-1">25</span><span class="flatpickr-day " aria-label="March 26, 2019" tabindex="-1">26</span><span class="flatpickr-day " aria-label="March 27, 2019" tabindex="-1">27</span><span class="flatpickr-day " aria-label="March 28, 2019" tabindex="-1">28</span><span class="flatpickr-day " aria-label="March 29, 2019" tabindex="-1">29</span><span class="flatpickr-day " aria-label="March 30, 2019" tabindex="-1">30</span><span class="flatpickr-day " aria-label="March 31, 2019" tabindex="-1">31</span><span class="flatpickr-day nextMonthDay" aria-label="April 1, 2019" tabindex="-1">1</span><span class="flatpickr-day nextMonthDay" aria-label="April 2, 2019" tabindex="-1">2</span><span class="flatpickr-day nextMonthDay" aria-label="April 3, 2019" tabindex="-1">3</span><span class="flatpickr-day nextMonthDay" aria-label="April 4, 2019" tabindex="-1">4</span><span class="flatpickr-day nextMonthDay" aria-label="April 5, 2019" tabindex="-1">5</span><span class="flatpickr-day nextMonthDay" aria-label="April 6, 2019" tabindex="-1">6</span></div></div></div></div></div><div class="flatpickr-calendar hasWeeks animate" tabindex="-1" style="width: 349px;"><div class="flatpickr-months"><span class="flatpickr-prev-month disabled"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 17 17"><g></g><path d="M5.207 8.471l7.146 7.147-0.707 0.707-7.853-7.854 7.854-7.853 0.707 0.707-7.147 7.146z"></path></svg></span><div class="flatpickr-month"><div class="flatpickr-current-month"><span class="cur-month">March </span><div class="numInputWrapper"><input class="numInput cur-year" type="number" tabindex="-1" aria-label="Year" min="2019" max="2019" disabled=""><span class="arrowUp"></span><span class="arrowDown"></span></div></div></div><span class="flatpickr-next-month"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 17 17"><g></g><path d="M13.207 8.472l-7.854 7.854-0.707-0.707 7.146-7.146-7.146-7.148 0.707-0.707 7.854 7.854z"></path></svg></span></div><div class="flatpickr-innerContainer"><div class="flatpickr-weekwrapper"><span class="flatpickr-weekday">Wk</span><div class="flatpickr-weeks"><span class="flatpickr-day">9</span><span class="flatpickr-day">10</span><span class="flatpickr-day">11</span><span class="flatpickr-day">12</span><span class="flatpickr-day">13</span><span class="flatpickr-day">14</span></div></div><div class="flatpickr-rContainer"><div class="flatpickr-weekdays"><div class="flatpickr-weekdaycontainer">
+      <span class="flatpickr-weekday">
+        Sun</span><span class="flatpickr-weekday">Mon</span><span class="flatpickr-weekday">Tue</span><span class="flatpickr-weekday">Wed</span><span class="flatpickr-weekday">Thu</span><span class="flatpickr-weekday">Fri</span><span class="flatpickr-weekday">Sat
+      </span>
+      </div></div><div class="flatpickr-days" tabindex="-1" style="width: 309px;"><div class="dayContainer"><span class="flatpickr-day prevMonthDay disabled" aria-label="February 24, 2019">24</span><span class="flatpickr-day prevMonthDay disabled" aria-label="February 25, 2019">25</span><span class="flatpickr-day prevMonthDay disabled" aria-label="February 26, 2019">26</span><span class="flatpickr-day prevMonthDay disabled" aria-label="February 27, 2019">27</span><span class="flatpickr-day prevMonthDay disabled" aria-label="February 28, 2019">28</span><span class="flatpickr-day disabled" aria-label="March 1, 2019">1</span><span class="flatpickr-day disabled" aria-label="March 2, 2019">2</span><span class="flatpickr-day disabled" aria-label="March 3, 2019">3</span><span class="flatpickr-day disabled" aria-label="March 4, 2019">4</span><span class="flatpickr-day disabled" aria-label="March 5, 2019">5</span><span class="flatpickr-day disabled" aria-label="March 6, 2019">6</span><span class="flatpickr-day disabled" aria-label="March 7, 2019">7</span><span class="flatpickr-day disabled" aria-label="March 8, 2019">8</span><span class="flatpickr-day disabled" aria-label="March 9, 2019">9</span><span class="flatpickr-day disabled" aria-label="March 10, 2019">10</span><span class="flatpickr-day disabled" aria-label="March 11, 2019">11</span><span class="flatpickr-day disabled" aria-label="March 12, 2019">12</span><span class="flatpickr-day disabled" aria-label="March 13, 2019">13</span><span class="flatpickr-day disabled" aria-label="March 14, 2019">14</span><span class="flatpickr-day disabled" aria-label="March 15, 2019">15</span><span class="flatpickr-day disabled" aria-label="March 16, 2019">16</span><span class="flatpickr-day disabled" aria-label="March 17, 2019">17</span><span class="flatpickr-day today" aria-label="March 18, 2019" aria-current="date" tabindex="-1">18</span><span class="flatpickr-day " aria-label="March 19, 2019" tabindex="-1">19</span><span class="flatpickr-day " aria-label="March 20, 2019" tabindex="-1">20</span><span class="flatpickr-day " aria-label="March 21, 2019" tabindex="-1">21</span><span class="flatpickr-day " aria-label="March 22, 2019" tabindex="-1">22</span><span class="flatpickr-day " aria-label="March 23, 2019" tabindex="-1">23</span><span class="flatpickr-day " aria-label="March 24, 2019" tabindex="-1">24</span><span class="flatpickr-day " aria-label="March 25, 2019" tabindex="-1">25</span><span class="flatpickr-day " aria-label="March 26, 2019" tabindex="-1">26</span><span class="flatpickr-day " aria-label="March 27, 2019" tabindex="-1">27</span><span class="flatpickr-day " aria-label="March 28, 2019" tabindex="-1">28</span><span class="flatpickr-day " aria-label="March 29, 2019" tabindex="-1">29</span><span class="flatpickr-day " aria-label="March 30, 2019" tabindex="-1">30</span><span class="flatpickr-day " aria-label="March 31, 2019" tabindex="-1">31</span><span class="flatpickr-day nextMonthDay" aria-label="April 1, 2019" tabindex="-1">1</span><span class="flatpickr-day nextMonthDay" aria-label="April 2, 2019" tabindex="-1">2</span><span class="flatpickr-day nextMonthDay" aria-label="April 3, 2019" tabindex="-1">3</span><span class="flatpickr-day nextMonthDay" aria-label="April 4, 2019" tabindex="-1">4</span><span class="flatpickr-day nextMonthDay" aria-label="April 5, 2019" tabindex="-1">5</span><span class="flatpickr-day nextMonthDay" aria-label="April 6, 2019" tabindex="-1">6</span></div></div></div></div></div><div class="flatpickr-calendar hasWeeks animate" tabindex="-1" style="width: 349px;"><div class="flatpickr-months"><span class="flatpickr-prev-month disabled"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 17 17"><g></g><path d="M5.207 8.471l7.146 7.147-0.707 0.707-7.853-7.854 7.854-7.853 0.707 0.707-7.147 7.146z"></path></svg></span><div class="flatpickr-month"><div class="flatpickr-current-month"><span class="cur-month">March </span><div class="numInputWrapper"><input class="numInput cur-year" type="number" tabindex="-1" aria-label="Year" min="2019" max="2019" disabled=""><span class="arrowUp"></span><span class="arrowDown"></span></div></div></div><span class="flatpickr-next-month"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 17 17"><g></g><path d="M13.207 8.472l-7.854 7.854-0.707-0.707 7.146-7.146-7.146-7.148 0.707-0.707 7.854 7.854z"></path></svg></span></div><div class="flatpickr-innerContainer"><div class="flatpickr-weekwrapper"><span class="flatpickr-weekday">Wk</span><div class="flatpickr-weeks"><span class="flatpickr-day">9</span><span class="flatpickr-day">10</span><span class="flatpickr-day">11</span><span class="flatpickr-day">12</span><span class="flatpickr-day">13</span><span class="flatpickr-day">14</span></div></div><div class="flatpickr-rContainer"><div class="flatpickr-weekdays"><div class="flatpickr-weekdaycontainer">
+      <span class="flatpickr-weekday">
+        Sun</span><span class="flatpickr-weekday">Mon</span><span class="flatpickr-weekday">Tue</span><span class="flatpickr-weekday">Wed</span><span class="flatpickr-weekday">Thu</span><span class="flatpickr-weekday">Fri</span><span class="flatpickr-weekday">Sat
+      </span>
+      </div></div><div class="flatpickr-days" tabindex="-1" style="width: 309px;"><div class="dayContainer"><span class="flatpickr-day prevMonthDay disabled" aria-label="February 24, 2019">24</span><span class="flatpickr-day prevMonthDay disabled" aria-label="February 25, 2019">25</span><span class="flatpickr-day prevMonthDay disabled" aria-label="February 26, 2019">26</span><span class="flatpickr-day prevMonthDay disabled" aria-label="February 27, 2019">27</span><span class="flatpickr-day prevMonthDay disabled" aria-label="February 28, 2019">28</span><span class="flatpickr-day disabled" aria-label="March 1, 2019">1</span><span class="flatpickr-day disabled" aria-label="March 2, 2019">2</span><span class="flatpickr-day disabled" aria-label="March 3, 2019">3</span><span class="flatpickr-day disabled" aria-label="March 4, 2019">4</span><span class="flatpickr-day disabled" aria-label="March 5, 2019">5</span><span class="flatpickr-day disabled" aria-label="March 6, 2019">6</span><span class="flatpickr-day disabled" aria-label="March 7, 2019">7</span><span class="flatpickr-day disabled" aria-label="March 8, 2019">8</span><span class="flatpickr-day disabled" aria-label="March 9, 2019">9</span><span class="flatpickr-day disabled" aria-label="March 10, 2019">10</span><span class="flatpickr-day disabled" aria-label="March 11, 2019">11</span><span class="flatpickr-day disabled" aria-label="March 12, 2019">12</span><span class="flatpickr-day disabled" aria-label="March 13, 2019">13</span><span class="flatpickr-day disabled" aria-label="March 14, 2019">14</span><span class="flatpickr-day disabled" aria-label="March 15, 2019">15</span><span class="flatpickr-day disabled" aria-label="March 16, 2019">16</span><span class="flatpickr-day disabled" aria-label="March 17, 2019">17</span><span class="flatpickr-day today" aria-label="March 18, 2019" aria-current="date" tabindex="-1">18</span><span class="flatpickr-day " aria-label="March 19, 2019" tabindex="-1">19</span><span class="flatpickr-day " aria-label="March 20, 2019" tabindex="-1">20</span><span class="flatpickr-day " aria-label="March 21, 2019" tabindex="-1">21</span><span class="flatpickr-day " aria-label="March 22, 2019" tabindex="-1">22</span><span class="flatpickr-day " aria-label="March 23, 2019" tabindex="-1">23</span><span class="flatpickr-day " aria-label="March 24, 2019" tabindex="-1">24</span><span class="flatpickr-day " aria-label="March 25, 2019" tabindex="-1">25</span><span class="flatpickr-day " aria-label="March 26, 2019" tabindex="-1">26</span><span class="flatpickr-day " aria-label="March 27, 2019" tabindex="-1">27</span><span class="flatpickr-day " aria-label="March 28, 2019" tabindex="-1">28</span><span class="flatpickr-day " aria-label="March 29, 2019" tabindex="-1">29</span><span class="flatpickr-day " aria-label="March 30, 2019" tabindex="-1">30</span><span class="flatpickr-day " aria-label="March 31, 2019" tabindex="-1">31</span><span class="flatpickr-day nextMonthDay" aria-label="April 1, 2019" tabindex="-1">1</span><span class="flatpickr-day nextMonthDay" aria-label="April 2, 2019" tabindex="-1">2</span><span class="flatpickr-day nextMonthDay" aria-label="April 3, 2019" tabindex="-1">3</span><span class="flatpickr-day nextMonthDay" aria-label="April 4, 2019" tabindex="-1">4</span><span class="flatpickr-day nextMonthDay" aria-label="April 5, 2019" tabindex="-1">5</span><span class="flatpickr-day nextMonthDay" aria-label="April 6, 2019" tabindex="-1">6</span></div></div></div></div></div>
+
+    <script src="./WeWorkTogether_files/application-5c1e2f2c3252b3cf73e5e4426ce74cd16a6aadc236ce2df1b07804ca9d3ed215.js"></script>
+    <script src="./WeWorkTogether_files/application-248c41e701b57c29b045.js"></script>
+  
+
+</body></html>
