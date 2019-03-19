@@ -25,6 +25,14 @@
     font-weight: normal;
   }
 
+  a {
+    color: $light-gray;
+  }
+
+  a:hover {
+    color: #626161;
+  }
+
 }
 
 .bottom-dashboard-white-container {
@@ -56,6 +64,10 @@
   margin: 20px;
   position: relative;
 
+  p {
+    font-weight: lighter;
+  }
+
 }
 
 #paid {
@@ -85,4 +97,16 @@
 
 #dashboard-tabs {
   margin-bottom: 80px;
+}
+
+
+.workspace-edit {
+    position: absolute;
+    bottom:10px;
+    right: 10px;
+    font-size: 18px;
+    text-align: right !important;
+    font-weight: lighter;
+    text-decoration: underline;
+
 }
