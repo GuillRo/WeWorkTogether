@@ -2,6 +2,7 @@
 
         const bookbtnall = document.querySelectorAll('.show-cal');
         if (bookbtnall) {
+          console.log(bookbtnall)
               bookbtnall.forEach((bookbtn) => {
               bookbtn.addEventListener("click", (event) => {
               bookbtnall.forEach((bookpurg) => { if(bookpurg) {

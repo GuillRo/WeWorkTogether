@@ -7,9 +7,9 @@ import { mapAction } from '../components/map';
 import { changeTab} from '../components/tabs'
 import { loadDynamicBannerText } from '../components/banner';
 
+showCalendar();
 loadDynamicBannerText();
 initUpdateNavbarOnScroll();
 initUpdateNavbarHomeOnScroll();
-showCalendar();
 changeTab();
 mapAction();
