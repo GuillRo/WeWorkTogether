@@ -21,6 +21,14 @@ class WorkspacesController < ApplicationController
     @workspace = Workspace.find(params[:id])
   end
 
+  def payment_accepted
+      @id = Booking.find(params[:id].to_i).places.first.workspace.id
+  end
+
+  def payment_accepted
+    @id = Booking.find(params[:id].to_i).places.first.workspace.id
+  end
+
   def new
     @workspace = Workspace.new
   end

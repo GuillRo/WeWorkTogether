@@ -6,6 +6,8 @@ class Booking < ApplicationRecord
   belongs_to :user
   has_many :places, through: :booking_places
 
+  monetize :price_cents
+
   validates :beginning_date, presence: true
   validates :end_date, presence: true
 

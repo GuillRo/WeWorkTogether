@@ -4,6 +4,8 @@ class Place < ApplicationRecord
   has_many :bookings, through: :booking_places
   has_many :booking_dates
 
+  monetize :price_cents
+
   validates :description, presence: true
   validates :name, presence: true
   validates :price, presence: true

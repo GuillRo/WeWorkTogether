@@ -238,8 +238,8 @@ place_9 = Place.create!(workspace: workspace_4, price: 35, name: "nice room", de
 place_10 = Place.create!(workspace: workspace_4, price: 32, name: "nice room", description: "You should rent this room", number_of_chairs: 5)
 place_11 = Place.create!(workspace: workspace_5, price: 31, name: "nice room", description: "You should rent this room", number_of_chairs: 5)
 place_12 = Place.create!(workspace: workspace_5, price: 18, name: "nice room", description: "You should rent this room", number_of_chairs: 5)
-place_13 = Place.create!(workspace: workspace_5, price: 22, name: "nice room", description: "You should rent this room", number_of_chairs: 7)
 place_14 = Place.create!(workspace: workspace_6, price: 23, name: "nice room", description: "You should rent this room", number_of_chairs: 3)
+place_13 = Place.create!(workspace: workspace_5, price: 22, name: "nice room", description: "You should rent this room", number_of_chairs: 7)
 place_15 = Place.create!(workspace: workspace_6, price: 24, name: "nice room", description: "You should rent this room", number_of_chairs: 9)
 place_16 = Place.create!(workspace: workspace_6, price: 25, name: "nice room", description: "You should rent this room", number_of_chairs: 1)
 place_17 = Place.create!(workspace: workspace_7, price: 29, name: "nice room", description: "You should rent this room",number_of_chairs: 5)
@@ -399,8 +399,6 @@ UserReview.create!(score: 5, content: "Amazing customer !!! Everything was perfe
 UserReview.create!(score: 3, content: "Nice person but his desk was so messy", booking: booking_28)
 UserReview.create!(score: 5, content: "Amazing customer !!! Everything was perfect", booking: booking_29)
 UserReview.create!(score: 4, content: "He was very respectful. I highly recommend him", booking: booking_30)
-
-
 
 UserReview.create!(score: 3, content: "What an ass. This guy killed my dog", booking: booking_1)
 

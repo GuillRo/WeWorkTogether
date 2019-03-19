@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_15_102608) do
+ActiveRecord::Schema.define(version: 2019_03_19_083825) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,7 +40,7 @@ ActiveRecord::Schema.define(version: 2019_03_15_102608) do
     t.string "status"
     t.date "beginning_date"
     t.date "end_date"
-    t.integer "price"
+    t.integer "price_cents", default: 0, null: false
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end
 
@@ -59,7 +59,7 @@ ActiveRecord::Schema.define(version: 2019_03_15_102608) do
     t.bigint "owner_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "price"
+    t.integer "amount_cents", default: 0, null: false
     t.index ["booking_id"], name: "index_payments_on_booking_id"
     t.index ["owner_id"], name: "index_payments_on_owner_id"
     t.index ["renter_id"], name: "index_payments_on_renter_id"
@@ -80,7 +80,7 @@ ActiveRecord::Schema.define(version: 2019_03_15_102608) do
     t.integer "number_of_chairs"
     t.text "description"
     t.string "name"
-    t.integer "price"
+    t.integer "price_cents", default: 0, null: false
     t.index ["workspace_id"], name: "index_places_on_workspace_id"
   end
 

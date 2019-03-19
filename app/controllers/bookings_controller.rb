@@ -17,16 +17,16 @@ class BookingsController < ApplicationController
     @place = Place.find(params[:place_id])
     @booking.user = current_user
     @booking.set_status
-    @booking.price = @place.price * @booking.calculate_time
+    @booking.price = @place.price * @booking.calculate_time unless @booking.beginning_date.nil? || @booking.end_date.nil?
     if @booking.save
       BookingPlace.create!(booking: @booking, place: @place)
       # HM Codeline below (if save_the_days condition)
-      redirect_to workspace_path(@place.workspace) if save_the_days(booking_params, params[:place_id])
+      redirect_to new_booking_payment_url(@booking) if save_the_days(booking_params, params[:place_id])
     else
       @place = Place.find(params[:place_id])
       # Line below is not necessary (HM)
       # @workspace = Workspace.where(workspace_id: @place)
-      render :new
+      redirect_to workspace_path(@place.workspace)
     end
   end
 
@@ -95,13 +95,11 @@ class BookingsController < ApplicationController
 
   def generate_date_range(first, last)
     first = "", last = "", first unless last
-    if last.nil? || last.empty?
-      last = (Time.now - 1.day).in_time_zone('Brussels').strftime("%Y-%m-%d")
-    end
+    last = (Time.now - 1.day).in_time_zone('Brussels').strftime("%Y-%m-%d") if last.nil? || last.empty?
     if first.empty?
       first = Time.strptime(last, "%Y-%m-%d").in_time_zone('Brussels').beginning_of_month.strftime("%Y-%m-%d")
     end
-    (first..last).select { |d|  valid_date?(d) }
+    (first..last).select { |d| valid_date?(d) }
   end
 
   def valid_date?(dat)
