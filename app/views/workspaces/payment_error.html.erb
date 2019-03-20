@@ -1,4 +1,11 @@
 <div class="container text-center">
-  <h2>Something went wrong! </h2>
-  <%= link_to "Back to workspace's page", workspace_url(@id), class: "btn btn-info" %>
+  <div class="yellow-container">
+    <div class="white-container payment-content">
+      <h2>Error</h2>
+        <p>Oops! We're sorry, something went wrong.</p>
+        <div class="payment-button">
+          <%= link_to "Back to workspace", workspace_url(@id), class: "btn btn-info" %>
+        </div>
+    </div>
+  </div>
 </div>

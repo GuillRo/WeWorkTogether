@@ -1,6 +1,7 @@
 /* overrides container class from bootstrap */
 .container {
   margin-top: 6em;
+  min-height: calc(100vh - 220px);
 }
 
 .yellow-container {
@@ -8,6 +9,7 @@
     margin-top: 50px;
     padding: 50px;
     border-radius: 10px;
+    min-height: 50vh;
 }
 
 .white-container {
@@ -17,6 +19,7 @@
   padding: 20px;
   margin: 30px 30px 80px 30px;
   position:relative;
+  min-height: 40vh;
 
   h2 {
     font-weight: lighter;

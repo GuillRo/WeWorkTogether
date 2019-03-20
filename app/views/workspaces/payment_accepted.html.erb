@@ -1,8 +1,13 @@
 <div class="container text-center">
   <div class="yellow-container">
-    <div class="white-container">
-      <h2>Payment accepted! </h2>
-      <%= link_to "Back to workspace's page", workspace_url(@id), class: "btn btn-info" %>
+    <div class="white-container payment-content">
+      <h2>Payment accepted</h2>
+        <p>Thanks for your booking, everything's all set!</p>
+        <p>We hope you enjoy your next workspace 😊</p>
+        <span style="margin-top: 20px;"><p><em>Cheers, the WeWorkTogether Team</em></p></span>
+        <div class="payment-button">
+          <%= link_to "Back to workspace", workspace_url(@id), class: "btn btn-info" %>
+        </div>
     </div>
   </div>
 </div>
