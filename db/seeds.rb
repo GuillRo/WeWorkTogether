@@ -86,17 +86,13 @@ ServiceList.create!(workspace: workspace_1, service: service_5)
 ServiceList.create!(workspace: workspace_1, service: service_7)
 ServiceList.create!(workspace: workspace_1, service: service_2)
 ServiceList.create!(workspace: workspace_1, service: service_3)
-ServiceList.create!(workspace: workspace_1, service: service_1)
+
 ServiceList.create!(workspace: workspace_2, service: service_2)
 ServiceList.create!(workspace: workspace_2, service: service_4)
-
-
-
 ServiceList.create!(workspace: workspace_2, service: service_5)
-ServiceList.create!(workspace: workspace_2, service: service_8)
 ServiceList.create!(workspace: workspace_2, service: service_6)
-ServiceList.create!(workspace: workspace_2, service: service_3)
 ServiceList.create!(workspace: workspace_2, service: service_12)
+
 ServiceList.create!(workspace: workspace_3, service: service_8)
 ServiceList.create!(workspace: workspace_3, service: service_9)
 ServiceList.create!(workspace: workspace_3, service: service_1)
@@ -106,70 +102,90 @@ ServiceList.create!(workspace: workspace_3, service: service_7)
 ServiceList.create!(workspace: workspace_4, service: service_2)
 ServiceList.create!(workspace: workspace_4, service: service_1)
 ServiceList.create!(workspace: workspace_4, service: service_3)
-ServiceList.create!(workspace: workspace_4, service: service_1)
+
 
 ServiceList.create!(workspace: workspace_4, service: service_6)
 ServiceList.create!(workspace: workspace_4, service: service_12)
+
 ServiceList.create!(workspace: workspace_5, service: service_1)
 ServiceList.create!(workspace: workspace_5, service: service_2)
-ServiceList.create!(workspace: workspace_5, service: service_3)
-ServiceList.create!(workspace: workspace_5, service: service_4)
 ServiceList.create!(workspace: workspace_5, service: service_5)
 ServiceList.create!(workspace: workspace_5, service: service_6)
 ServiceList.create!(workspace: workspace_5, service: service_7)
-ServiceList.create!(workspace: workspace_5, service: service_8)
 ServiceList.create!(workspace: workspace_5, service: service_9)
+
+
 ServiceList.create!(workspace: workspace_6, service: service_1)
 
 ServiceList.create!(workspace: workspace_7, service: service_3)
 ServiceList.create!(workspace: workspace_7, service: service_5)
 ServiceList.create!(workspace: workspace_7, service: service_7)
 ServiceList.create!(workspace: workspace_7, service: service_9)
+
 ServiceList.create!(workspace: workspace_8, service: service_1)
+
 ServiceList.create!(workspace: workspace_9, service: service_1)
 ServiceList.create!(workspace: workspace_9, service: service_6)
+
 ServiceList.create!(workspace: workspace_10, service: service_12)
 ServiceList.create!(workspace: workspace_10, service: service_2)
 ServiceList.create!(workspace: workspace_10, service: service_4)
 ServiceList.create!(workspace: workspace_10, service: service_5)
+
 ServiceList.create!(workspace: workspace_11, service: service_4)
+
 ServiceList.create!(workspace: workspace_12, service: service_2)
 ServiceList.create!(workspace: workspace_12, service: service_1)
 ServiceList.create!(workspace: workspace_12, service: service_3)
 ServiceList.create!(workspace: workspace_12, service: service_5)
+
 ServiceList.create!(workspace: workspace_13, service: service_10)
 ServiceList.create!(workspace: workspace_13, service: service_1)
 ServiceList.create!(workspace: workspace_13, service: service_8)
+
 ServiceList.create!(workspace: workspace_14, service: service_2)
 ServiceList.create!(workspace: workspace_14, service: service_1)
-ServiceList.create!(workspace: workspace_14, service: service_8)
+
+ServiceList.create!(workspace: workspace_15, service: service_8)
+
 ServiceList.create!(workspace: workspace_16, service: service_1)
+
 ServiceList.create!(workspace: workspace_17, service: service_10)
 ServiceList.create!(workspace: workspace_17, service: service_7)
+
 ServiceList.create!(workspace: workspace_18, service: service_5)
 ServiceList.create!(workspace: workspace_18, service: service_7)
 ServiceList.create!(workspace: workspace_18, service: service_6)
 ServiceList.create!(workspace: workspace_18, service: service_9)
+
 ServiceList.create!(workspace: workspace_19, service: service_9)
 ServiceList.create!(workspace: workspace_19, service: service_1)
+
 ServiceList.create!(workspace: workspace_20, service: service_1)
 ServiceList.create!(workspace: workspace_20, service: service_9)
 ServiceList.create!(workspace: workspace_20, service: service_3)
+
 ServiceList.create!(workspace: workspace_21, service: service_9)
 ServiceList.create!(workspace: workspace_21, service: service_2)
 ServiceList.create!(workspace: workspace_21, service: service_1)
 ServiceList.create!(workspace: workspace_21, service: service_7)
+
 ServiceList.create!(workspace: workspace_22, service: service_9)
+
 ServiceList.create!(workspace: workspace_23, service: service_9)
+
 ServiceList.create!(workspace: workspace_24, service: service_1)
 ServiceList.create!(workspace: workspace_24, service: service_2)
 ServiceList.create!(workspace: workspace_24, service: service_7)
+
 ServiceList.create!(workspace: workspace_25, service: service_9)
 ServiceList.create!(workspace: workspace_25, service: service_10)
 ServiceList.create!(workspace: workspace_25, service: service_3)
 ServiceList.create!(workspace: workspace_25, service: service_2)
+
 ServiceList.create!(workspace: workspace_26, service: service_1)
 ServiceList.create!(workspace: workspace_26, service: service_12)
+
 ServiceList.create!(workspace: workspace_27, service: service_8)
 ServiceList.create!(workspace: workspace_27, service: service_10)
 ServiceList.create!(workspace: workspace_27, service: service_1)
@@ -280,7 +296,7 @@ booking_25 = Booking.create!(beginning_date: Date.new(2019,2,17), end_date: Date
 booking_26 = Booking.create!(beginning_date: Date.new(2019,9,1), end_date: Date.new(2019,9,20), status: "paid",  user: user_13)
 booking_27 = Booking.create!(beginning_date: Date.new(2019,8,1), end_date: Date.new(2019,9,1), status: "paid",  user: user_13)
 booking_28 = Booking.create!(beginning_date: Date.new(2019,7,1), end_date: Date.new(2019,7,2), status: "paid",  user: user_14)
-booking_29 = Booking.create!(beginning_date: Date.new(2019,1,1), end_date: Date.new(2019,1,29, status: "past",  user: user_14)
+booking_29 = Booking.create!(beginning_date: Date.new(2019,1,1), end_date: Date.new(2019,1,29), status: "past",  user: user_14)
 booking_30 = Booking.create!(beginning_date: Date.new(2019,5,10), end_date: Date.new(2019,5,14), status: "paid",  user: user_14)
 
 # HM below
