@@ -5,8 +5,8 @@
     <div id="tab-bookings">
       <div class="dashboard-white-container">
         <h2>Upcoming</h2>
-        <%if !current_user.upcoming_bookings.empty?%>
-        <%@current_user.upcoming_bookings.each do |booking|%>
+        <%if !current_user.future_bookings.empty?%>
+        <%@current_user.future_bookings.each do |booking|%>
         <div class="border-box">
           <h4><%= booking.find_workspace.title%></h4>
           <% booking.places.each do |place|%>
@@ -14,10 +14,6 @@
           <p>Total: <%=place.price%>€</p>
           <%end%>
           <p>Start: <%= booking.beginning_date%> End: <%= booking.end_date%></p>
-          <div class="dashboard-booking-status" id="unpaid">
-            <p><%= "Unpaid" if booking.status == "waiting_for_payment"  %></p>
-          </div>
-            <%= link_to "Pay now",root_url, class: "btn btn-danger btn-xs card-button" if booking.status == "waiting_for_payment"%>
           <div class="dashboard-booking-status" id="paid">
             <p><%= "Paid" if booking.status == "paid" %></p>
           </div>

@@ -9,7 +9,6 @@
   p {
     margin-left: 92px;
     color: gray;
-    font-weight: lighter;
     padding-bottom: 20px;
   }
 }
@@ -133,7 +132,7 @@ $number-of-slides: 6;
   align-items: center;
   justify-content: center;
   border-radius: 3px;
-  font-size: 25px;
+  font-size: 28px;
   word-wrap: break-word;
   text-align: center;
   height: 250px;
@@ -151,7 +150,6 @@ $number-of-slides: 6;
   bottom: 20px;
   left: 20px;
   text-transform: capitalize;
-  text-weight: normal;
 
 }
 
@@ -159,7 +157,7 @@ $number-of-slides: 6;
   position: absolute;
   top: 20px;
   right: 20px;
-  font-size: 15px;
+  font-size: 18px;
   letter-spacing: 2px;
   opacity: 0.8;
 }
@@ -172,7 +170,7 @@ $number-of-slides: 6;
   position: absolute;
   top: 20px;
   left: 20px;
-  font-size: 15px;
+  font-size: 18px;
   color: white;
   font-weight: normal;
 }
