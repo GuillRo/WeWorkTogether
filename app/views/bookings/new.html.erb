@@ -1,10 +1,13 @@
 <div class="container" style="margin: 50px">
-  <h3>Book your workspace </h3>
-  
-  <%= simple_form_for([@workspace, @place, @booking]) do |t| %>
-  <%= t.input :beginning_date, as: :string, input_html: { class: "datepicker" } %>
-  <%= t.input :end_date, as: :string, input_html: { class: "datepicker" } %>
-  <%= t.submit "Create booking", class: "btn btn-primary" %>
-  <% end %>
-  
+  <div class="yellow-container">
+    <div class="white-container">
+      <h2>Book your workspace </h2>
+        <%= simple_form_for([@workspace, @place, @booking]) do |t| %>
+        <%= t.input :beginning_date, as: :string, input_html: { class: "datepicker" } %>
+        <%= t.input :end_date, as: :string, input_html: { class: "datepicker" } %>
+        <%= t.submit "Book now", class: "btn btn-info" %>
+        <% end %>
+    </div>
+  </div>
+
 </div>
