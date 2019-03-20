@@ -6,62 +6,13 @@
   text-align: center;
   justify-content: center;
   align-items:center;
-  background-color: rgba(245, 233, 101, 1);
-  /* background-image: linear-gradient(-225deg, rgba(0,101,168,0.4) 0%, rgba(0,36,61,0.4) 0%), url(asset_path("homepage-banner-house.jpg")); */
-  /* background-size: cover; */
+  // background-color: rgba(255, 236, 69, 1);
+  background-image: url(asset_path("yellow-splatter-lg.png"));
+  background-size: cover;
+  background-position: center;
   /* style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url(<%= asset_path("nice_place.jpg")%>); */
 }
 
-.banner-pink-ball {
-  height: 250px;
-  width: 250px;
-  border-radius: 50%;
-  position: absolute;
-  background-color: #f54291;
-  top: 120px;
-  left: 20px;
-}
-
-
-.banner-orange-ball {
-  height: 200px;
-  width: 200px;
-  border-radius: 50%;
-  position: absolute;
-  background-color: #ffba5a;
-  top: 250px;
-  left:7px;
-}
-
-.banner-white-ball {
-  height: 125px;
-  width: 125px;
-  border-radius: 50%;
-  position: absolute;
-  background-color: white;
-  bottom: 150px;
-  left:145px;
-}
-
-.banner-green-ball {
-  height: 115px;
-  width: 115px;
-  border-radius: 50%;
-  position: absolute;
-  background-color: #1fe5bd;
-  bottom: 70px;
-  left:135px;
-}
-
-.banner-purple-ball {
-  height: 90px;
-  width: 90px;
-  border-radius: 50%;
-  position: absolute;
-  background-color: #6b76ff;
-  bottom: 135px;
-  left:100px;
-}
 
 .banner-content{
   color:$dark-gray;
