@@ -40,6 +40,7 @@
   position: absolute;
   top: 20px;
   right: 20px;
+  font-size:25px;
 }
 
 .workspace-image {
@@ -100,55 +101,25 @@
   a {
     text-decoration: underline;
     color: $dark-gray;
-    opacity: 1;
-    font-weight: lighter;
+    opacity: .5;
     font-style: italic;
 
 
   }
 
   a:hover {
-    opacity: .5;
+    opacity: 1;
   }
 }
 
 
 .booking-button {
   position: absolute;
-  bottom: 40px;
-  right: 40px;
+  bottom: 10px;
+  right: 20px;
 }
 
-.show-container {
-  position: relative;
-  background-color: white;
-  border: 1px solid #ccc!important;
-  border-radius: 4px;
-  padding: 10px;
-  margin: 30px;
 
-  .review-post-time {
-    margin: 10px;
-  }
-
-  .review-stars {
-    margin-bottom: 10px;
-  }
-
-  h4 {
-    margin: 20px;
-    font-weight: lighter;
-  }
-
-  p {
-    margin: 20px;
-    font-weight: lighter;
-  }
-
-  a {
-    position: absolute;
-    bottom: 20px;
-    right: 20px;
-    margin: 10px;
-  }
+.workspace-description {
+  text-align: justify;
 }

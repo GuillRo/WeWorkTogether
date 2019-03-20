@@ -17,10 +17,6 @@
 
   }
 
-  p {
-    // color: #C4C4C4;
-    font-weight: lighter;
-  }
 }
 
 .review-bottom-white-container {
@@ -62,8 +58,7 @@
   position: absolute;
   bottom: -4px;
   right: 10px;
-  color: #C4C4C4;
-  font-size: 13px;
+  font-size: 15px;
 }
 
 .review-edit {
@@ -82,3 +77,42 @@
   }
 
 }
+
+.review-post-time {
+    margin: 10px;
+}
+
+.show-container {
+  position: relative;
+  background-color: white;
+  border: 1px solid #ccc!important;
+  border-radius: 4px;
+  padding: 10px;
+  margin: 30px;
+
+  .review-post-time {
+    margin: 10px;
+  }
+
+  h4 {
+    margin: 20px;
+    font-weight: normal;
+  }
+
+  p {
+    margin: 20px;
+    font-weight: normal;
+  }
+
+  a {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    margin: 10px;
+  }
+}
+
+.review-stars {
+    margin-bottom: 10px;
+    font-size: 25px;
+  }

@@ -80,8 +80,11 @@
         <div class=workspace-edit> <%= link_to "Edit", edit_workspace_path %></div>
         </div>
           <%end%>
+          <div class="text-center">
+            <%= link_to "Add a workspace", new_workspace_url, class: "btn btn-info btn-sm"%>
+          </div>
       </div>
-      <div class="bottom-dashboard-white-container">
+      <div class="dashboard-white-container">
         <h2>Reviews</h2>
           <%wp.workspace_reviews.each do |wp_review|%>
         <div class="border-box text-center">
@@ -92,14 +95,14 @@
         </div>
         <%end%>
         <%end%>
+
+      </div>
         <div class="text-center">
-          <%= link_to "Add a workspace",new_workspace_url, class: "btn btn-info"%>
           <% else %>
           <p>You have not yet added a workspace</p>
           <%= link_to "Do it now",root_url, class: "btn btn-info"%>
         </div>
         <% end %>
-      </div>
     </div>
   </div>
 </div>
