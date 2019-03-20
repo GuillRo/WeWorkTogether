@@ -22,10 +22,10 @@ class WorkspacesController < ApplicationController
   end
 
   def payment_accepted
-      @id = Booking.find(params[:id].to_i).places.first.workspace.id
+    @id = Booking.find(params[:id].to_i).places.first.workspace.id
   end
 
-  def payment_accepted
+  def payment_error
     @id = Booking.find(params[:id].to_i).places.first.workspace.id
   end
 

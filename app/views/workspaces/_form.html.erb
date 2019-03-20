@@ -5,7 +5,8 @@
       <%= t.input :address, required: true%>
       <%= t.input :website%>
       <%= t.input :phone_number, label: 'Phone number'%>
-      <%= t.association :services, required: true, :multiple => true %>
+      <%= t.association :services,   :multiple => true, as: :check_boxes, class: "services-checkbox" %>
+
       <% if @workspace.places.length == 0 %>
       <div>
         <p> Your workspace currently has no rooms or spots listed.</p>
