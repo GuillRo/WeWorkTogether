@@ -43,12 +43,11 @@
     <div class="show-book-btn" style="display:none;">
 
       <%= simple_form_for([place,Booking.new]) do |t| %>
-      <%= t.input :beginning_date, as: :string, input_html: { class: "datepicker#{place_index}" } %>
-      <%= t.input :end_date, as: :string, input_html: { class: "datepicker#{place_index}" } %>
+      <%= t.input :beginning_date, as: :string, input_html: { class: "datepickerbegin#{place_index}", onchange: "onchangeDate#{place_index}(this.value);" } %>
+      <%= t.input :end_date, as: :string, input_html: { class: "datepickerend#{place_index}" } %>
       <%= t.submit "Book now", class: "btn btn-info" %>
       <% end %>
 
-      <!-- HM Code next - begin -->
 
       <% bookingplace = place.booking_dates %>
       <% allplaces = bookingplace if bookingplace.exists? %>
@@ -58,14 +57,7 @@
          <% if placedate.chairs_taken == place.number_of_chairs %>
        <p>Fully booked on that day</p>
       <script>
-        <% array = placedate.day.to_s.split("-") %>
-        <% array[0] = array[0].to_i %>
-        <% array[1] = array[1].to_i %>
-        <% array[2] = array[2].to_i %>
-        <% string = array.join("-") %>
-        bookedarray.push(Date.parse('<%= string %>'));
-        disablearray.push('<%= placedate.day.to_s %>');
-        <%# raise %>
+
       </script>
          <p>There are <%= placedate.chairs_taken - place.number_of_chairs %> left for the <%= placedate.day %></p>
         <% end %>
@@ -73,13 +65,22 @@
       <% end %>
 
       <script>
-        flatpickr('.datepicker<%= place_index %>', {
+
+        <% array = placedate.day.to_s.split("-") %>
+        <% array[0] = array[0].to_i %>
+        <% array[1] = array[1].to_i %>
+        <% array[2] = array[2].to_i %>
+        <% string = array.join("-") %>
+        bookedarray.push(Date.parse('<%= string %>'));
+        disablearray.push('<%= placedate.day.to_s %>');
+
+        flatpickr('.datepickerbegin<%= place_index %>', {
           disable: disablearray,
           altInput: true,
           altFormat: "j F, Y",
           dateFormat: "d-m-Y",
           minDate: "today",
-          maxDate: new Date().fp_incr(93),
+          maxDate: new Date().fp_incr(93), // 3 months from now
           onDayCreate: function(dObj, dStr, fp, dayElem) {
                        // Checking to see if the current day object is in our array
                        // The `+` is just a shortcut for parsing the date
@@ -88,10 +89,36 @@
                       }
                     },
 
-                weekNumbers: true // 1 year from now
+                weekNumbers: true
               });
-            </script>
 
+             let datechange<%= place_index %> = 0;
+
+             const onchangeDate<%= place_index %> = (value) => {
+             datechange<%= place_index %> = value.split("-");
+             minimumdate = new Date(parseInt(datechange<%= place_index %>[2], 10), parseInt(datechange<%= place_index %>[1], 10) - 1, parseInt(datechange<%= place_index %>[0], 10));
+
+              flatpickr('.datepickerend<%= place_index %>', {
+              disable: disablearray,
+              altInput: true,
+              altFormat: "j F, Y",
+              dateFormat: "d-m-Y",
+              minDate: minimumdate, // 3 months from now
+              onDayCreate: function(dObj, dStr, fp, dayElem) {
+                           // Checking to see if the current day object is in our array
+                           // The `+` is just a shortcut for parsing the date
+                           if (bookedarray.indexOf(+dayElem.dateObj) !== -1) {
+                            dayElem.className += " booked-day";
+                          }
+                        },
+
+                weekNumbers: true
+              });
+
+        };
+
+
+        </script>
 
         </div> <!-- show-book-btn div -->
           <%end%>
