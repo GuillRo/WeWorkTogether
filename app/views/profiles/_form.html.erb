@@ -1,5 +1,5 @@
-<div class="container" style="margin-top:10px !important;">
-  <div class="profile-container-background"></div>
+
+<div style="padding:20px">
   <%= simple_form_for(@profile) do |p| %>
     <% if @profile.errors.any? %>
       <div class="errors-container">
@@ -11,11 +11,12 @@
       </div>
     <% end %>
 
-    <div class="form-group">
+    <div class="form-group" style="margin-right: 20px;">
       <%= p.input :bio, label: "Bio" %>
-      <%= p.input :photo, label: "Profile photo" %>
+      <%= p.input :photo, label: "Update profile photo" %>
       <%= p.input :photo_cache, as: :hidden %>
-      <%= p.submit "Submit", class: "btn btn-primary" %>
+      <%= p.submit "Submit", class: "btn btn-info" %>
     </div>
   <% end %>
 </div>
+
