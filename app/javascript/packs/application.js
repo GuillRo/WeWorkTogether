@@ -13,3 +13,6 @@ initUpdateNavbarOnScroll();
 initUpdateNavbarHomeOnScroll();
 changeTab();
 mapAction();
+
+
+

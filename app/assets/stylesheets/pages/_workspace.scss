@@ -1,5 +1,5 @@
 .workspace-yellow-container {
-    background-color: #f5e965;
+    background-color: $yellow;
     padding: 50px;
     border-radius: 10px;
     width: 100%;
@@ -28,7 +28,7 @@
 }
 
 .full-color {
-  color: #F5E965;
+  color: $yellow;
 }
 
 .outline-color {
