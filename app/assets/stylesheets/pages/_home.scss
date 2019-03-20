@@ -66,10 +66,12 @@ body {
   padding-left: 20px !important;
   position: relative;
   font-size: 18px !important;
-  color: #626161;
-  font-weight: normal;
+  color: $dark-gray;
 }
 
+#query {
+  font-weight:normal !important;
+}
 
 .ap-input-icon {
   display: none !important;
