@@ -1,5 +1,5 @@
 class PaymentsController < ApplicationController
-  before_action :authenticate_user!
+  # before_action :authenticate_user!
   def show
   end
 
@@ -16,9 +16,9 @@ class PaymentsController < ApplicationController
                            renter_id: current_user.id,
                            booking_id: @booking.id)
     if @payment.save
-      redirect_to workspaces_payment_accepted_url(@booking)
+      redirect_to workspaces_payment_accepted_path(@booking)
     else
-      redirect_to workspaces_payment_error_url(@booking)
+      redirect_to workspaces_payment_error_path(@booking)
     end
   end
 end

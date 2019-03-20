@@ -123,3 +123,34 @@
 .workspace-description {
   text-align: justify;
 }
+
+
+.form-control {
+  
+}
+
+.form-group.check_boxes.optional.workspace_services{
+
+  border: solid 1px $light-gray;
+  border-radius: 4px;
+    
+
+  legend{
+    color: $dark-gray;
+    font-size: 18px;
+    font-weight: 700;
+    display: inline-block;
+    font-family: "Roboto", "Open Sans", "Helvetica", "sans-serif";
+    line-height: 25.7167px;
+    margin-bottom: 5px;
+    max-width: 100%;
+  }
+}
+.form-check{
+
+  .form-check-input.check_boxes.optional{
+  }
+  
+  .check_boxes{
+  }
+}
