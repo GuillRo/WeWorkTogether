@@ -73,7 +73,7 @@ workspace_21 = Workspace.create!(user: user_9, description: "We want to help sta
 workspace_22 = Workspace.create!(user: user_10, description: "The most innovative provider of shared flexible workspaces.", address: "Avenue des Arts 56, 1000 Brussels", title: "Workero", website: "https://www.workero.com", phone_number: "+32 2 431 08 08")
 workspace_23 = Workspace.create!(user: user_11, description: "The co-working areas are airy and well-equipped with just the right balance of calm and bustle whilst the meeting rooms have different shaping that will put your guests at ease and make them feel like home.", address: "Rue de l’Aurore 4,1000 Brussels", title: "The Library Ixelles", website: "https://thelibrarygroup.be", phone_number: "02 342 07 43")
 workspace_24 = Workspace.create!(user: user_11, description: "The co-working areas are airy and well-equipped with just the right balance of calm and bustle whilst the meeting rooms have different shaping that will put your guests at ease and make them feel like home.", address: "Ave. Broqueville 40, 1200 W.S.L", title: "The Library Europe", website: "https://thelibrarygroup.be", phone_number: "02 342 07 43")
-workspace_25 = Workspace.create!(user: user_11, description: "The co-working areas are airy and well-equipped with just the right balance of calm and bustle whilst the meeting rooms have different shaping that will put your guests at ease and make them feel like home.", address: "Square Ambiorix 10, 1000 Brussels", title: "The Library Ambiorix", website: "https://thelibrarygroup.be", phone_number: "02 342 07 43")
+workspace_25 = Workspace.create!(user: user_11, description: "The co-working areas are airy and well-equipped with just the right balance of calm and bustle whilst the meeting rooms have different shaping that will put your guests at ease and make them feel like home.", address: "Square Ambiorix 10, 1000 Brussels", title: "The Library Ambiorix", website: "https://thelibrarygroup.be", phone_number: "0032 2 342 07 43")
 workspace_26 = Workspace.create!(user: user_12, description: "Welcome to Factory Forty, the coworking space that allows you to work in the sunshine, right in the heart of Brussels*.", address: "rue des anciens étangs, 40 , 1190 Brussels", title: "Factory Forty", website: "https://www.factoryforty.be", phone_number: "02.430.24.22")
 workspace_27 = Workspace.create!(user: user_13, description: "Coworking les Galeries makes you instantly feel at home. Based in a historical setting in Brussels King’s Gallery dating back from 1847 and 50 steps away from the famous Grand-Place, this boutique coworking space is designed for conscious professionals looking for a place to meet, work, and chill.", address: "Galerie du Roi 30, 1000 Brussels", title: "Les Galeries", website: "http://www.galeriescoworking.be", phone_number: "0032 484 78 17 83")
 
@@ -247,21 +247,21 @@ place_56 = Place.create!(workspace: workspace_20, price: 30, name: "nice room", 
 place_57 = Place.create!(workspace: workspace_20, price: 18, name: "nice room", description: "You should rent this room",number_of_chairs: 5)
 place_58 = Place.create!(workspace: workspace_21, price: 23, name: "nice room", description: "You should rent this room",number_of_chairs: 5)
 place_59 = Place.create!(workspace: workspace_21, price: 14, name: "nice room", description: "You should rent this room",number_of_chairs: 1)
-place_60 = Place.create!(workspace: workspace_22, price: 30, name: "Private offices", description: "With beautiful, turnkey private offices, Workero makes it easy to stay agile in Brussels. Book your private office now!",number_of_chairs: 3)
-place_61 = Place.create!(workspace: workspace_22, price: 25, name: "Coworking desks", description: "Rent desk space in a shared office environment. Work in a shared office close to you.",number_of_chairs: 5)
-place_62 = Place.create!(workspace: workspace_22, price: 35, name: "Meeting rooms", description: "The best rooms for one-to-ones and team meetings.",number_of_chairs: 1)
+place_60 = Place.create!(workspace: workspace_22, price: 30, name: "Private office", description: "With beautiful, turnkey private office, Workero makes it easy to stay agile in Brussels. Book your private office now!",number_of_chairs: 3)
+place_61 = Place.create!(workspace: workspace_22, price: 25, name: "Coworking desk", description: "Rent desk space in a shared office environment. Work in a shared office close to you.",number_of_chairs: 5)
+place_62 = Place.create!(workspace: workspace_22, price: 35, name: "Meeting room", description: "The best room for one-to-ones and team meetings.",number_of_chairs: 1)
 place_63 = Place.create!(workspace: workspace_23, price: 20, name: "nice room", description: "You should rent this room",number_of_chairs: 2)
 place_64 = Place.create!(workspace: workspace_23, price: 17, name: "nice room", description: "You should rent this room",number_of_chairs: 1)
 place_65 = Place.create!(workspace: workspace_23, price: 12, name: "nice room", description: "You should rent this room",number_of_chairs: 5)
 place_66 = Place.create!(workspace: workspace_24, price: 29, name: "nice room", description: "You should rent this room",number_of_chairs: 1)
 place_67 = Place.create!(workspace: workspace_24, price: 22, name: "nice room", description: "You should rent this room",number_of_chairs: 1)
-place_68 = Place.create!(workspace: workspace_25, price: 30, name: "nice room", description: "You should rent this room",number_of_chairs: 9)
-place_69 = Place.create!(workspace: workspace_25, price: 25, name: "nice room", description: "You should rent this room",number_of_chairs: 6)
-place_70 = Place.create!(workspace: workspace_25, price: 18, name: "nice room", description: "You should rent this room",number_of_chairs: 2)
+place_68 = Place.create!(workspace: workspace_25, price: 30, name: "Private office", description: "Are you in the mood for chic surroundings featuring custom-made wallpaper, Nordic, wooden tables and lots of daylight?",number_of_chairs: 9)
+place_69 = Place.create!(workspace: workspace_25, price: 25, name: "Coworking room", description: "The stylish coworking room in the centre of Brussels have a true following.",number_of_chairs: 6)
+# place_70 = Place.create!(workspace: workspace_25, price: 18, name: "nice room", description: "You should rent this room",number_of_chairs: 2)
 place_71 = Place.create!(workspace: workspace_26, price: 28, name: "nice room", description: "You should rent this room",number_of_chairs: 8)
 place_72 = Place.create!(workspace: workspace_26, price: 16, name: "nice room", description: "You should rent this room",number_of_chairs: 46)
-place_73 = Place.create!(workspace: workspace_27, price: 25, name: "Meeting rooms", description: "Companies of all sizes can book our meeting rooms for special occasions, team buildings, and events.",number_of_chairs: 12)
-place_74 = Place.create!(workspace: workspace_27, price: 16, name: "Coworking office", description: "These coworking offices are designed for conscious professionals looking for a place to meet, work, and chill.",number_of_chairs: 1)
+place_73 = Place.create!(workspace: workspace_27, price: 25, name: "Meeting room", description: "Companies of all sizes can book our meeting room for special occasions, team buildings, and events.",number_of_chairs: 12)
+place_74 = Place.create!(workspace: workspace_27, price: 16, name: "Coworking office", description: "This coworking office is designed for conscious professionals looking for a place to meet, work, and chill.",number_of_chairs: 1)
 place_75 = Place.create!(workspace: workspace_27, price: 10, name: "Coworking room", description: "A warm environment, wooden floors, coffee chats, built-in terrace, exotic plants, handmade furniture, eco-friendly products, art gallery corners… you won’t find a more authentic coworking space in Brussels.",number_of_chairs: 4)
 
 
@@ -303,7 +303,9 @@ booking_30 = Booking.create!(beginning_date: Date.new(2019,5,10), end_date: Date
 booking_31 = Booking.create!(beginning_date: Date.new(2019,3,20), end_date: Date.new(2019,3,20)  ,status: "past", user: user_14)
 booking_32 = Booking.create!(beginning_date: Date.new(2019,3,18), end_date: Date.new(2019,3,18)  ,status: "past", user: user_13)
 booking_33 = Booking.create!(beginning_date: Date.new(2019,3,18), end_date: Date.new(2019,3,18)  ,status: "past", user: user_13)
-booking_34 = Booking.create!(beginning_date: Date.new(2019,3,20), end_date: Date.new(2019,3,20)  ,status: "past", user: user_14)
+booking_34 = Booking.create!(beginning_date: Date.new(2019,3,15), end_date: Date.new(2019,3,20)  ,status: "past", user: user_14)
+booking_35 = Booking.create!(beginning_date: Date.new(2019,3,19), end_date: Date.new(2019,3,19)  ,status: "past", user: user_9)
+booking_36 = Booking.create!(beginning_date: Date.new(2019,3,20), end_date: Date.new(2019,3,20)  ,status: "past", user: user_10)
 
 
 BookingPlace.create!(booking: booking_1, place: place_1)
@@ -341,6 +343,9 @@ BookingPlace.create!(booking: booking_31, place: place_60)
 BookingPlace.create!(booking: booking_32, place: place_61)
 BookingPlace.create!(booking: booking_33, place: place_73)
 BookingPlace.create!(booking: booking_34, place: place_74)
+BookingPlace.create!(booking: booking_35, place: place_68)
+BookingPlace.create!(booking: booking_36, place: place_69)
+
 
 
 UserReview.create!(score: 4, content: "Friendly guy, funny and respectful", booking: booking_1)
@@ -403,7 +408,8 @@ WorkspaceReview.create!(booking: booking_31, content: "I am very happy about Wor
 WorkspaceReview.create!(booking: booking_32, content: "Shared desks are ergonomics! That's really nice!!", score: 4)
 WorkspaceReview.create!(booking: booking_33, content: "My colleagues and me spent a really good time there.", score: 4)
 WorkspaceReview.create!(booking: booking_34, content: "Easy booking, friendly staff, .. Nice!", score: 4)
-
+WorkspaceReview.create!(booking: booking_35, content: "Private office is just amazing!", score: 5)
+WorkspaceReview.create!(booking: booking_36, content: "Great. Just in the middle of Brussels!", score: 4)
 
 Payment.create!(booking: booking_1, renter: booking_1.user, owner: workspace_1.user)
 
@@ -538,6 +544,9 @@ photo_26_1.remote_photo_url = url_26_1
 photo_26_1.save
 
 url_27_1 = "https://res.cloudinary.com/dux1stkfq/image/upload/v1552919474/workingspace_27_2.jpg"
-photo_27_1 = Photo.create!(workspace: workspace_27)
-photo_27_1.remote_photo_url = url_27_1
-photo_27_1.save
+photo_27_1 = Photo.create!(workspace: workspace_27, remote_photo_url: url_27_1)
+
+url_user_1_avatar = "https://res.cloudinary.com/dux1stkfq/image/upload/w_1000,ar_1:1,c_fill,g_auto,e_art:hokusai/v1553076299/Boy_Drinks_water_and_smiles_-_480x640.png"
+user_1_profile = Profile.where(user: user_1).first
+user_1_profile.remote_photo_url = url_user_1_avatar
+user_1_profile.save
