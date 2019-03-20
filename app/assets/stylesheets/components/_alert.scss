@@ -4,3 +4,18 @@
   right: 16px;
   z-index: 1000;
 }
+
+.notice {
+  z-index: 1075;
+  position: fixed;
+  top: 80px;
+  background-color: $yellow;
+  height: 50px;
+  width: 100%;
+  text-align: center;
+  font-size: 18px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+
+}
