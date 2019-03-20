@@ -15,7 +15,7 @@ class PaymentsController < ApplicationController
                            renter_id: current_user.id, 
                            booking_id: @booking.id)
     if @payment.save
-      redirect_to workspaces_payment_accepted_url
+      redirect_to workspaces_payment_accepted_url(@booking)
     else
       redirect_to workspaces_payment_error_url(@booking)
     end

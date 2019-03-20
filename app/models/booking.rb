@@ -17,8 +17,6 @@ class Booking < ApplicationRecord
 
   def set_status
     if status.nil?
-      self.status = "waiting_for_payment"
-    elsif status == "waiting_for_payment"
       self.status = "paid"
     elsif status == "paid"
       self.status = "unreviewed"
