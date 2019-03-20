@@ -16296,7 +16296,7 @@ readers do not read off random characters that represent icons */
 
 /* line 6, app/assets/stylesheets/layouts/_containers.scss */
 .yellow-container {
-  background-color: #f5e965;
+  background-color: $yellow;
   margin-top: 50px;
   padding: 50px;
   border-radius: 10px;
@@ -16309,7 +16309,7 @@ readers do not read off random characters that represent icons */
 
 /* line 5, app/assets/stylesheets/layouts/_profile.scss */
 .profile-yellow-container {
-  background-color: #f5e965;
+  background-color: $yellow;
   margin-top: 50px;
   padding: 50px;
   border-radius: 10px;
@@ -16373,7 +16373,7 @@ readers do not read off random characters that represent icons */
 
 /* line 1, app/assets/stylesheets/layouts/_dashboard.scss */
 .dashboard-yellow-container {
-  background-color: #f5e965;
+  background-color: $yellow;
   margin-top: 50px;
   padding: 50px;
   border-radius: 10px;
