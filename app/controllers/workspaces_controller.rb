@@ -37,6 +37,9 @@ class WorkspacesController < ApplicationController
     @workspace = Workspace.new(workspace_params)
     @workspace.user = current_user
     if @workspace.save
+      params[:workspace][:service_ids].each do |service_id|
+        ServiceList.create(workspace: @workspace, service: Service.find(service_id.to_i)) unless service_id.to_i == 0
+      end
       if @workspace.place?
         redirect_to workspace_path(@workspace)
       else

@@ -5,6 +5,7 @@
       <%= t.input :address%>
       <%= t.input :website%>
       <%= t.input :phone_number, label: 'Phone number'%>
+      <%= t.association :services,   :multiple => true %>
       <% if @workspace.places.length == 0 %>
       <div>
         <p> Your workspace currently has no rooms or spots listed.</p>

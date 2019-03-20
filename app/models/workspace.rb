@@ -4,6 +4,7 @@ class Workspace < ApplicationRecord
   belongs_to :user
   has_many :photos
   has_many :service_lists
+  has_many :services, through: :service_lists
   has_many :places, inverse_of: :workspace
   accepts_nested_attributes_for :places, reject_if: :all_blank, allow_destroy: true
   has_many :bookings, through: :places
