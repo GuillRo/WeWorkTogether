@@ -47,17 +47,17 @@
 
 .profile-edit {
     position: absolute;
-    bottom:10px;
-    right: 10px;
-    font-size: 20px;
+    bottom:20px;
+    right: 20px;
+    font-size: 22px;
     text-align: right !important;
     font-weight: lighter;
     text-decoration: underline;
-    color: #C4C4C4;
+    color: $light-gray;
 
   &:hover {
     text-decoration: none !important;
-    color: #626161;
+    color: $dark-gray;
   }
 
 }
