@@ -25,7 +25,7 @@
             <%@reviews_about_me.each do |review|%>
               <%unless review.nil? %>
                 <div class="review-container text-center">
-                  <div><p><%= review.booking.find_workspace.user.first_name%> says <em>
+                  <div><p><%= review.booking.find_workspace.user.first_name%> (<%= review.booking.find_workspace.title %>) says: <br /> <em>
                     "<%= review.content%>"</em>
                   </p></div>
                   <div class="review-stars"><span class="full-color"><%= "★" * review.score %></span><span class="outline-color"><%= "☆" * (5 - review.score) %></span>
