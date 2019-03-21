@@ -20,7 +20,7 @@
       data-name="My booking"
       data-email="<%= current_user.email %>"
       data-description="Workspace:  <%=@booking.find_workspace.title %>"
-      data-amount="<%= @payment.amount_cents %>"
+      data-amount="<%= @booking.price_cents %>"
       data-currency="<%= @payment.amount.currency %>"></script>
   <% end %>
       </div>
