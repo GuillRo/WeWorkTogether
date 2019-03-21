@@ -10,10 +10,10 @@
         <div class="border-box">
           <h4><%= booking.find_workspace.title%></h4>
           <% booking.places.each do |place|%>
-          <p>Place reserved: <%= place.name.capitalize%></p>
+          <p>Reserved: <%= place.name.capitalize%></p>
+          <p>Start: <%= booking.beginning_date%> End: <%= booking.end_date%></p>
           <p>Total: <%=place.price%>€</p>
           <%end%>
-          <p>Start: <%= booking.beginning_date%> End: <%= booking.end_date%></p>
           <div class="dashboard-booking-status" id="paid">
             <p><%= "Paid" if booking.status == "paid" %></p>
           </div>
@@ -38,9 +38,9 @@
           <h4><%= booking.find_workspace.title%></h4>
           <% booking.places.each do |place|%>
           <p>Place booked: <%= place.name.capitalize%></p>
+          <p>Start: <%= booking.beginning_date%> End: <%= booking.end_date%></p>
           <p>Total: <%=place.price%>€</p>
           <%end%>
-          <p>Start: <%= booking.beginning_date%> End: <%= booking.end_date%></p>
           <% if booking.status == "unreviewed"%>
           <%= link_to "Add review", new_workspace_workspace_review_path(booking.find_workspace), class: "btn btn-info btn-xs"%>
           <%end%>

@@ -12,15 +12,27 @@
         </div>
       </div>
 
-      <div class="workspace-white-container">
-        <h2>About</h2>
-        <div class="show-container">
-          <p><%= @workspace.description %></p>
-          <p>Address: <%= @workspace.address  %></p>
-          <div style="padding-bottom:10px;"><p> Phone number: <%= @workspace.phone_number %></p></div>
-          <div><p><%= link_to 'Visit website', @workspace.website %></p></div>
+    <div class="workspace-white-container">
+      <h2>About</h2>
+      <div class="show-container">
+        <p><%= @workspace.description %></p>
+        <p>Address: <%= @workspace.address  %></p>
+        <div style="padding-bottom:10px;"><p> Phone number: <%= @workspace.phone_number %></p></div>
+        <div class='service-list'>
+          <% @workspace.services.each do |service| %>
+          <ul>
+            <li>
+              <span class="service-icon">
+                <%= cl_image_tag service.icon, width: 20, height: 20 %>
+              </span>
+              <span class="service-name"><%= service.name %></span>
+            </li>
+          </ul>
+          <% end %>
         </div>
+        <div><p><%= link_to 'Visit website', @workspace.website %></p></div>
       </div>
+    </div>
 
       <div class="workspace-white-container">
         <h2>Book a spot</h2>

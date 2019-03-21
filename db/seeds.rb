@@ -244,7 +244,7 @@ place_53 = Place.create!(workspace: workspace_19, price: 15, name: "Best desks",
 place_54 = Place.create!(workspace: workspace_19, price: 20, name: "Pretty workspace", description: "You should rent this room",number_of_chairs: 5)
 place_55 = Place.create!(workspace: workspace_20, price: 25, name: "Shared space", description: "You should rent this room",number_of_chairs: 4)
 place_56 = Place.create!(workspace: workspace_20, price: 30, name: "nice room", description: "You should rent this room",number_of_chairs: 5)
-place_57 = Place.create!(workspace: workspace_20, price: 18, name: "", description: "You should rent this room",number_of_chairs: 5)
+place_57 = Place.create!(workspace: workspace_20, price: 18, name: "Green Room", description: "You should rent this room",number_of_chairs: 5)
 place_58 = Place.create!(workspace: workspace_21, price: 23, name: "Small meeting room", description: "You should rent this room",number_of_chairs: 5)
 place_59 = Place.create!(workspace: workspace_21, price: 14, name: "Cool office", description: "You should rent this room",number_of_chairs: 1)
 place_60 = Place.create!(workspace: workspace_22, price: 30, name: "Private office", description: "With beautiful, turnkey private office, Workero makes it easy to stay agile in Brussels. Book your private office now!",number_of_chairs: 3)
@@ -412,7 +412,6 @@ WorkspaceReview.create!(booking: booking_35, content: "Private office is just am
 WorkspaceReview.create!(booking: booking_36, content: "Great. Just in the middle of Brussels!", score: 4)
 
 Payment.create!(booking: booking_1, renter: booking_1.user, owner: workspace_1.user)
-
 url_1_1 = "https://res.cloudinary.com/dux1stkfq/image/upload/v1552919980/workingspace_1_1.png"
 photo_1_1 = Photo.create!(workspace: workspace_1)
 photo_1_1.remote_photo_url = url_1_1
@@ -467,7 +466,6 @@ url_11_1 = "https://res.cloudinary.com/dux1stkfq/image/upload/v1552919474/worksp
 photo_11_1 = Photo.create!(workspace: workspace_11)
 photo_11_1.remote_photo_url = url_11_1
 photo_11_1.save
-
 url_12_1 = "https://res.cloudinary.com/dux1stkfq/image/upload/v1552919474/workspace_7_18_3.jpg"
 photo_12_1 = Photo.create!(workspace: workspace_12)
 photo_12_1.remote_photo_url = url_12_1

@@ -124,16 +124,44 @@
   text-align: justify;
 }
 
+.service-list {
+  ul {
+    list-style: none;
+  }
+  li {
+    position: relative;
+  }
+}
+
+.service-icon {
+  display: block;
+}
+
+.service-name {
+  display: none;
+  position: absolute;
+  top: -.3em;
+  left: 1.5em;
+  background-color: white;
+  border-radius: 4px;
+  padding: 5px;
+  border: .5px solid $light-gray;
+}
+
+.service-icon:hover + .service-name {
+  display: block;
+}
+
 
 .form-control {
-  
+
 }
 
 .form-group.check_boxes.optional.workspace_services{
 
   border: solid 1px $light-gray;
   border-radius: 4px;
-    
+
 
   legend{
     color: $dark-gray;
@@ -150,7 +178,7 @@
 
   .form-check-input.check_boxes.optional{
   }
-  
+
   .check_boxes{
   }
 }
