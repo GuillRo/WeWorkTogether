@@ -12,6 +12,7 @@ Photo.destroy_all
 Profile.destroy_all
 ServiceList.destroy_all
 Service.destroy_all
+BookingDate.destroy_all
 BookingPlace.destroy_all
 Place.destroy_all
 Workspace.destroy_all
