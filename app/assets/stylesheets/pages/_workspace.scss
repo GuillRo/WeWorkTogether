@@ -124,16 +124,22 @@
   text-align: justify;
 }
 
+.service-list {
+  ul {
+    list-style: none;
+  }
+}
+
 
 .form-control {
-  
+
 }
 
 .form-group.check_boxes.optional.workspace_services{
 
   border: solid 1px $light-gray;
   border-radius: 4px;
-    
+
 
   legend{
     color: $dark-gray;
@@ -150,7 +156,7 @@
 
   .form-check-input.check_boxes.optional{
   }
-  
+
   .check_boxes{
   }
 }
