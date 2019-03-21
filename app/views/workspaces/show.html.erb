@@ -52,7 +52,7 @@
       <% bookingplace = place.booking_dates %>
       <% allplaces = bookingplace if bookingplace.exists? %>
 
-      <% if allplaces  %>
+      <% if !allplaces.nil?  %>
         <% allplaces.each_with_index do |placedate, index| %>
          <% if placedate.chairs_taken == place.number_of_chairs %>
        <p>Fully booked on that day</p>
@@ -62,7 +62,6 @@
          <p>There are <%= placedate.chairs_taken - place.number_of_chairs %> left for the <%= placedate.day %></p>
         <% end %>
        <% end %>
-      <% end %>
 
       <script>
 
@@ -82,10 +81,10 @@
           minDate: "today",
           maxDate: new Date().fp_incr(93), // 3 months from now
           onDayCreate: function(dObj, dStr, fp, dayElem) {
-                       // Checking to see if the current day object is in our array
+            // Checking to see if the current day object is in our array
                        // The `+` is just a shortcut for parsing the date
                        if (bookedarray.indexOf(+dayElem.dateObj) !== -1) {
-                        dayElem.className += " booked-day";
+                         dayElem.className += " booked-day";
                       }
                     },
 
@@ -95,20 +94,20 @@
              let datechange<%= place_index %> = 0;
 
              const onchangeDate<%= place_index %> = (value) => {
-             datechange<%= place_index %> = value.split("-");
+               datechange<%= place_index %> = value.split("-");
              minimumdate = new Date(parseInt(datechange<%= place_index %>[2], 10), parseInt(datechange<%= place_index %>[1], 10) - 1, parseInt(datechange<%= place_index %>[0], 10));
 
               flatpickr('.datepickerend<%= place_index %>', {
-              disable: disablearray,
+                disable: disablearray,
               altInput: true,
               altFormat: "j F, Y",
               dateFormat: "d-m-Y",
               minDate: minimumdate, // 3 months from now
               onDayCreate: function(dObj, dStr, fp, dayElem) {
-                           // Checking to see if the current day object is in our array
+                // Checking to see if the current day object is in our array
                            // The `+` is just a shortcut for parsing the date
                            if (bookedarray.indexOf(+dayElem.dateObj) !== -1) {
-                            dayElem.className += " booked-day";
+                             dayElem.className += " booked-day";
                           }
                         },
 
@@ -117,6 +116,7 @@
 
         };
 
+          <% end %>
 
         </script>
 
