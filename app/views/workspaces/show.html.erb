@@ -1,85 +1,82 @@
 <div class="container">
   <div class="workspace-yellow-container">
-        <%  if @workspace.main_photo.present? %>
-          <div class="workspace-header" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('<%= cl_image_path @workspace.main_photo %>');">
-        <% else %>
-          <div class="workspace-header" style="background-image: url('<%= image_url 'placeholder.jpg' %>');">
+    <%  if @workspace.main_photo.present? %>
+    <div class="workspace-header" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('<%= cl_image_path @workspace.main_photo %>');">
+      <% else %>
+      <div class="workspace-header" style="background-image: url('<%= image_url 'placeholder.jpg' %>');">
 
-            <% end %>
+        <% end %>
         <div class="workspace-title"><h1><%= @workspace.title %></h1></div>
         <div class="workspace-stars">
           <p><% @workspace.average.times do %><span class="full-color">★</span><% end %><span class="outline-color"><%= "☆" * (5 - @workspace.average ) %></span></p>
         </div>
       </div>
 
-    <div class="workspace-white-container">
-      <h2>About</h2>
-      <div class="show-container">
-        <p><%= @workspace.description %></p>
-        <p>Address: <%= @workspace.address  %></p>
-        <div style="padding-bottom:10px;"><p> Phone number: <%= @workspace.phone_number %></p></div>
-        <div><p><%= link_to 'Visit website', @workspace.website %></p></div>
+      <div class="workspace-white-container">
+        <h2>About</h2>
+        <div class="show-container">
+          <p><%= @workspace.description %></p>
+          <p>Address: <%= @workspace.address  %></p>
+          <div style="padding-bottom:10px;"><p> Phone number: <%= @workspace.phone_number %></p></div>
+          <div><p><%= link_to 'Visit website', @workspace.website %></p></div>
+        </div>
       </div>
-    </div>
 
-    <div class="workspace-white-container">
-      <h2>Book a spot</h2>
-      <script>
-        let bookedarray = [];
-        let disablearray = [];
-      </script>
-
-
-      <% @workspace.places.each_with_index do |place, place_index|%>
-      <div class="show-container">
-      <h4><%= place.name.capitalize %></h4>
-      <div class="workspace-description"><p><%= place.description %> </p></div>
-      <p> <%= place.price %> €/day</p>
-
-    <% if user_signed_in?%>
-
-    <!-- HM Code -->
-    <div class="show-cal btn btn-info btn-sm" style="margin-left: 20px; margin-bottom: 10px;">Book now</div>
-    <div class="show-book-btn" style="display:none;">
-
-      <%= simple_form_for([place,Booking.new]) do |t| %>
-      <%= t.input :beginning_date, as: :string, input_html: { class: "datepickerbegin#{place_index}", onchange: "onchangeDate#{place_index}(this.value);" } %>
-      <%= t.input :end_date, as: :string, input_html: { class: "datepickerend#{place_index}" } %>
-      <%= t.submit "Book now", class: "btn btn-info" %>
-      <% end %>
+      <div class="workspace-white-container">
+        <h2>Book a spot</h2>
+        <script>
+          let bookedarray = [];
+          let disablearray = [];
+        </script>
 
 
-      <% bookingplace = place.booking_dates %>
-      <% allplaces = bookingplace if bookingplace.exists? %>
+        <% @workspace.places.each_with_index do |place, place_index|%>
+        <div class="show-container">
+          <h4><%= place.name.capitalize %></h4>
+          <div class="workspace-description"><p><%= place.description %> </p></div>
+          <p> <%= place.price %> €/day</p>
 
-      <% if allplaces  %>
-        <% allplaces.each_with_index do |placedate, index| %>
-         <% if placedate.chairs_taken == place.number_of_chairs %>
-       <p>Fully booked on that day</p>
-      <script>
+          <% if user_signed_in?%>
 
-      </script>
-         <p>There are <%= placedate.chairs_taken - place.number_of_chairs %> left for the <%= placedate.day %></p>
-        <% end %>
-       <% end %>
-      <% end %>
+          <!-- HM Code -->
+          <div class="show-cal btn btn-info btn-sm" style="margin-left: 20px; margin-bottom: 10px;">Book now</div>
+          <div class="show-book-btn" style="display:none;">
 
-      <script>
+            <%= simple_form_for([place,Booking.new]) do |t| %>
+            <%= t.input :beginning_date, as: :string, input_html: { class: "datepickerbegin#{place_index}", onchange: "onchangeDate#{place_index}(this.value);" } %>
+            <%= t.input :end_date, as: :string, input_html: { class: "datepickerend#{place_index}" } %>
+            <%= t.submit "Book now", class: "btn btn-info" %>
+            <% end %>
 
-        <% array = placedate.day.to_s.split("-") %>
-        <% array[0] = array[0].to_i %>
-        <% array[1] = array[1].to_i %>
-        <% array[2] = array[2].to_i %>
-        <% string = array.join("-") %>
-        bookedarray.push(Date.parse('<%= string %>'));
-        disablearray.push('<%= placedate.day.to_s %>');
 
-        flatpickr('.datepickerbegin<%= place_index %>', {
-          disable: disablearray,
-          altInput: true,
-          altFormat: "j F, Y",
-          dateFormat: "d-m-Y",
-          minDate: "today",
+            <% bookingplace = place.booking_dates %>
+            <% allplaces = bookingplace if bookingplace.exists? %>
+            <% unless allplaces.nil?  %>
+              <% allplaces.each_with_index do |placedate, index| %>
+                <% if placedate.chairs_taken == place.number_of_chairs %>
+                <p>Fully booked on that day</p>
+                <p>There are <%= placedate.chairs_taken - place.number_of_chairs %> left for the <%= placedate.day %></p>
+                <script>
+                  <% array = placedate.day.to_s.split("-") %>
+                  <% array[0] = array[0].to_i %>
+                  <% array[1] = array[1].to_i %>
+                  <% array[2] = array[2].to_i %>
+                  <% string = array.join("-") %>
+                  bookedarray.push(Date.parse('<%= string %>'));
+                  disablearray.push('<%= placedate.day.to_s %>');
+                </script>
+                <% end %>
+              <% end %>
+            <% end %>
+
+            <script>
+
+              flatpickr('.datepickerbegin<%= place_index %>', {
+                disable: disablearray,
+                altInput: true,
+                altFormat: "j F, Y",
+                dateFormat: "d-m-Y",
+                minDate: "today",
           maxDate: new Date().fp_incr(93), // 3 months from now
           onDayCreate: function(dObj, dStr, fp, dayElem) {
                        // Checking to see if the current day object is in our array
@@ -89,20 +86,20 @@
                       }
                     },
 
-                weekNumbers: true
-              });
+                    weekNumbers: true
+                  });
 
-             let datechange<%= place_index %> = 0;
+              let datechange<%= place_index %> = 0;
 
-             const onchangeDate<%= place_index %> = (value) => {
-             datechange<%= place_index %> = value.split("-");
-             minimumdate = new Date(parseInt(datechange<%= place_index %>[2], 10), parseInt(datechange<%= place_index %>[1], 10) - 1, parseInt(datechange<%= place_index %>[0], 10));
+              const onchangeDate<%= place_index %> = (value) => {
+               datechange<%= place_index %> = value.split("-");
+               minimumdate = new Date(parseInt(datechange<%= place_index %>[2], 10), parseInt(datechange<%= place_index %>[1], 10) - 1, parseInt(datechange<%= place_index %>[0], 10));
 
-              flatpickr('.datepickerend<%= place_index %>', {
-              disable: disablearray,
-              altInput: true,
-              altFormat: "j F, Y",
-              dateFormat: "d-m-Y",
+               flatpickr('.datepickerend<%= place_index %>', {
+                disable: disablearray,
+                altInput: true,
+                altFormat: "j F, Y",
+                dateFormat: "d-m-Y",
               minDate: minimumdate, // 3 months from now
               onDayCreate: function(dObj, dStr, fp, dayElem) {
                            // Checking to see if the current day object is in our array
@@ -112,51 +109,46 @@
                           }
                         },
 
-                weekNumbers: true
-              });
+                        weekNumbers: true
+                      });
+             };
 
-        };
+           </script>
 
+         </div> <!-- show-book-btn div -->
+         <%end%> <!-- if user signed in -->
+       </div>
+       <%end%> <!-- @workspace do -->
 
-        </script>
-
-        </div> <!-- show-book-btn div -->
-          <%end%>
-          </div>
-          <%end%>
-
-
+     </div>
 
 
-    </div>
-
-
-    <div class="workspace-bottom-container">
+     <div class="workspace-bottom-container">
        <h2>Reviews</h2>
-          <%if @workspace.workspace_reviews.length >0 %>
-          <% @workspace.workspace_reviews.each do |review| %>
-        <div class="show-container">
-          <div class="text-center">
-            <p><%= review.booking.user.first_name%> says <em>"<%= review.content%>"</em></p>
-            <div class="review-stars"><span class="full-color"><%= "★" * review.score %></span><span class="outline-color"><%= "☆" * (5 - review.score) %></span>
-            </div>
+       <%if @workspace.workspace_reviews.length >0 %>
+       <% @workspace.workspace_reviews.each do |review| %>
+       <div class="show-container">
+        <div class="text-center">
+          <p><%= review.booking.user.first_name%> says <em>"<%= review.content%>"</em></p>
+          <div class="review-stars"><span class="full-color"><%= "★" * review.score %></span><span class="outline-color"><%= "☆" * (5 - review.score) %></span>
+          </div>
           <p class="review-post-time"><%= review.created_at %></p>
-          </div>
-          </div>
-          <%end%>
-          <% else%>
-          <div class="text-center">
-            <p><em>No current reviews.</em></p>
-          </div>
-          <%end%>
-          <%if user_signed_in?%>
-          <%if current_user.unreviewed_booking?(@workspace)%>
-          <div class="text-center">
-            <p>Share your experience at <%= @workspace.title  %></p>
-              <%= link_to "Add review",new_workspace_workspace_review_path(@workspace), class: "btn btn-info btn-sm"%>
-          </div>
+        </div>
+      </div>
+      <%end%>
+      <% else%>
+      <div class="text-center">
+        <p><em>No current reviews.</em></p>
+      </div>
+      <%end%>
+      <%if user_signed_in?%>
+      <%if current_user.unreviewed_booking?(@workspace)%>
+      <div class="text-center">
+        <p>Share your experience at <%= @workspace.title  %></p>
+        <%= link_to "Add review",new_workspace_workspace_review_path(@workspace), class: "btn btn-info btn-sm"%>
+      </div>
 
-        <%end%>
+      <%end%>
       <%end%>
     </div>
   </div>
