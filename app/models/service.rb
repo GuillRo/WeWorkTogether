@@ -19,7 +19,7 @@ class Service < ApplicationRecord
       "https://res.cloudinary.com/dj7rdekm9/image/upload/e_colorize:100,co_rgb:989797,f_png/v1553160687/WeWorkTogether/shower-solid.svg"
     when "Public transport"
       "https://res.cloudinary.com/dj7rdekm9/image/upload/e_colorize:100,co_rgb:989797,f_png/v1553160648/WeWorkTogether/bus-solid.svg"
-    when "Fast internet"
+    when "Fast Internet"
       "https://res.cloudinary.com/dj7rdekm9/image/upload/e_colorize:100,co_rgb:989797,f_png/v1553160694/WeWorkTogether/wifi-solid.svg"
     when "Yoga"
       "https://res.cloudinary.com/dj7rdekm9/image/upload/e_colorize:100,co_rgb:989797,f_png/v1553160694/WeWorkTogether/yoga.svg"
