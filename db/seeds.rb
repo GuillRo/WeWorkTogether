@@ -269,11 +269,11 @@ place_75 = Place.create!(workspace: workspace_27, price: 10, name: "Coworking ro
 
 
 
-booking_1 = Booking.create!(beginning_date: Date.new(2019,2,1), end_date: Date.new(2019,2,3), status: "unreviewed",  user: user_1)
-booking_2 = Booking.create!(beginning_date: Date.new(2019,5,1), end_date: Date.new(2019,5,8), status: "paid",  user: user_1)
-booking_3 = Booking.create!(beginning_date: Date.new(2018,12,1), end_date: Date.new(2018,12,3), status: "past",  user: user_1)
-booking_4 = Booking.create!(beginning_date: Date.new(2019,4,1), end_date: Date.new(2019,4,4), status: "past",  user: user_1)
-booking_5 = Booking.create!(beginning_date: Date.new(2019,3,1), end_date: Date.new(2019,3,2), status: "past",  user: user_1)
+booking_1 = Booking.create!(beginning_date: Date.new(2019,2,1), end_date: Date.new(2019,2,3), status: "unreviewed",  user: user_1, price: 75)
+booking_2 = Booking.create!(beginning_date: Date.new(2019,5,1), end_date: Date.new(2019,5,8), status: "paid",  user: user_1, price: 248)
+booking_3 = Booking.create!(beginning_date: Date.new(2018,12,1), end_date: Date.new(2018,12,3), status: "past",  user: user_1, price: 60)
+booking_4 = Booking.create!(beginning_date: Date.new(2019,4,1), end_date: Date.new(2019,4,4), status: "past",  user: user_1, price: 80)
+booking_5 = Booking.create!(beginning_date: Date.new(2019,3,1), end_date: Date.new(2019,3,2), status: "past",  user: user_1, price: 40)
 booking_6 = Booking.create!(beginning_date: Date.new(2019,2,7), end_date: Date.new(2019,2,10), status: "unreviewed",  user: user_3)
 booking_7 = Booking.create!(beginning_date: Date.new(2018,2,1), end_date: Date.new(2019,2,5), status: "past",   user: user_4)
 booking_8 = Booking.create!(beginning_date: Date.new(2019,8,1), end_date: Date.new(2019,8,28), status: "paid",  user: user_4)
@@ -309,10 +309,10 @@ booking_35 = Booking.create!(beginning_date: Date.new(2019,3,19), end_date: Date
 booking_36 = Booking.create!(beginning_date: Date.new(2019,3,20), end_date: Date.new(2019,3,20)  ,status: "past", user: user_10)
 
 
-BookingPlace.create!(booking: booking_1, place: place_1)
+BookingPlace.create!(booking: booking_1, place: place_19)
 BookingPlace.create!(booking: booking_2, place: place_11)
-BookingPlace.create!(booking: booking_3, place: place_2)
-BookingPlace.create!(booking: booking_4, place: place_3)
+BookingPlace.create!(booking: booking_3, place: place_32)
+BookingPlace.create!(booking: booking_4, place: place_43)
 BookingPlace.create!(booking: booking_5, place: place_63)
 BookingPlace.create!(booking: booking_6, place: place_4)
 BookingPlace.create!(booking: booking_7, place: place_1)
@@ -548,4 +548,6 @@ photo_27_1 = Photo.create!(workspace: workspace_27, remote_photo_url: url_27_1)
 url_user_1_avatar = "https://res.cloudinary.com/dux1stkfq/image/upload/w_1000,ar_1:1,c_fill,g_auto,e_art:hokusai/v1553076299/Boy_Drinks_water_and_smiles_-_480x640.png"
 user_1_profile = Profile.where(user: user_1).first
 user_1_profile.remote_photo_url = url_user_1_avatar
+user_1_profile.bio = "I am a web developper from Berlin. I like to travel the world and make new friends in every place I go."
 user_1_profile.save
+
