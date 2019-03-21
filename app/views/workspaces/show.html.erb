@@ -91,10 +91,10 @@
                 minDate: "today",
           maxDate: new Date().fp_incr(93), // 3 months from now
           onDayCreate: function(dObj, dStr, fp, dayElem) {
-                       // Checking to see if the current day object is in our array
+            // Checking to see if the current day object is in our array
                        // The `+` is just a shortcut for parsing the date
                        if (bookedarray.indexOf(+dayElem.dateObj) !== -1) {
-                        dayElem.className += " booked-day";
+                         dayElem.className += " booked-day";
                       }
                     },
 
@@ -114,10 +114,10 @@
                 dateFormat: "d-m-Y",
               minDate: minimumdate, // 3 months from now
               onDayCreate: function(dObj, dStr, fp, dayElem) {
-                           // Checking to see if the current day object is in our array
+                // Checking to see if the current day object is in our array
                            // The `+` is just a shortcut for parsing the date
                            if (bookedarray.indexOf(+dayElem.dateObj) !== -1) {
-                            dayElem.className += " booked-day";
+                             dayElem.className += " booked-day";
                           }
                         },
 
